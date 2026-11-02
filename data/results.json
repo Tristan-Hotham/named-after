@@ -1,0 +1,5139 @@
+{
+ "source": {
+  "rows": 23818,
+  "links_raw": 7666,
+  "places_raw": 7136,
+  "namesakes_raw": 6812,
+  "classes_raw": 1199,
+  "excluded": [
+   {
+    "what": "Links from a place to itself",
+    "links": 13,
+    "places": 13,
+    "examples": []
+   },
+   {
+    "what": "Census and statistical areas (urban, metropolitan, micropolitan, combined statistical areas)",
+    "links": 3295,
+    "places": 2924,
+    "examples": [
+     "Boston urban area",
+     "Orange City urban area",
+     "Neosho urban area",
+     "Eaton urban area",
+     "Portland metropolitan area"
+    ]
+   },
+   {
+    "what": "Megalopolises, conurbations, agglomerations and 'Greater' areas",
+    "links": 24,
+    "places": 18,
+    "examples": [
+     "Northeast megalopolis",
+     "Greater Sudbury",
+     "Metro Detroit",
+     "Greater Buenos Aires",
+     "Greater Tokyo Area"
+    ]
+   },
+   {
+    "what": "Regions, counties, provinces and new areas",
+    "links": 10,
+    "places": 7,
+    "examples": [
+     "Liangjiang New Area",
+     "Øresund Region",
+     "Ruhr Region",
+     "ABC Region",
+     "Sturgeon County"
+    ]
+   },
+   {
+    "what": "Camps that were not homes (concentration, extermination, prison, internment, DP and military camps)",
+    "links": 15,
+    "places": 15,
+    "examples": [
+     "Molonglo Internment Camp",
+     "Herzogenbusch concentration camp",
+     "Tannenwald concentration camp",
+     "Neusustrum concentration camp",
+     "Espenfeld concentration camp"
+    ]
+   },
+   {
+    "what": "Stations, airports, bases and ranger posts",
+    "links": 66,
+    "places": 64,
+    "examples": [
+     "Buena Vista Ranger Station",
+     "Oz Station",
+     "A Estación",
+     "Jewel Cave Ranger Station",
+     "Almanor Ranger Station"
+    ]
+   },
+   {
+    "what": "Parks, resorts, ski areas and industrial estates",
+    "links": 18,
+    "places": 15,
+    "examples": [
+     "Yomase Onsen Ski Resort",
+     "Muikamachi Hakkaisan Ski Resort",
+     "Yamada Onsen Kids Snow Park",
+     "Matsunoyama Onsen Ski Area",
+     "Nomugitōge Ski Resort"
+    ]
+   },
+   {
+    "what": "Administrative twins (same name, under 30 km)",
+    "links": 243,
+    "places": 243,
+    "examples": [
+     "Cabo Rojo",
+     "Guánica",
+     "Lares",
+     "Texarkana",
+     "Groß-Umstadt"
+    ]
+   }
+  ],
+  "excluded_links": 3684,
+  "excluded_stat_links": 3295,
+  "excluded_stat_places": 2924,
+  "n": 3981,
+  "places": 3837,
+  "namesakes": 3551,
+  "places_two": 133,
+  "countries_p": 101,
+  "countries_s": 118,
+  "with_pop": 2050,
+  "with_inc": 981,
+  "cat_by_class": 5296,
+  "cat_by_cue": 65,
+  "cat_by_self": 16,
+  "cat_other": 1435,
+  "fetched": "2026",
+  "unknown_coord_rows": 36,
+  "country_how": {
+   "place: Wikidata country": 3810,
+   "place: by position": 26,
+   "place: several, chose by position": 1,
+   "namesake: Wikidata country": 3400,
+   "namesake: by position": 59,
+   "namesake: several, chose by position": 88,
+   "namesake: none": 4
+  },
+  "p17_agree_pct": 98.8,
+  "checks": {
+   "rows": 23818,
+   "rows_unknown_coord": 36,
+   "places_raw": 7136,
+   "namesakes_raw": 6812,
+   "links_raw": 7666,
+   "classes_raw": 1199,
+   "place_multi_coord": 152,
+   "namesake_multi_coord": 433,
+   "places_no_coord": 1,
+   "namesakes_no_coord": 0,
+   "category_how": {
+    "class": 5296,
+    "other": 1435,
+    "is a settlement in the file": 16,
+    "name cue": 65
+   },
+   "category_n": {
+    "Settlement": 4377,
+    "Other": 1435,
+    "River": 534,
+    "Mountain or hill": 283,
+    "Region or country": 183
+   },
+   "excluded": {
+    "Links from a place to itself": {
+     "links": 13,
+     "places": 13
+    },
+    "Census and statistical areas (urban, metropolitan, micropolitan, combined statistical areas)": {
+     "links": 3295,
+     "places": 2924,
+     "examples": [
+      "Boston urban area",
+      "Orange City urban area",
+      "Neosho urban area",
+      "Eaton urban area",
+      "Portland metropolitan area",
+      "Cambridge urban area",
+      "Port Huron urban area",
+      "New Philadelphia-Dover urban area"
+     ]
+    },
+    "Megalopolises, conurbations, agglomerations and 'Greater' areas": {
+     "links": 24,
+     "places": 18,
+     "examples": [
+      "Northeast megalopolis",
+      "Greater Sudbury",
+      "Metro Detroit",
+      "Greater Buenos Aires",
+      "Greater Tokyo Area",
+      "Dallas-Fort Worth metroplex",
+      "Greater Toronto Area",
+      "Greater Feira de Santana"
+     ]
+    },
+    "Regions, counties, provinces and new areas": {
+     "links": 10,
+     "places": 7,
+     "examples": [
+      "Liangjiang New Area",
+      "Øresund Region",
+      "Ruhr Region",
+      "ABC Region",
+      "Sturgeon County",
+      "Kurdistan Region of Iraq",
+      "Marion County Township"
+     ]
+    },
+    "Camps that were not homes (concentration, extermination, prison, internment, DP and military camps)": {
+     "links": 15,
+     "places": 15,
+     "examples": [
+      "Molonglo Internment Camp",
+      "Herzogenbusch concentration camp",
+      "Tannenwald concentration camp",
+      "Neusustrum concentration camp",
+      "Espenfeld concentration camp",
+      "Frøslev Prison Camp",
+      "Sobibór Extermination Camp",
+      "Ravensbrück concentration camp"
+     ]
+    },
+    "Stations, airports, bases and ranger posts": {
+     "links": 66,
+     "places": 64,
+     "examples": [
+      "Buena Vista Ranger Station",
+      "Oz Station",
+      "A Estación",
+      "Jewel Cave Ranger Station",
+      "Almanor Ranger Station",
+      "Estación Escriña",
+      "Kessel Station",
+      "Fruita Ranger Station"
+     ]
+    },
+    "Parks, resorts, ski areas and industrial estates": {
+     "links": 18,
+     "places": 15,
+     "examples": [
+      "Yomase Onsen Ski Resort",
+      "Muikamachi Hakkaisan Ski Resort",
+      "Yamada Onsen Kids Snow Park",
+      "Matsunoyama Onsen Ski Area",
+      "Nomugitōge Ski Resort",
+      "Snow Park Unpenji",
+      "National Park",
+      "Naeba Ski Resort"
+     ]
+    },
+    "Administrative twins (same name, under 30 km)": {
+     "links": 243,
+     "places": 243,
+     "examples": [
+      "Cabo Rojo",
+      "Guánica",
+      "Lares",
+      "Texarkana",
+      "Groß-Umstadt",
+      "Olde West Chester",
+      "Kamakura",
+      "South Baltimore"
+     ]
+    }
+   },
+   "links": 3981,
+   "places": 3837,
+   "namesakes": 3551,
+   "country_how": {
+    "place: Wikidata country": 3810,
+    "place: by position": 26,
+    "place: several, chose by position": 1,
+    "namesake: Wikidata country": 3400,
+    "namesake: by position": 59,
+    "namesake: several, chose by position": 88,
+    "namesake: none": 4
+   },
+   "place_p17_vs_position_agree_pct": 98.8,
+   "namesake_p17_vs_position_agree_pct": 98.6,
+   "no_country": {
+    "places": 0,
+    "namesakes": 4,
+    "namesake_examples": [
+     "USS Lexington",
+     "North Pole",
+     "Atlantic Ocean",
+     "Pacific Ocean"
+    ]
+   },
+   "us_no_state": 5,
+   "mass_places": {
+    "Africa, Europe and Asia": 2061,
+    "The Americas": 1305,
+    "Australia and neighbours": 466,
+    "Remote ocean islands": 3,
+    "Antarctica": 2
+   },
+   "mass_namesakes": {
+    "Africa, Europe and Asia": 2338,
+    "The Americas": 891,
+    "Australia and neighbours": 316,
+    "Remote ocean islands": 4,
+    "Antarctica": 2
+   }
+  },
+  "excl_pct": 48.06,
+  "stat_pct": 42.98,
+  "cat_class_pct": 77.75
+ },
+ "cats_list": [
+  {
+   "cat": "Settlement",
+   "n": 1484,
+   "pct": 37.28,
+   "namesakes": 1246,
+   "km_med": 121.5,
+   "km_q75": 5682.7,
+   "border": 565,
+   "border_pct": 38.07,
+   "ocean": 418,
+   "ocean_pct": 28.17,
+   "under10_pct": 43.46
+  },
+  {
+   "cat": "River",
+   "n": 570,
+   "pct": 14.32,
+   "namesakes": 524,
+   "km_med": 12.8,
+   "km_q75": 61.8,
+   "border": 34,
+   "border_pct": 5.96,
+   "ocean": 4,
+   "ocean_pct": 0.7,
+   "under10_pct": 45.44
+  },
+  {
+   "cat": "Region or country",
+   "n": 235,
+   "pct": 5.9,
+   "namesakes": 175,
+   "km_med": 1092.4,
+   "km_q75": 6707.9,
+   "border": 137,
+   "border_pct": 58.3,
+   "ocean": 78,
+   "ocean_pct": 33.19,
+   "under10_pct": 5.11
+  },
+  {
+   "cat": "Mountain or hill",
+   "n": 298,
+   "pct": 7.49,
+   "namesakes": 276,
+   "km_med": 2.4,
+   "km_q75": 10.1,
+   "border": 28,
+   "border_pct": 9.4,
+   "ocean": 12,
+   "ocean_pct": 4.03,
+   "under10_pct": 74.83
+  },
+  {
+   "cat": "Other",
+   "n": 1394,
+   "pct": 35.02,
+   "namesakes": 1330,
+   "km_med": 0.9,
+   "km_q75": 3.9,
+   "border": 117,
+   "border_pct": 8.39,
+   "ocean": 55,
+   "ocean_pct": 3.95,
+   "under10_pct": 82.57
+  }
+ ],
+ "cats": {
+  "Settlement": {
+   "cat": "Settlement",
+   "n": 1484,
+   "pct": 37.28,
+   "namesakes": 1246,
+   "km_med": 121.5,
+   "km_q75": 5682.7,
+   "border": 565,
+   "border_pct": 38.07,
+   "ocean": 418,
+   "ocean_pct": 28.17,
+   "under10_pct": 43.46
+  },
+  "River": {
+   "cat": "River",
+   "n": 570,
+   "pct": 14.32,
+   "namesakes": 524,
+   "km_med": 12.8,
+   "km_q75": 61.8,
+   "border": 34,
+   "border_pct": 5.96,
+   "ocean": 4,
+   "ocean_pct": 0.7,
+   "under10_pct": 45.44
+  },
+  "Region or country": {
+   "cat": "Region or country",
+   "n": 235,
+   "pct": 5.9,
+   "namesakes": 175,
+   "km_med": 1092.4,
+   "km_q75": 6707.9,
+   "border": 137,
+   "border_pct": 58.3,
+   "ocean": 78,
+   "ocean_pct": 33.19,
+   "under10_pct": 5.11
+  },
+  "Mountain or hill": {
+   "cat": "Mountain or hill",
+   "n": 298,
+   "pct": 7.49,
+   "namesakes": 276,
+   "km_med": 2.4,
+   "km_q75": 10.1,
+   "border": 28,
+   "border_pct": 9.4,
+   "ocean": 12,
+   "ocean_pct": 4.03,
+   "under10_pct": 74.83
+  },
+  "Other": {
+   "cat": "Other",
+   "n": 1394,
+   "pct": 35.02,
+   "namesakes": 1330,
+   "km_med": 0.9,
+   "km_q75": 3.9,
+   "border": 117,
+   "border_pct": 8.39,
+   "ocean": 55,
+   "ocean_pct": 3.95,
+   "under10_pct": 82.57
+  }
+ },
+ "other_kinds": [
+  {
+   "kind": "Other features",
+   "n": 357,
+   "pct_all": 8.97
+  },
+  {
+   "kind": "Bays, islands, capes and beaches",
+   "n": 278,
+   "pct_all": 6.98
+  },
+  {
+   "kind": "Castles, forts, churches, stations and other buildings",
+   "n": 271,
+   "pct_all": 6.81
+  },
+  {
+   "kind": "Lakes, reservoirs and seas",
+   "n": 254,
+   "pct_all": 6.38
+  },
+  {
+   "kind": "Streets and squares",
+   "n": 118,
+   "pct_all": 2.96
+  },
+  {
+   "kind": "Parks, forests, valleys and plains",
+   "n": 116,
+   "pct_all": 2.91
+  }
+ ],
+ "lakes": 254,
+ "natural_pct": 38.08,
+ "dist": {
+  "median": 4.4,
+  "q25": 0.8,
+  "q75": 504.1,
+  "under10_pct": 57.52,
+  "under50_pct": 66.39,
+  "over1000": 857,
+  "over1000_pct": 21.53,
+  "over5000": 587,
+  "over10000": 203,
+  "border_med": 6446,
+  "domestic_med": 2.1,
+  "settle_med": 121.5
+ },
+ "dist_hist": [
+  {
+   "a": 0,
+   "b": 1,
+   "Settlement": 243,
+   "River": 47,
+   "Region or country": 5,
+   "Mountain or hill": 92,
+   "Other": 720,
+   "n": 1107
+  },
+  {
+   "a": 1,
+   "b": 3,
+   "Settlement": 238,
+   "River": 68,
+   "Region or country": 4,
+   "Mountain or hill": 73,
+   "Other": 271,
+   "n": 654
+  },
+  {
+   "a": 3,
+   "b": 10,
+   "Settlement": 164,
+   "River": 144,
+   "Region or country": 3,
+   "Mountain or hill": 58,
+   "Other": 160,
+   "n": 529
+  },
+  {
+   "a": 10,
+   "b": 30,
+   "Settlement": 57,
+   "River": 109,
+   "Region or country": 17,
+   "Mountain or hill": 24,
+   "Other": 58,
+   "n": 265
+  },
+  {
+   "a": 30,
+   "b": 100,
+   "Settlement": 30,
+   "River": 102,
+   "Region or country": 10,
+   "Mountain or hill": 16,
+   "Other": 29,
+   "n": 187
+  },
+  {
+   "a": 100,
+   "b": 300,
+   "Settlement": 43,
+   "River": 53,
+   "Region or country": 26,
+   "Mountain or hill": 6,
+   "Other": 21,
+   "n": 149
+  },
+  {
+   "a": 300,
+   "b": 1000,
+   "Settlement": 109,
+   "River": 35,
+   "Region or country": 46,
+   "Mountain or hill": 3,
+   "Other": 40,
+   "n": 233
+  },
+  {
+   "a": 1000,
+   "b": 3000,
+   "Settlement": 122,
+   "River": 6,
+   "Region or country": 27,
+   "Mountain or hill": 8,
+   "Other": 30,
+   "n": 193
+  },
+  {
+   "a": 3000,
+   "b": 10000,
+   "Settlement": 327,
+   "River": 5,
+   "Region or country": 85,
+   "Mountain or hill": 13,
+   "Other": 31,
+   "n": 461
+  },
+  {
+   "a": 10000,
+   "b": 21000,
+   "Settlement": 151,
+   "River": 1,
+   "Region or country": 12,
+   "Mountain or hill": 5,
+   "Other": 34,
+   "n": 203
+  }
+ ],
+ "longest": [
+  {
+   "place": "Lansdowne",
+   "pc": "New Zealand",
+   "namesake": "Lansdown",
+   "sc": "United Kingdom",
+   "km": 19071,
+   "cat": "Settlement",
+   "pi": "Q65430186",
+   "si": "Q15241659"
+  },
+  {
+   "place": "Glenavy",
+   "pc": "New Zealand",
+   "namesake": "Glenavy",
+   "sc": "United Kingdom",
+   "km": 18922,
+   "cat": "Settlement",
+   "pi": "Q5568152",
+   "si": "Q1816005"
+  },
+  {
+   "place": "Eastbourne",
+   "pc": "New Zealand",
+   "namesake": "Eastbourne",
+   "sc": "United Kingdom",
+   "km": 18883,
+   "cat": "Settlement",
+   "pi": "Q1278077",
+   "si": "Q208262"
+  },
+  {
+   "place": "Musselburgh",
+   "pc": "New Zealand",
+   "namesake": "Musselburgh",
+   "sc": "United Kingdom",
+   "km": 18812,
+   "cat": "Settlement",
+   "pi": "Q6943102",
+   "si": "Q37718"
+  },
+  {
+   "place": "Richmond",
+   "pc": "New Zealand",
+   "namesake": "Richmond",
+   "sc": "United Kingdom",
+   "km": 18785,
+   "cat": "Settlement",
+   "pi": "Q1208462",
+   "si": "Q2500974"
+  },
+  {
+   "place": "Belfast",
+   "pc": "New Zealand",
+   "namesake": "Belfast",
+   "sc": "United Kingdom",
+   "km": 18771,
+   "cat": "Settlement",
+   "pi": "Q3459122",
+   "si": "Q10686"
+  },
+  {
+   "place": "Stoke",
+   "pc": "New Zealand",
+   "namesake": "Stoke-by-Nayland",
+   "sc": "United Kingdom",
+   "km": 18694,
+   "cat": "Settlement",
+   "pi": "Q7618426",
+   "si": "Q2042664"
+  },
+  {
+   "place": "St Bathans",
+   "pc": "New Zealand",
+   "namesake": "Abbey St Bathans",
+   "sc": "United Kingdom",
+   "km": 18677,
+   "cat": "Settlement",
+   "pi": "Q7401029",
+   "si": "Q3777601"
+  },
+  {
+   "place": "Glenorchy",
+   "pc": "New Zealand",
+   "namesake": "Glen Orchy",
+   "sc": "United Kingdom",
+   "km": 18638,
+   "cat": "Other",
+   "pi": "Q2784207",
+   "si": "Q537248"
+  },
+  {
+   "place": "Epsom",
+   "pc": "New Zealand",
+   "namesake": "Epsom",
+   "sc": "United Kingdom",
+   "km": 18361,
+   "cat": "Settlement",
+   "pi": "Q3055861",
+   "si": "Q993164"
+  },
+  {
+   "place": "Birkenhead",
+   "pc": "New Zealand",
+   "namesake": "Birkenhead",
+   "sc": "United Kingdom",
+   "km": 18164,
+   "cat": "Settlement",
+   "pi": "Q865555",
+   "si": "Q746718"
+  },
+  {
+   "place": "Dannevirke",
+   "pc": "New Zealand",
+   "namesake": "Danevirke",
+   "sc": "Germany",
+   "km": 18142,
+   "cat": "Other",
+   "pi": "Q921465",
+   "si": "Q689454"
+  },
+  {
+   "place": "Birkdale",
+   "pc": "New Zealand",
+   "namesake": "Birkdale",
+   "sc": "United Kingdom",
+   "km": 18135,
+   "cat": "Settlement",
+   "pi": "Q4916391",
+   "si": "Q764412"
+  },
+  {
+   "place": "Blackpool",
+   "pc": "New Zealand",
+   "namesake": "Blackpool",
+   "sc": "United Kingdom",
+   "km": 18116,
+   "cat": "Settlement",
+   "pi": "Q4923232",
+   "si": "Q170377"
+  },
+  {
+   "place": "Launceston",
+   "pc": "Australia",
+   "namesake": "Launceston",
+   "sc": "United Kingdom",
+   "km": 17609,
+   "cat": "Settlement",
+   "pi": "Q339527",
+   "si": "Q287590"
+  }
+ ],
+ "longest_nzl": 14,
+ "border": {
+  "n": 881,
+  "pct": 22.13,
+  "settle": 565,
+  "settle_pct": 64.13,
+  "ocean_of_border": 565,
+  "ocean_of_border_pct": 64.13
+ },
+ "ocean": {
+  "n": 567,
+  "pct": 14.24,
+  "settle": 418,
+  "settle_pct": 73.72,
+  "domestic": 2,
+  "km_med": 7620,
+  "of_settle_pct": 28.17
+ },
+ "giving": [
+  {
+   "iso": "GBR",
+   "country": "United Kingdom",
+   "n": 259,
+   "pct": 29.4,
+   "to": 13
+  },
+  {
+   "iso": "DEU",
+   "country": "Germany",
+   "n": 51,
+   "pct": 5.79,
+   "to": 15
+  },
+  {
+   "iso": "NLD",
+   "country": "Netherlands",
+   "n": 42,
+   "pct": 4.77,
+   "to": 11
+  },
+  {
+   "iso": "FRA",
+   "country": "France",
+   "n": 41,
+   "pct": 4.65,
+   "to": 12
+  },
+  {
+   "iso": "ITA",
+   "country": "Italy",
+   "n": 35,
+   "pct": 3.97,
+   "to": 12
+  },
+  {
+   "iso": "ESP",
+   "country": "Spain",
+   "n": 31,
+   "pct": 3.52,
+   "to": 10
+  },
+  {
+   "iso": "TUR",
+   "country": "Turkey",
+   "n": 29,
+   "pct": 3.29,
+   "to": 10
+  },
+  {
+   "iso": "IRL",
+   "country": "Ireland",
+   "n": 21,
+   "pct": 2.38,
+   "to": 3
+  },
+  {
+   "iso": "BEL",
+   "country": "Belgium",
+   "n": 21,
+   "pct": 2.38,
+   "to": 5
+  },
+  {
+   "iso": "POL",
+   "country": "Poland",
+   "n": 20,
+   "pct": 2.27,
+   "to": 10
+  },
+  {
+   "iso": "RUS",
+   "country": "Russia",
+   "n": 20,
+   "pct": 2.27,
+   "to": 8
+  },
+  {
+   "iso": "GRC",
+   "country": "Greece",
+   "n": 19,
+   "pct": 2.16,
+   "to": 7
+  },
+  {
+   "iso": "CHE",
+   "country": "Switzerland",
+   "n": 19,
+   "pct": 2.16,
+   "to": 10
+  },
+  {
+   "iso": "CAN",
+   "country": "Canada",
+   "n": 18,
+   "pct": 2.04,
+   "to": 5
+  },
+  {
+   "iso": "PSE",
+   "country": "Palestine",
+   "n": 16,
+   "pct": 1.82,
+   "to": 7
+  }
+ ],
+ "receiving": [
+  {
+   "iso": "USA",
+   "country": "United States",
+   "n": 343,
+   "pct": 38.93,
+   "from": 55
+  },
+  {
+   "iso": "AUS",
+   "country": "Australia",
+   "n": 138,
+   "pct": 15.66,
+   "from": 16
+  },
+  {
+   "iso": "CAN",
+   "country": "Canada",
+   "n": 60,
+   "pct": 6.81,
+   "from": 11
+  },
+  {
+   "iso": "DEU",
+   "country": "Germany",
+   "n": 37,
+   "pct": 4.2,
+   "from": 15
+  },
+  {
+   "iso": "NLD",
+   "country": "Netherlands",
+   "n": 29,
+   "pct": 3.29,
+   "from": 17
+  },
+  {
+   "iso": "TUR",
+   "country": "Turkey",
+   "n": 22,
+   "pct": 2.5,
+   "from": 9
+  },
+  {
+   "iso": "UKR",
+   "country": "Ukraine",
+   "n": 19,
+   "pct": 2.16,
+   "from": 7
+  },
+  {
+   "iso": "RUS",
+   "country": "Russia",
+   "n": 18,
+   "pct": 2.04,
+   "from": 9
+  },
+  {
+   "iso": "FRA",
+   "country": "France",
+   "n": 18,
+   "pct": 2.04,
+   "from": 15
+  },
+  {
+   "iso": "NZL",
+   "country": "New Zealand",
+   "n": 17,
+   "pct": 1.93,
+   "from": 5
+  },
+  {
+   "iso": "BEL",
+   "country": "Belgium",
+   "n": 13,
+   "pct": 1.48,
+   "from": 12
+  },
+  {
+   "iso": "GRC",
+   "country": "Greece",
+   "n": 13,
+   "pct": 1.48,
+   "from": 2
+  },
+  {
+   "iso": "PHL",
+   "country": "Philippines",
+   "n": 11,
+   "pct": 1.25,
+   "from": 3
+  },
+  {
+   "iso": "ISR",
+   "country": "Israel",
+   "n": 9,
+   "pct": 1.02,
+   "from": 4
+  },
+  {
+   "iso": "BRA",
+   "country": "Brazil",
+   "n": 8,
+   "pct": 0.91,
+   "from": 8
+  }
+ ],
+ "flows": [
+  {
+   "from": "United Kingdom",
+   "to": "Australia",
+   "fi": "GBR",
+   "ti": "AUS",
+   "n": 102
+  },
+  {
+   "from": "United Kingdom",
+   "to": "United States",
+   "fi": "GBR",
+   "ti": "USA",
+   "n": 102
+  },
+  {
+   "from": "United Kingdom",
+   "to": "Canada",
+   "fi": "GBR",
+   "ti": "CAN",
+   "n": 31
+  },
+  {
+   "from": "Germany",
+   "to": "United States",
+   "fi": "DEU",
+   "ti": "USA",
+   "n": 27
+  },
+  {
+   "from": "Netherlands",
+   "to": "United States",
+   "fi": "NLD",
+   "ti": "USA",
+   "n": 21
+  },
+  {
+   "from": "Italy",
+   "to": "United States",
+   "fi": "ITA",
+   "ti": "USA",
+   "n": 18
+  },
+  {
+   "from": "France",
+   "to": "United States",
+   "fi": "FRA",
+   "ti": "USA",
+   "n": 14
+  },
+  {
+   "from": "Spain",
+   "to": "United States",
+   "fi": "ESP",
+   "ti": "USA",
+   "n": 13
+  },
+  {
+   "from": "United Kingdom",
+   "to": "New Zealand",
+   "fi": "GBR",
+   "ti": "NZL",
+   "n": 13
+  },
+  {
+   "from": "Canada",
+   "to": "United States",
+   "fi": "CAN",
+   "ti": "USA",
+   "n": 13
+  },
+  {
+   "from": "Turkey",
+   "to": "Greece",
+   "fi": "TUR",
+   "ti": "GRC",
+   "n": 12
+  },
+  {
+   "from": "Norway",
+   "to": "United States",
+   "fi": "NOR",
+   "ti": "USA",
+   "n": 10
+  },
+  {
+   "from": "Belgium",
+   "to": "Germany",
+   "fi": "BEL",
+   "ti": "DEU",
+   "n": 10
+  },
+  {
+   "from": "Ireland",
+   "to": "United States",
+   "fi": "IRL",
+   "ti": "USA",
+   "n": 10
+  },
+  {
+   "from": "Spain",
+   "to": "Philippines",
+   "fi": "ESP",
+   "ti": "PHL",
+   "n": 9
+  },
+  {
+   "from": "Sweden",
+   "to": "United States",
+   "fi": "SWE",
+   "ti": "USA",
+   "n": 9
+  },
+  {
+   "from": "France",
+   "to": "Canada",
+   "fi": "FRA",
+   "ti": "CAN",
+   "n": 9
+  },
+  {
+   "from": "Switzerland",
+   "to": "United States",
+   "fi": "CHE",
+   "ti": "USA",
+   "n": 9
+  },
+  {
+   "from": "Netherlands",
+   "to": "Germany",
+   "fi": "NLD",
+   "ti": "DEU",
+   "n": 8
+  },
+  {
+   "from": "Ireland",
+   "to": "Australia",
+   "fi": "IRL",
+   "ti": "AUS",
+   "n": 8
+  },
+  {
+   "from": "Greece",
+   "to": "United States",
+   "fi": "GRC",
+   "ti": "USA",
+   "n": 8
+  },
+  {
+   "from": "United States",
+   "to": "Canada",
+   "fi": "USA",
+   "ti": "CAN",
+   "n": 7
+  },
+  {
+   "from": "Belgium",
+   "to": "United States",
+   "fi": "BEL",
+   "ti": "USA",
+   "n": 7
+  },
+  {
+   "from": "Ukraine",
+   "to": "Russia",
+   "fi": "UKR",
+   "ti": "RUS",
+   "n": 7
+  },
+  {
+   "from": "Palestine",
+   "to": "Israel",
+   "fi": "PSE",
+   "ti": "ISR",
+   "n": 6
+  }
+ ],
+ "gbr": {
+  "n": 259,
+  "pct": 29.4,
+  "usa": 102,
+  "aus": 102,
+  "can": 31,
+  "nzl": 13,
+  "four": 248,
+  "four_pct": 95.75,
+  "ireland": 21
+ },
+ "iberia": {
+  "n": 34,
+  "latam": 6,
+  "phl": 9,
+  "usa": 14,
+  "latam_places": 89,
+  "latam_places_pct": 2.24,
+  "bra_from_eu": 3
+ },
+ "dutch": {
+  "n": 42,
+  "usa": 21,
+  "examples": [
+   "Dordrecht, Eastern Cape (South Africa)",
+   "Amsterdam (South Africa)",
+   "Ermelo (South Africa)",
+   "Harlingen (United States)",
+   "Nederland (United States)",
+   "Nederland (United States)",
+   "Groningen (Suriname)",
+   "New Amsterdam (Guyana)"
+  ]
+ },
+ "greece": {
+  "tur_grc": 12,
+  "examples": [
+   "Neo Meli",
+   "Saframpoli",
+   "Menemeni",
+   "Eleftherio-Kordelio",
+   "Inepoli",
+   "Nea Smyrni",
+   "Nea Vyssa",
+   "Konstantinopolitika"
+  ]
+ },
+ "reverse": {
+  "n": 17,
+  "examples": [
+   "Sherbrooke (Australia) after Sherbrooke",
+   "Pennsylvania (United Kingdom) after Pennsylvania",
+   "Corso Buenos Aires (Italy) after Buenos Aires",
+   "New Mexico (Australia) after New Mexico",
+   "A Avenida do Brasil (Spain) after Brazil",
+   "Canada Camp (Egypt) after Canada",
+   "Canada (Netherlands) after Canada",
+   "Canada (Netherlands) after Canada",
+   "Amerikamura (Japan) after United States",
+   "quartier des États-Unis (France) after United States",
+   "Nij Amearika (Netherlands) after United States",
+   "Endeavour Hills (Australia) after HMS Endeavour"
+  ]
+ },
+ "region_matrix": [
+  [
+   0,
+   3,
+   2,
+   0,
+   0,
+   1,
+   1,
+   124,
+   147,
+   3
+  ],
+  [
+   2,
+   8,
+   22,
+   0,
+   0,
+   7,
+   5,
+   6,
+   53,
+   3
+  ],
+  [
+   1,
+   15,
+   17,
+   0,
+   0,
+   10,
+   4,
+   9,
+   81,
+   6
+  ],
+  [
+   0,
+   3,
+   0,
+   0,
+   0,
+   0,
+   1,
+   10,
+   14,
+   7
+  ],
+  [
+   1,
+   2,
+   3,
+   0,
+   3,
+   2,
+   6,
+   9,
+   29,
+   0
+  ],
+  [
+   0,
+   5,
+   4,
+   0,
+   2,
+   30,
+   9,
+   0,
+   7,
+   0
+  ],
+  [
+   1,
+   16,
+   5,
+   2,
+   19,
+   8,
+   23,
+   4,
+   22,
+   1
+  ],
+  [
+   0,
+   4,
+   0,
+   0,
+   0,
+   2,
+   4,
+   15,
+   12,
+   3
+  ],
+  [
+   2,
+   4,
+   0,
+   0,
+   1,
+   0,
+   1,
+   4,
+   20,
+   1
+  ],
+  [
+   0,
+   1,
+   2,
+   1,
+   1,
+   0,
+   0,
+   0,
+   14,
+   5
+  ]
+ ],
+ "region_give": {
+  "Britain and Ireland": 281,
+  "France and the Low Countries": 106,
+  "Germany and central Europe": 143,
+  "Spain and Portugal": 35,
+  "Italy and Greece": 55,
+  "Eastern Europe and Russia": 57,
+  "Middle East and Africa": 101,
+  "Asia and Oceania": 40,
+  "North America": 33,
+  "Latin America": 24
+ },
+ "region_get": {
+  "Britain and Ireland": 7,
+  "France and the Low Countries": 61,
+  "Germany and central Europe": 55,
+  "Spain and Portugal": 3,
+  "Italy and Greece": 26,
+  "Eastern Europe and Russia": 60,
+  "Middle East and Africa": 54,
+  "Asia and Oceania": 181,
+  "North America": 399,
+  "Latin America": 29
+ },
+ "eur_to_new": 508,
+ "eur_to_new_pct": 58.06,
+ "top": [
+  {
+   "si": "Q1085",
+   "name": "Prague",
+   "country": "Czechia",
+   "cat": "Settlement",
+   "n": 13,
+   "abroad": 3,
+   "km_med": 111,
+   "km_max": 8351,
+   "kids": [
+    "Prague Castle (Czechia)",
+    "Loreta (Czechia)",
+    "Pražské Předměstí (Czechia)",
+    "Pražské Předměstí (Czechia)",
+    "Pražské Předměstí (Czechia)",
+    "Pražské Předměstí (Czechia)",
+    "Pražské Předměstí (Czechia)",
+    "Prager Straße (Germany)",
+    "Pražské sídliště (Czechia)",
+    "Pražské předměstí (Czechia)",
+    "Pražské Předměstí (Czechia)",
+    "Prague, Nebraska (United States)",
+    "Prague, Oklahoma (United States)"
+   ]
+  },
+  {
+   "si": "Q727",
+   "name": "Amsterdam",
+   "country": "Netherlands",
+   "cat": "Settlement",
+   "n": 10,
+   "abroad": 8,
+   "km_med": 6233,
+   "km_max": 9134,
+   "kids": [
+    "Nieuw-Amsterdam (Netherlands)",
+    "Amsterdamscheveld (Netherlands)",
+    "Amsterdam, New York (United States)",
+    "Amsterdam, New York (United States)",
+    "New Amsterdam, New York (United States)",
+    "Amsterdam (Canada)",
+    "Amsterdam, Missouri (United States)",
+    "Nieuw Amsterdam (Suriname)",
+    "New Amsterdam (Guyana)",
+    "Amsterdam (South Africa)"
+   ]
+  },
+  {
+   "si": "Q51614",
+   "name": "Anatolia",
+   "country": "Turkey",
+   "cat": "Other",
+   "n": 8,
+   "abroad": 1,
+   "km_med": 557,
+   "km_max": 2720,
+   "kids": [
+    "Anadolu (Turkey)",
+    "Anadolu (Turkey)",
+    "Anadolufeneri (Turkey)",
+    "Anadolu Hisarı (Turkey)",
+    "Anadolu Kavağı (Turkey)",
+    "Anadolu (Turkey)",
+    "Anadolu (Turkey)",
+    "Little Anatolia (Belgium)"
+   ]
+  },
+  {
+   "si": "Q649",
+   "name": "Moscow",
+   "country": "Russia",
+   "cat": "Settlement",
+   "n": 8,
+   "abroad": 3,
+   "km_med": 696,
+   "km_max": 2038,
+   "kids": [
+    "Novomoskovsk (Russia)",
+    "Moskovsky City District, Nizhny Novgorod (Russia)",
+    "Moskovskiy Rayon, Cheboksary (Russia)",
+    "Maskowski District (Belarus)",
+    "Moscow city district (Russia)",
+    "Moskovsky Administrative District (Russia)",
+    "Nieuw Moscou (Netherlands)",
+    "Moskou (Netherlands)"
+   ]
+  },
+  {
+   "si": "Q46",
+   "name": "Europe",
+   "country": "a continent",
+   "cat": "Region or country",
+   "n": 8,
+   "abroad": 8,
+   "km_med": 794,
+   "km_max": 1050,
+   "kids": [
+    "Europapark (Netherlands)",
+    "Europaviertel (Germany)",
+    "European District of Strasbourg (France)",
+    "Quartier européen (Luxembourg City) (Luxembourg)",
+    "European Quarter (Belgium)",
+    "Euralille (France)",
+    "Val d'Europe (France)",
+    "Quartier de l'Europe (France)"
+   ]
+  },
+  {
+   "si": "Q217466",
+   "name": "Sakarya River",
+   "country": "Turkey",
+   "cat": "River",
+   "n": 7,
+   "abroad": 0,
+   "km_med": 391,
+   "km_max": 952,
+   "kids": [
+    "Sakarya (Turkey)",
+    "2. Sakarya (Turkey)",
+    "1. Sakarya (Turkey)",
+    "Sakarya (Turkey)",
+    "Sakarya (Turkey)",
+    "Sakarya (Turkey)",
+    "Sakarya (Turkey)"
+   ]
+  },
+  {
+   "si": "Q90",
+   "name": "Paris",
+   "country": "France",
+   "cat": "Settlement",
+   "n": 6,
+   "abroad": 5,
+   "km_med": 7118,
+   "km_max": 14044,
+   "kids": [
+    "Paris Gate (France)",
+    "Parizh (Russia)",
+    "Paris, Kentucky (United States)",
+    "Paris, Arkansas (United States)",
+    "Paris, Texas (United States)",
+    "Paris (Kiribati)"
+   ]
+  },
+  {
+   "si": "Q183",
+   "name": "Germany",
+   "country": "Germany",
+   "cat": "Region or country",
+   "n": 6,
+   "abroad": 6,
+   "km_med": 7082,
+   "km_max": 12249,
+   "kids": [
+    "Germany Township, Pennsylvania (United States)",
+    "Germania, Wisconsin (United States)",
+    "Germantown, Indiana (United States)",
+    "New Germany, Minnesota (United States)",
+    "Germany, Kentucky (United States)",
+    "Villa Alemana (Chile)"
+   ]
+  },
+  {
+   "si": "Q64",
+   "name": "Berlin",
+   "country": "Germany",
+   "cat": "Settlement",
+   "n": 6,
+   "abroad": 6,
+   "km_med": 6532,
+   "km_max": 9505,
+   "kids": [
+    "Berlin (Russia)",
+    "Berlin, Vermont (United States)",
+    "Berlin Township, New Jersey (United States)",
+    "Kitchener (Canada)",
+    "Berlin, Wisconsin (United States)",
+    "Berlín (Nicaragua)"
+   ]
+  },
+  {
+   "si": "Q23154",
+   "name": "Bristol",
+   "country": "United Kingdom",
+   "cat": "Settlement",
+   "n": 6,
+   "abroad": 6,
+   "km_med": 5675,
+   "km_max": 6357,
+   "kids": [
+    "Bristol (Canada)",
+    "Bristol, Rhode Island (United States)",
+    "Bristol (Canada)",
+    "Bristol, Indiana (United States)",
+    "Bristol, Virginia (United States)",
+    "Bristol Township, Minnesota (United States)"
+   ]
+  },
+  {
+   "si": "Q1469",
+   "name": "Loire",
+   "country": "France",
+   "cat": "River",
+   "n": 6,
+   "abroad": 0,
+   "km_med": 54,
+   "km_max": 534,
+   "kids": [
+    "Chantenay-sur-Loire (France)",
+    "Saint-Sébastien-sur-Loire (France)",
+    "Sainte-Luce-sur-Loire (France)",
+    "Thouaré-sur-Loire (France)",
+    "Chaumont-sur-Loire (France)",
+    "Saint-Victor-sur-Loire (France)"
+   ]
+  },
+  {
+   "si": "Q464955",
+   "name": "Windsor",
+   "country": "United Kingdom",
+   "cat": "Settlement",
+   "n": 5,
+   "abroad": 5,
+   "km_med": 6075,
+   "km_max": 16978,
+   "kids": [
+    "Windsor Mills (Canada)",
+    "New Windsor, New York (United States)",
+    "Windsor, North Carolina (United States)",
+    "Windsor (Australia)",
+    "Windsor (Australia)"
+   ]
+  },
+  {
+   "si": "Q1624768",
+   "name": "Hollandse IJssel",
+   "country": "Netherlands",
+   "cat": "River",
+   "n": 5,
+   "abroad": 0,
+   "km_med": 3,
+   "km_max": 41,
+   "kids": [
+    "IJsselveld-Oost (Netherlands)",
+    "IJsselveld-West (Netherlands)",
+    "IJsseloevers (Netherlands)",
+    "IJsselstein (Netherlands)",
+    "IJsselmonde (Netherlands)"
+   ]
+  },
+  {
+   "si": "Q27558186",
+   "name": "Măgura",
+   "country": "Moldova",
+   "cat": "Mountain or hill",
+   "n": 5,
+   "abroad": 0,
+   "km_med": 6,
+   "km_max": 14,
+   "kids": [
+    "Măgura (Moldova)",
+    "Măgura Nouă (Moldova)",
+    "Slobozia-Măgura (Moldova)",
+    "Măgurele (Moldova)",
+    "Măgureanca (Moldova)"
+   ]
+  },
+  {
+   "si": "Q36",
+   "name": "Poland",
+   "country": "Poland",
+   "cat": "Region or country",
+   "n": 4,
+   "abroad": 4,
+   "km_med": 3970,
+   "km_max": 14017,
+   "kids": [
+    "Ternopil (Ukraine)",
+    "Polen (Netherlands)",
+    "Poland, Ohio (United States)",
+    "Poland (Kiribati)"
+   ]
+  },
+  {
+   "si": "Q828",
+   "name": "Americas",
+   "country": "a continent",
+   "cat": "Region or country",
+   "n": 4,
+   "abroad": 4,
+   "km_med": 9197,
+   "km_max": 9616,
+   "kids": [
+    "América (Argentina)",
+    "America (Netherlands)",
+    "Amerika (Germany)",
+    "Amerika (Germany)"
+   ]
+  },
+  {
+   "si": "Q5776",
+   "name": "Bethlehem",
+   "country": "Palestine",
+   "cat": "Settlement",
+   "n": 4,
+   "abroad": 4,
+   "km_med": 3336,
+   "km_max": 9272,
+   "kids": [
+    "Canton Biliemme (Italy)",
+    "Bethlehem (Netherlands)",
+    "Bartlehiem (Netherlands)",
+    "Bethlehem, Pennsylvania (United States)"
+   ]
+  },
+  {
+   "si": "Q1524",
+   "name": "Athens",
+   "country": "Greece",
+   "cat": "Settlement",
+   "n": 4,
+   "abroad": 4,
+   "km_med": 9028,
+   "km_max": 9226,
+   "kids": [
+    "Athens, Ohio (United States)",
+    "Athens, Illinois (United States)",
+    "Athens, Georgia (United States)",
+    "Athens, Alabama (United States)"
+   ]
+  },
+  {
+   "si": "Q38",
+   "name": "Italy",
+   "country": "Italy",
+   "cat": "Region or country",
+   "n": 4,
+   "abroad": 3,
+   "km_med": 7427,
+   "km_max": 9031,
+   "kids": [
+    "Corso Italia (Italy)",
+    "Little Italy, West Virginia (United States)",
+    "Little Italy, West Virginia (United States)",
+    "Italy, Texas (United States)"
+   ]
+  },
+  {
+   "si": "Q656",
+   "name": "Saint Petersburg",
+   "country": "Russia",
+   "cat": "Settlement",
+   "n": 4,
+   "abroad": 2,
+   "km_med": 1641,
+   "km_max": 8526,
+   "kids": [
+    "Leningradsky Administrative District (Russia)",
+    "Leningradskaya (Russia)",
+    "Petersburg (Netherlands)",
+    "St. Petersburg, Florida (United States)"
+   ]
+  }
+ ],
+ "top_abroad": [
+  {
+   "si": "Q727",
+   "name": "Amsterdam",
+   "country": "Netherlands",
+   "cat": "Settlement",
+   "n": 8,
+   "where": [
+    "Canada",
+    "Guyana",
+    "South Africa",
+    "Suriname",
+    "United States"
+   ]
+  },
+  {
+   "si": "Q46",
+   "name": "Europe",
+   "country": "a continent",
+   "cat": "Region or country",
+   "n": 8,
+   "where": [
+    "Belgium",
+    "France",
+    "Germany",
+    "Luxembourg",
+    "Netherlands"
+   ]
+  },
+  {
+   "si": "Q64",
+   "name": "Berlin",
+   "country": "Germany",
+   "cat": "Settlement",
+   "n": 6,
+   "where": [
+    "Canada",
+    "Nicaragua",
+    "Russia",
+    "United States"
+   ]
+  },
+  {
+   "si": "Q183",
+   "name": "Germany",
+   "country": "Germany",
+   "cat": "Region or country",
+   "n": 6,
+   "where": [
+    "Chile",
+    "United States"
+   ]
+  },
+  {
+   "si": "Q23154",
+   "name": "Bristol",
+   "country": "United Kingdom",
+   "cat": "Settlement",
+   "n": 6,
+   "where": [
+    "Canada",
+    "United States"
+   ]
+  },
+  {
+   "si": "Q90",
+   "name": "Paris",
+   "country": "France",
+   "cat": "Settlement",
+   "n": 5,
+   "where": [
+    "Kiribati",
+    "Russia",
+    "United States"
+   ]
+  },
+  {
+   "si": "Q464955",
+   "name": "Windsor",
+   "country": "United Kingdom",
+   "cat": "Settlement",
+   "n": 5,
+   "where": [
+    "Australia",
+    "Canada",
+    "United States"
+   ]
+  },
+  {
+   "si": "Q36",
+   "name": "Poland",
+   "country": "Poland",
+   "cat": "Region or country",
+   "n": 4,
+   "where": [
+    "Kiribati",
+    "Netherlands",
+    "Ukraine",
+    "United States"
+   ]
+  },
+  {
+   "si": "Q31",
+   "name": "Belgium",
+   "country": "Belgium",
+   "cat": "Region or country",
+   "n": 4,
+   "where": [
+    "Germany",
+    "United States"
+   ]
+  },
+  {
+   "si": "Q2807",
+   "name": "Madrid",
+   "country": "Spain",
+   "cat": "Settlement",
+   "n": 4,
+   "where": [
+    "France",
+    "United States"
+   ]
+  },
+  {
+   "si": "Q828",
+   "name": "Americas",
+   "country": "a continent",
+   "cat": "Region or country",
+   "n": 4,
+   "where": [
+    "Argentina",
+    "Germany",
+    "Netherlands"
+   ]
+  },
+  {
+   "si": "Q1524",
+   "name": "Athens",
+   "country": "Greece",
+   "cat": "Settlement",
+   "n": 4,
+   "where": [
+    "United States"
+   ]
+  },
+  {
+   "si": "Q5776",
+   "name": "Bethlehem",
+   "country": "Palestine",
+   "cat": "Settlement",
+   "n": 4,
+   "where": [
+    "Italy",
+    "Netherlands",
+    "United States"
+   ]
+  },
+  {
+   "si": "Q38",
+   "name": "Italy",
+   "country": "Italy",
+   "cat": "Region or country",
+   "n": 3,
+   "where": [
+    "United States"
+   ]
+  },
+  {
+   "si": "Q1085",
+   "name": "Prague",
+   "country": "Czechia",
+   "cat": "Settlement",
+   "n": 3,
+   "where": [
+    "Germany",
+    "United States"
+   ]
+  }
+ ],
+ "max_daughters": 13,
+ "one_daughter_pct": 92.42,
+ "prague": {
+  "n": 13,
+  "cz": 10,
+  "us": 2
+ },
+ "new": {
+  "n": 75,
+  "places": 75,
+  "border": 24,
+  "ocean": 18,
+  "km_med": 15.1,
+  "under30": 41,
+  "egypt": 12,
+  "nld": 14,
+  "deu": 12,
+  "usa": 14,
+  "words": {
+   "New": 35,
+   "Nieuw": 14,
+   "Neu": 12,
+   "Novo": 4,
+   "Nova": 4,
+   "Nueva": 2,
+   "Nowe": 1,
+   "Nouveau": 1,
+   "Novyi": 1,
+   "Ny": 1
+  },
+  "rows": [
+   {
+    "place": "Nueva Palmira",
+    "pc": "Uruguay",
+    "namesake": "Palmyra",
+    "sc": "Syria",
+    "km": 12599.0,
+    "pi": "Q1023521",
+    "si": "Q5747",
+    "state": ""
+   },
+   {
+    "place": "Nueva Valencia",
+    "pc": "Philippines",
+    "namesake": "Valencia",
+    "sc": "Spain",
+    "km": 11924.1,
+    "pi": "Q313810",
+    "si": "Q8818",
+    "state": ""
+   },
+   {
+    "place": "Novo Hamburgo",
+    "pc": "Brazil",
+    "namesake": "Hamburg",
+    "sc": "Germany",
+    "km": 10960.7,
+    "pi": "Q321331",
+    "si": "Q1055",
+    "state": ""
+   },
+   {
+    "place": "Nova Friburgo",
+    "pc": "Brazil",
+    "namesake": "Fribourg",
+    "sc": "Switzerland",
+    "km": 9154.7,
+    "pi": "Q468563",
+    "si": "Q36378",
+    "state": ""
+   },
+   {
+    "place": "New Kuban",
+    "pc": "United States",
+    "namesake": "Kuban",
+    "sc": "Russia",
+    "km": 8507.3,
+    "pi": "Q56306014",
+    "si": "Q10555398",
+    "state": "New Jersey"
+   },
+   {
+    "place": "New Iberia",
+    "pc": "United States",
+    "namesake": "Iberian Peninsula",
+    "sc": "Spain",
+    "km": 7723.0,
+    "pi": "Q991355",
+    "si": "Q12837",
+    "state": "Louisiana"
+   },
+   {
+    "place": "New Amsterdam",
+    "pc": "Guyana",
+    "namesake": "Amsterdam",
+    "sc": "Netherlands",
+    "km": 7610.5,
+    "pi": "Q923811",
+    "si": "Q727",
+    "state": ""
+   },
+   {
+    "place": "New Almelo",
+    "pc": "United States",
+    "namesake": "Almelo",
+    "sc": "Netherlands",
+    "km": 7601.2,
+    "pi": "Q1956353",
+    "si": "Q988",
+    "state": "Kansas"
+   },
+   {
+    "place": "New Gascony",
+    "pc": "United States",
+    "namesake": "Gascony",
+    "sc": "France",
+    "km": 7541.6,
+    "pi": "Q14681311",
+    "si": "Q191085",
+    "state": "Arkansas"
+   },
+   {
+    "place": "Nieuw Amsterdam",
+    "pc": "Suriname",
+    "namesake": "Amsterdam",
+    "sc": "Netherlands",
+    "km": 7488.6,
+    "pi": "Q762619",
+    "si": "Q727",
+    "state": ""
+   },
+   {
+    "place": "New Glarus",
+    "pc": "United States",
+    "namesake": "Canton of Glarus",
+    "sc": "Switzerland",
+    "km": 7237.7,
+    "pi": "Q1757462",
+    "si": "Q11922",
+    "state": "Wisconsin"
+   },
+   {
+    "place": "New Madrid",
+    "pc": "United States",
+    "namesake": "Madrid",
+    "sc": "Spain",
+    "km": 7169.5,
+    "pi": "Q963427",
+    "si": "Q2807",
+    "state": "Missouri"
+   },
+   {
+    "place": "New Germany",
+    "pc": "United States",
+    "namesake": "Germany",
+    "sc": "Germany",
+    "km": 7099.5,
+    "pi": "Q1012347",
+    "si": "Q183",
+    "state": "Minnesota"
+   },
+   {
+    "place": "New Bern",
+    "pc": "United States",
+    "namesake": "Canton of Berne",
+    "sc": "Switzerland",
+    "km": 6877.6,
+    "pi": "Q1002490",
+    "si": "Q11911",
+    "state": "North Carolina"
+   },
+   {
+    "place": "New Bremen",
+    "pc": "United States",
+    "namesake": "Bremen",
+    "sc": "Germany",
+    "km": 6722.4,
+    "pi": "Q1465092",
+    "si": "Q24879",
+    "state": "Ohio"
+   },
+   {
+    "place": "New Utrecht",
+    "pc": "United States",
+    "namesake": "Utrecht",
+    "sc": "Netherlands",
+    "km": 5895.4,
+    "pi": "Q1536676",
+    "si": "Q803",
+    "state": "New York"
+   },
+   {
+    "place": "New Amsterdam",
+    "pc": "United States",
+    "namesake": "Amsterdam",
+    "sc": "Netherlands",
+    "km": 5863.0,
+    "pi": "Q223308",
+    "si": "Q727",
+    "state": "New York"
+   },
+   {
+    "place": "New Windsor",
+    "pc": "United States",
+    "namesake": "Windsor",
+    "sc": "United Kingdom",
+    "km": 5488.4,
+    "pi": "Q3708373",
+    "si": "Q464955",
+    "state": "New York"
+   },
+   {
+    "place": "New Carlisle",
+    "pc": "Canada",
+    "namesake": "Carlisle",
+    "sc": "United Kingdom",
+    "km": 4242.6,
+    "pi": "Q985588",
+    "si": "Q192896",
+    "state": ""
+   },
+   {
+    "place": "New Harmony",
+    "pc": "United States",
+    "namesake": "Harmony",
+    "sc": "United States",
+    "km": 2867.8,
+    "pi": "Q483586",
+    "si": "Q1183974",
+    "state": "Utah"
+   },
+   {
+    "place": "New Norfolk",
+    "pc": "Australia",
+    "namesake": "Norfolk Island",
+    "sc": "Australia",
+    "km": 2412.4,
+    "pi": "Q1982848",
+    "si": "Q31057",
+    "state": ""
+   },
+   {
+    "place": "Nieuw Moscou",
+    "pc": "Netherlands",
+    "namesake": "Moscow",
+    "sc": "Russia",
+    "km": 2032.0,
+    "pi": "Q2059908",
+    "si": "Q649",
+    "state": ""
+   },
+   {
+    "place": "Ny-Ålesund",
+    "pc": "Norway",
+    "namesake": "Ålesund Municipality",
+    "sc": "Norway",
+    "km": 1838.8,
+    "pi": "Q55669",
+    "si": "Q62266",
+    "state": ""
+   },
+   {
+    "place": "Nova Roma",
+    "pc": "Turkey",
+    "namesake": "Rome",
+    "sc": "Italy",
+    "km": 1374.2,
+    "pi": "Q13089982",
+    "si": "Q220",
+    "state": ""
+   },
+   {
+    "place": "Nova Praha",
+    "pc": "Ukraine",
+    "namesake": "Praga",
+    "sc": "Poland",
+    "km": 932.8,
+    "pi": "Q4322265",
+    "si": "Q1637419",
+    "state": ""
+   },
+   {
+    "place": "New Julfa",
+    "pc": "Iran",
+    "namesake": "Jolfa",
+    "sc": "Iran",
+    "km": 885.4,
+    "pi": "Q1711781",
+    "si": "Q720079",
+    "state": ""
+   },
+   {
+    "place": "Novocherkassk",
+    "pc": "Russia",
+    "namesake": "Cherkasy",
+    "sc": "Ukraine",
+    "km": 633.6,
+    "pi": "Q175452",
+    "si": "Q157055",
+    "state": ""
+   },
+   {
+    "place": "New Burlington",
+    "pc": "United States",
+    "namesake": "Burlington",
+    "sc": "United States",
+    "km": 553.6,
+    "pi": "Q3473477",
+    "si": "Q1016633",
+    "state": "Ohio"
+   },
+   {
+    "place": "Neugablonz",
+    "pc": "Germany",
+    "namesake": "Jablonec nad Nisou",
+    "sc": "Czechia",
+    "km": 453.7,
+    "pi": "Q1701245",
+    "si": "Q147607",
+    "state": ""
+   },
+   {
+    "place": "New Dordrecht",
+    "pc": "Netherlands",
+    "namesake": "Dordrecht",
+    "sc": "Netherlands",
+    "km": 188.3,
+    "pi": "Q3030491",
+    "si": "Q26421",
+    "state": ""
+   },
+   {
+    "place": "Nieuw-Amsterdam",
+    "pc": "Netherlands",
+    "namesake": "Amsterdam",
+    "sc": "Netherlands",
+    "km": 139.3,
+    "pi": "Q743632",
+    "si": "Q727",
+    "state": ""
+   },
+   {
+    "place": "Neubrandenburg",
+    "pc": "Germany",
+    "namesake": "Brandenburg an der Havel",
+    "sc": "Germany",
+    "km": 135.6,
+    "pi": "Q3958",
+    "si": "Q3931",
+    "state": ""
+   },
+   {
+    "place": "New Bussa",
+    "pc": "Nigeria",
+    "namesake": "Bussa",
+    "sc": "Nigeria",
+    "km": 49.0,
+    "pi": "Q3509196",
+    "si": "Q635055",
+    "state": ""
+   },
+   {
+    "place": "New Mansoura",
+    "pc": "Egypt",
+    "namesake": "Mansoura",
+    "sc": "Egypt",
+    "km": 48.0,
+    "pi": "Q63122627",
+    "si": "Q223587",
+    "state": ""
+   },
+   {
+    "place": "New Cairo",
+    "pc": "Egypt",
+    "namesake": "Cairo",
+    "sc": "Egypt",
+    "km": 22.6,
+    "pi": "Q12191144",
+    "si": "Q85",
+    "state": ""
+   },
+   {
+    "place": "Neu-Berich",
+    "pc": "Germany",
+    "namesake": "Berich",
+    "sc": "Germany",
+    "km": 21.4,
+    "pi": "Q1979062",
+    "si": "Q820572",
+    "state": ""
+   },
+   {
+    "place": "New Mallawi City",
+    "pc": "Egypt",
+    "namesake": "Mallawi",
+    "sc": "Egypt",
+    "km": 15.7,
+    "pi": "Q121620396",
+    "si": "Q393498",
+    "state": ""
+   },
+   {
+    "place": "New Asyut",
+    "pc": "Egypt",
+    "namesake": "Asyut",
+    "sc": "Egypt",
+    "km": 15.1,
+    "pi": "Q7005393",
+    "si": "Q29962",
+    "state": ""
+   },
+   {
+    "place": "New Sohag City",
+    "pc": "Egypt",
+    "namesake": "Sohag",
+    "sc": "Egypt",
+    "km": 13.8,
+    "pi": "Q12217454",
+    "si": "Q388108",
+    "state": ""
+   },
+   {
+    "place": "New Aswan City",
+    "pc": "Egypt",
+    "namesake": "Aswan",
+    "sc": "Egypt",
+    "km": 12.9,
+    "pi": "Q7005391",
+    "si": "Q29888",
+    "state": ""
+   },
+   {
+    "place": "New Thebes",
+    "pc": "Egypt",
+    "namesake": "Thebes",
+    "sc": "Egypt",
+    "km": 11.9,
+    "pi": "Q7012098",
+    "si": "Q101583",
+    "state": ""
+   },
+   {
+    "place": "New Faiyum",
+    "pc": "Egypt",
+    "namesake": "Faiyum",
+    "sc": "Egypt",
+    "km": 10.5,
+    "pi": "Q12191078",
+    "si": "Q203299",
+    "state": ""
+   },
+   {
+    "place": "New Luxor",
+    "pc": "Egypt",
+    "namesake": "Luxor",
+    "sc": "Egypt",
+    "km": 9.7,
+    "pi": "Q22928988",
+    "si": "Q130514",
+    "state": ""
+   },
+   {
+    "place": "Nieuw-Buinen",
+    "pc": "Netherlands",
+    "namesake": "Buinen",
+    "sc": "Netherlands",
+    "km": 9.2,
+    "pi": "Q2281401",
+    "si": "Q2436264",
+    "state": ""
+   },
+   {
+    "place": "New Qena",
+    "pc": "Egypt",
+    "namesake": "Qena",
+    "sc": "Egypt",
+    "km": 7.6,
+    "pi": "Q12233558",
+    "si": "Q336661",
+    "state": ""
+   },
+   {
+    "place": "Nieuw-Schoonebeek",
+    "pc": "Netherlands",
+    "namesake": "Schoonebeek",
+    "sc": "Netherlands",
+    "km": 7.4,
+    "pi": "Q1874707",
+    "si": "Q2006601",
+    "state": ""
+   },
+   {
+    "place": "Nieuw-Weerdinge",
+    "pc": "Netherlands",
+    "namesake": "Weerdinge",
+    "sc": "Netherlands",
+    "km": 6.4,
+    "pi": "Q1849651",
+    "si": "Q2786563",
+    "state": ""
+   },
+   {
+    "place": "New Minya",
+    "pc": "Egypt",
+    "namesake": "Minya",
+    "sc": "Egypt",
+    "km": 6.4,
+    "pi": "Q12193973",
+    "si": "Q310117",
+    "state": ""
+   },
+   {
+    "place": "New Ghent",
+    "pc": "Belgium",
+    "namesake": "Ghent",
+    "sc": "Belgium",
+    "km": 6.0,
+    "pi": "Q2441527",
+    "si": "Q31590146",
+    "state": ""
+   },
+   {
+    "place": "New Delhi",
+    "pc": "India",
+    "namesake": "Delhi",
+    "sc": "India",
+    "km": 5.9,
+    "pi": "Q987",
+    "si": "Q1353",
+    "state": ""
+   },
+   {
+    "place": "Nieuw-Balinge",
+    "pc": "Netherlands",
+    "namesake": "Balinge",
+    "sc": "Netherlands",
+    "km": 5.3,
+    "pi": "Q2782963",
+    "si": "Q2685881",
+    "state": ""
+   },
+   {
+    "place": "Nieuw-Scheemda",
+    "pc": "Netherlands",
+    "namesake": "Scheemda",
+    "sc": "Netherlands",
+    "km": 5.0,
+    "pi": "Q1859964",
+    "si": "Q1010188",
+    "state": ""
+   },
+   {
+    "place": "Nieuw-Beerta",
+    "pc": "Netherlands",
+    "namesake": "Beerta",
+    "sc": "Netherlands",
+    "km": 4.9,
+    "pi": "Q2688620",
+    "si": "Q2250772",
+    "state": ""
+   },
+   {
+    "place": "New Beni Suef City",
+    "pc": "Egypt",
+    "namesake": "Beni Suef",
+    "sc": "Egypt",
+    "km": 4.4,
+    "pi": "Q12199525",
+    "si": "Q394080",
+    "state": ""
+   },
+   {
+    "place": "Neu-Otzenrath",
+    "pc": "Germany",
+    "namesake": "Otzenrath",
+    "sc": "Germany",
+    "km": 4.4,
+    "pi": "Q15058094",
+    "si": "Q2041586",
+    "state": ""
+   },
+   {
+    "place": "Nouveau-Bordeaux",
+    "pc": "Canada",
+    "namesake": "Bordeaux",
+    "sc": "Canada",
+    "km": 3.5,
+    "pi": "Q3345012",
+    "si": "Q2910690",
+    "state": ""
+   },
+   {
+    "place": "Nieuw-Wehl",
+    "pc": "Netherlands",
+    "namesake": "Wehl",
+    "sc": "Netherlands",
+    "km": 3.0,
+    "pi": "Q2794290",
+    "si": "Q2045882",
+    "state": ""
+   },
+   {
+    "place": "Nieuwe Krim",
+    "pc": "Netherlands",
+    "namesake": "De Krim",
+    "sc": "Netherlands",
+    "km": 2.8,
+    "pi": "Q1963236",
+    "si": "Q2749480",
+    "state": ""
+   },
+   {
+    "place": "Novosmolinskiy",
+    "pc": "Russia",
+    "namesake": "Smolino",
+    "sc": "Russia",
+    "km": 2.7,
+    "pi": "Q18793526",
+    "si": "Q4425031",
+    "state": ""
+   },
+   {
+    "place": "New Oscott",
+    "pc": "United Kingdom",
+    "namesake": "Old Oscott",
+    "sc": "United Kingdom",
+    "km": 2.5,
+    "pi": "Q7010878",
+    "si": "Q7084675",
+    "state": ""
+   },
+   {
+    "place": "Nieuw-Roden",
+    "pc": "Netherlands",
+    "namesake": "Roden",
+    "sc": "Netherlands",
+    "km": 2.3,
+    "pi": "Q2231797",
+    "si": "Q2405988",
+    "state": ""
+   },
+   {
+    "place": "Nova Santa Ponça",
+    "pc": "Spain",
+    "namesake": "Santa Ponça",
+    "sc": "Spain",
+    "km": 2.2,
+    "pi": "Q6045899",
+    "si": "Q1941746",
+    "state": ""
+   },
+   {
+    "place": "Novogrudinina",
+    "pc": "Russia",
+    "namesake": "Grudinino",
+    "sc": "Russia",
+    "km": 1.9,
+    "pi": "Q16017108",
+    "si": "Q134301491",
+    "state": ""
+   },
+   {
+    "place": "Neu-Ulm",
+    "pc": "Germany",
+    "namesake": "Ulm",
+    "sc": "Germany",
+    "km": 1.8,
+    "pi": "Q4120",
+    "si": "Q3012",
+    "state": ""
+   },
+   {
+    "place": "Neupurschwitz",
+    "pc": "Germany",
+    "namesake": "Purschwitz",
+    "sc": "Germany",
+    "km": 1.6,
+    "pi": "Q1746626",
+    "si": "Q160994",
+    "state": ""
+   },
+   {
+    "place": "Neuperlach",
+    "pc": "Germany",
+    "namesake": "Perlach",
+    "sc": "Germany",
+    "km": 1.4,
+    "pi": "Q1981117",
+    "si": "Q52382696",
+    "state": ""
+   },
+   {
+    "place": "Neu Pampow",
+    "pc": "Germany",
+    "namesake": "Pampow",
+    "sc": "Germany",
+    "km": 1.2,
+    "pi": "Q104194567",
+    "si": "Q673810",
+    "state": ""
+   },
+   {
+    "place": "Neu-Jeßnitz",
+    "pc": "Germany",
+    "namesake": "Jeßnitz",
+    "sc": "Germany",
+    "km": 1.2,
+    "pi": "Q1979083",
+    "si": "Q160977",
+    "state": ""
+   },
+   {
+    "place": "Neu-Puschwitz",
+    "pc": "Germany",
+    "namesake": "Puschwitz",
+    "sc": "Germany",
+    "km": 1.1,
+    "pi": "Q1979120",
+    "si": "Q12372949",
+    "state": ""
+   },
+   {
+    "place": "Novyi Kalyniv",
+    "pc": "Ukraine",
+    "namesake": "Kalyniv",
+    "sc": "Ukraine",
+    "km": 1.1,
+    "pi": "Q268768",
+    "si": "Q4209729",
+    "state": ""
+   },
+   {
+    "place": "Nieuw-Vennep",
+    "pc": "Netherlands",
+    "namesake": "De Vennip",
+    "sc": "Netherlands",
+    "km": 0.8,
+    "pi": "Q545457",
+    "si": "Q2680092",
+    "state": ""
+   },
+   {
+    "place": "Neuforstenried",
+    "pc": "Germany",
+    "namesake": "Forstenried",
+    "sc": "Germany",
+    "km": 0.7,
+    "pi": "Q51924814",
+    "si": "Q51922314",
+    "state": ""
+   },
+   {
+    "place": "Nowe Odolany",
+    "pc": "Poland",
+    "namesake": "Odolany",
+    "sc": "Poland",
+    "km": 0.6,
+    "pi": "Q125592326",
+    "si": "Q11796187",
+    "state": ""
+   },
+   {
+    "place": "Nieuw-Einde",
+    "pc": "Netherlands",
+    "namesake": "Einde",
+    "sc": "Netherlands",
+    "km": 0.5,
+    "pi": "Q25640889",
+    "si": "Q25641071",
+    "state": ""
+   },
+   {
+    "place": "Neue Gartenstadt",
+    "pc": "Germany",
+    "namesake": "Gartenstadt (Schwerin)",
+    "sc": "Germany",
+    "km": 0.1,
+    "pi": "Q104194571",
+    "si": "Q15811338",
+    "state": ""
+   }
+  ],
+  "under30_pct": 54.67,
+  "delhi_km": 5.9
+ },
+ "us": {
+  "n": 998,
+  "pct": 25.07,
+  "abroad": 343,
+  "abroad_pct": 34.37,
+  "old": 316,
+  "old_settle": 226,
+  "townships": 158,
+  "states_with": 47,
+  "gbr": 102,
+  "gbr_pct": 29.74,
+  "deu": 27,
+  "nld": 21,
+  "mn_townships": 113,
+  "mn": 151,
+  "townships_pct": 15.83,
+  "classical": 14,
+  "classical_names": [
+   "Antioch",
+   "Athens",
+   "Ithaca",
+   "Memphis",
+   "Palmyra",
+   "Rome",
+   "Smyrna",
+   "Sparta",
+   "Syracuse"
+  ],
+  "biblical": 14,
+  "biblical_names": [
+   "Ai",
+   "Bethlehem",
+   "Ekron",
+   "Hebron",
+   "Lebanon",
+   "Memphis",
+   "Moab",
+   "Mount Carmel",
+   "Mount of Olives",
+   "Palestine",
+   "Palmyra",
+   "Penuel"
+  ]
+ },
+ "us_states": [
+  {
+   "state": "Minnesota",
+   "n": 45,
+   "settle": 27,
+   "townships": 35,
+   "list": [
+    "Agram Township (Zagreb, Croatia)",
+    "Alfsborg Township (Älvsborg County, Sweden)",
+    "Arendahl Township (Arendal, Norway)",
+    "Augsburg Township (Augsburg, Germany)",
+    "Balkan Township (Balkan Mountains, Bulgaria)",
+    "Bandon Township (Bandon, Ireland)",
+    "Belfast Township (Belfast, United Kingdom)",
+    "Belgium Township (Belgium, Belgium)",
+    "Bergen Township (Bergen, Norway)",
+    "Borgholm Township (Borgholm, Sweden)",
+    "Bremen Township (Bremen, Germany)",
+    "Bristol Township (Bristol, United Kingdom)",
+    "Cashel Township (Cashel, Ireland)",
+    "Ceylon (Sri Lanka, Sri Lanka)",
+    "Christiania Township (Oslo, Norway)",
+    "Clontarf Township (Clontarf, Ireland)",
+    "Cordova (Córdoba, Spain)",
+    "Culdrum Township (Culdrum, United Kingdom)",
+    "Dalbo Township (Dalarna, Sweden)",
+    "Dollymount Township (Dollymount, Ireland)",
+    "Dublin Township (Dublin, Ireland)",
+    "Edina (Edinburgh, United Kingdom)",
+    "Eidsvold Township (Eidsvoll Municipality, Norway)",
+    "Falun Township (Falun, Sweden)",
+    "Finland (Finland, Finland)",
+    "Folden Township (Folden Municipality, Norway)",
+    "Gotha (Gotha, Germany)",
+    "Hamre Township (Hamre, Norway)",
+    "Krain Township (Carniola, Slovenia)",
+    "Leon Township (Kingdom of Leon, Spain)",
+    "Luxemburg Township (Luxembourg, Luxembourg)",
+    "Malmo Township (Malmö, Sweden)",
+    "Milan (Milan, Italy)",
+    "Mora (Mora, Sweden)",
+    "Nevis Township (Ben Nevis, United Kingdom)",
+    "New Germany (Germany, Germany)",
+    "Nordland Township (Nordland, Norway)",
+    "Norway Township (Norway, Norway)",
+    "Posen Township (Poznań, Poland)",
+    "Rheiderland Township (Rheydt, Germany)",
+    "Russia Township (Russia, Russia)",
+    "Salo Township (Salo, Finland)",
+    "St. Cloud (Saint-Cloud, France)",
+    "Sterling Township (Stirling, United Kingdom)",
+    "Veseli (Veselí nad Lužnicí, Czechia)"
+   ]
+  },
+  {
+   "state": "Indiana",
+   "n": 24,
+   "settle": 16,
+   "townships": 0,
+   "list": [
+    "Aberdeen (Aberdeen, United Kingdom)",
+    "Aix (Aix-en-Provence, France)",
+    "Avon (River Avon, United Kingdom)",
+    "Berne (Bern, Switzerland)",
+    "Bremen (Bremen, Germany)",
+    "Bristol (Bristol, United Kingdom)",
+    "Cambridge City (Cambridge, United Kingdom)",
+    "Ceylon (British Ceylon, United Kingdom)",
+    "Edinburgh (Edinburgh, United Kingdom)",
+    "Frankfort (Frankfurt, Germany)",
+    "Geneva (Geneva, Switzerland)",
+    "Germantown (Germany, Germany)",
+    "Holland (Holland, Netherlands)",
+    "Lapland (Sápmi, Sweden)",
+    "Lebanon (Lebanon, Lebanon)",
+    "Milan (Milan, Italy)",
+    "Morocco (Morocco, Morocco)",
+    "North Manchester (Manchester, United Kingdom)",
+    "Old Milan (Milan, Italy)",
+    "Oldenburg (Oldenburg, Germany)",
+    "Rugby (Rugby, United Kingdom)",
+    "Vevay (Vevey, Switzerland)",
+    "Warsaw (Warsaw, Poland)",
+    "Westphalia (Westphalia, Germany)"
+   ]
+  },
+  {
+   "state": "New York",
+   "n": 24,
+   "settle": 21,
+   "townships": 0,
+   "list": [
+    "Amsterdam (Amsterdam, Netherlands)",
+    "Amsterdam (Amsterdam, Netherlands)",
+    "Breuckelen (Breukelen, Netherlands)",
+    "Brighton Beach (Brighton, United Kingdom)",
+    "Brooklyn (Breukelen, Netherlands)",
+    "Flushing (Vlissingen, Netherlands)",
+    "Gravesend ('s-Gravenzande, Netherlands)",
+    "Interlaken (Interlaken, Switzerland)",
+    "Ithaca (Ithaca, Greece)",
+    "Little Fuzhou (Fuzhou, China)",
+    "Madrid (Madrid, Spain)",
+    "New Amsterdam (Amsterdam, Netherlands)",
+    "New Utrecht (Utrecht, Netherlands)",
+    "New Windsor (Windsor, United Kingdom)",
+    "North Pole (North Pole, no country)",
+    "Palmyra (Palmyra, Syria)",
+    "Potsdam (Potsdam, Germany)",
+    "Potsdam (Potsdam, Germany)",
+    "Rotterdam (Rotterdam, Netherlands)",
+    "Seneca Village (Senegal, Senegal)",
+    "Southampton (Southampton, United Kingdom)",
+    "Syracuse (Syracuse, Italy)",
+    "Tipperary Hill (County Tipperary, Ireland)",
+    "Wilna (Vilnius, Lithuania)"
+   ]
+  },
+  {
+   "state": "Massachusetts",
+   "n": 20,
+   "settle": 18,
+   "townships": 0,
+   "list": [
+    "Andover (Andover, United Kingdom)",
+    "Athol (Atholl, United Kingdom)",
+    "Barnstable (Barnstaple, United Kingdom)",
+    "Bedford (Bedford, United Kingdom)",
+    "Boston (Boston, United Kingdom)",
+    "Boston (Lincolnshire, United Kingdom)",
+    "Braintree (Braintree, United Kingdom)",
+    "Cambridge (Cambridge, United Kingdom)",
+    "Falmouth (Falmouth, United Kingdom)",
+    "Groton (Groton, United Kingdom)",
+    "Lancaster (Lancaster, United Kingdom)",
+    "Lincoln (Lincoln, United Kingdom)",
+    "Lynn (King's Lynn, United Kingdom)",
+    "Plymouth (Plymouth, United Kingdom)",
+    "Springfield (Springfield, United Kingdom)",
+    "Swansea (Swansea, United Kingdom)",
+    "Taunton (Taunton, United Kingdom)",
+    "Truro (Truro, United Kingdom)",
+    "Weymouth (Weymouth, United Kingdom)",
+    "Worcester (Worcester, United Kingdom)"
+   ]
+  },
+  {
+   "state": "Utah",
+   "n": 18,
+   "settle": 11,
+   "townships": 0,
+   "list": [
+    "Alton (Altafjord, Norway)",
+    "Argyle (Argyll, United Kingdom)",
+    "Avon (Stratford-upon-Avon, United Kingdom)",
+    "Chester (Chesterfield, United Kingdom)",
+    "Croydon (Croydon, United Kingdom)",
+    "Dover (Dover, United Kingdom)",
+    "Elsinore (Helsingør, Denmark)",
+    "EskDale (River Esk, United Kingdom)",
+    "Hebron (Hebron, Palestine)",
+    "Leamington (Leamington Spa, United Kingdom)",
+    "Leeds (Leeds, United Kingdom)",
+    "Manila (Manila, Philippines)",
+    "Moab (Moab, Jordan)",
+    "Modena (Modena, Italy)",
+    "Mona (Isle of Man, Isle of Man)",
+    "Mount Carmel (Mount Carmel, Israel)",
+    "Naples (Naples, Italy)",
+    "Wales (Wales, United Kingdom)"
+   ]
+  },
+  {
+   "state": "Texas",
+   "n": 13,
+   "settle": 10,
+   "townships": 0,
+   "list": [
+    "Edinburg (Edinburgh, United Kingdom)",
+    "Harlingen (Harlingen, Netherlands)",
+    "Hyde Park (Hyde Park, United Kingdom)",
+    "Italy (Italy, Italy)",
+    "Nederland (Netherlands, Netherlands)",
+    "Odessa (Odesa, Ukraine)",
+    "Paris (Paris, France)",
+    "Peniel (Penuel, Jordan)",
+    "Richmond (Richmond, United Kingdom)",
+    "Roma (Rome, Italy)",
+    "Segovia (Segovia, Spain)",
+    "Waring (Waringsford, United Kingdom)",
+    "Weimar (Weimar, Germany)"
+   ]
+  },
+  {
+   "state": "Wisconsin",
+   "n": 12,
+   "settle": 9,
+   "townships": 0,
+   "list": [
+    "Avoca (Avoca, Ireland)",
+    "Belgium (Belgium, Belgium)",
+    "Berlin (Berlin, Germany)",
+    "Brussels (Brussels, Belgium)",
+    "Florence (Florence, Italy)",
+    "Germania (Germany, Germany)",
+    "Kloten (Kloten, Switzerland)",
+    "New Glarus (Canton of Glarus, Switzerland)",
+    "Oostburg (Oostburg, Netherlands)",
+    "Oulu (Oulu, Finland)",
+    "Palmyra (Palmyra, Syria)",
+    "Ripon (Ripon, United Kingdom)"
+   ]
+  },
+  {
+   "state": "Ohio",
+   "n": 11,
+   "settle": 9,
+   "townships": 0,
+   "list": [
+    "Antwerp (Antwerp, Belgium)",
+    "Athens (Athens, Greece)",
+    "Belfort (Belfort, France)",
+    "Cadiz (Cádiz, Spain)",
+    "Dublin (Dublin, Ireland)",
+    "LaGrange (Château de la Grange-Bléneau, France)",
+    "New Bremen (Bremen, Germany)",
+    "Parma (Parma, Italy)",
+    "Poland (Poland, Poland)",
+    "Seville (Seville, Spain)",
+    "Stockport (Stockport, United Kingdom)"
+   ]
+  },
+  {
+   "state": "California",
+   "n": 10,
+   "settle": 6,
+   "townships": 0,
+   "list": [
+    "Aberdeen (Aberdeen, United Kingdom)",
+    "Alhambra (Alhambra, Spain)",
+    "Antioch (Antioch, Turkey)",
+    "Asti (Asti, Italy)",
+    "Little Bangladesh (Bangladesh, Bangladesh)",
+    "Little Portugal (Portugal, Portugal)",
+    "Little Saigon (Saigon, Vietnam)",
+    "Little Tokyo (Tokyo, Japan)",
+    "Manchester (Manchester, United Kingdom)",
+    "Mecca (Mecca, Saudi Arabia)"
+   ]
+  },
+  {
+   "state": "Michigan",
+   "n": 9,
+   "settle": 6,
+   "townships": 1,
+   "list": [
+    "Canton (Guangzhou, China)",
+    "Corunna (A Coruña, Spain)",
+    "Huntington Woods (Huntingdon, United Kingdom)",
+    "Kerrytown (County Kerry, Ireland)",
+    "Laurium (Lavrio, Greece)",
+    "Nankin Township (Nanjing, China)",
+    "Royal Oak (Royal Oak, United Kingdom)",
+    "Zeeland (Zeeland, Netherlands)",
+    "Zutphen (Zutphen, Netherlands)"
+   ]
+  },
+  {
+   "state": "Virginia",
+   "n": 9,
+   "settle": 6,
+   "townships": 0,
+   "list": [
+    "Annandale (Annandale, United Kingdom)",
+    "Bristol (Bristol, United Kingdom)",
+    "Exbury (Exbury, United Kingdom)",
+    "Norfolk (Norfolk, United Kingdom)",
+    "Portsmouth (Portsmouth, United Kingdom)",
+    "Richmond (Richmond, United Kingdom)",
+    "Suffolk (Suffolk, United Kingdom)",
+    "Warsaw (Warsaw, Poland)",
+    "Winchester (Winchester, United Kingdom)"
+   ]
+  },
+  {
+   "state": "Illinois",
+   "n": 8,
+   "settle": 5,
+   "townships": 0,
+   "list": [
+    "Athens (Athens, Greece)",
+    "Brussels (Brussels, Belgium)",
+    "Marseilles (Marseille, France)",
+    "Meppen (Meppen, Germany)",
+    "Palestine (Palestine, Israel)",
+    "Radom (Radom, Poland)",
+    "South Holland (South Holland, Netherlands)",
+    "Woosung (Wusong District, China)"
+   ]
+  },
+  {
+   "state": "Connecticut",
+   "n": 7,
+   "settle": 6,
+   "townships": 0,
+   "list": [
+    "Bolton (Bolton, United Kingdom)",
+    "Canterbury (Canterbury, United Kingdom)",
+    "Greenwich (Greenwich, United Kingdom)",
+    "Hartford (Hertford, United Kingdom)",
+    "Kent (Kent, United Kingdom)",
+    "Norwich (Norwich, United Kingdom)",
+    "Stamford (Stamford, United Kingdom)"
+   ]
+  },
+  {
+   "state": "Missouri",
+   "n": 7,
+   "settle": 6,
+   "townships": 0,
+   "list": [
+    "Amsterdam (Amsterdam, Netherlands)",
+    "Arnsberg (Arnsberg, Germany)",
+    "Belgique (Belgium, Belgium)",
+    "Budapest (Budapest, Hungary)",
+    "Herculaneum (Herculaneum, Italy)",
+    "New Madrid (Madrid, Spain)",
+    "Vienna (Vienna, Austria)"
+   ]
+  },
+  {
+   "state": "Nebraska",
+   "n": 7,
+   "settle": 7,
+   "townships": 0,
+   "list": [
+    "Breslau (Wrocław, Poland)",
+    "Bruno (Brno, Czechia)",
+    "Hebron (Hebron, Palestine)",
+    "Madrid (Madrid, Spain)",
+    "Malmo (Malmö, Sweden)",
+    "Minden (Minden, Germany)",
+    "Prague (Prague, Czechia)"
+   ]
+  },
+  {
+   "state": "New Jersey",
+   "n": 7,
+   "settle": 6,
+   "townships": 4,
+   "list": [
+    "Bedminster (Bedminster, United Kingdom)",
+    "Berlin Township (Berlin, Germany)",
+    "Deptford Township (Deptford, United Kingdom)",
+    "Greenwich Township (Greenwich, United Kingdom)",
+    "New Kuban (Kuban, Russia)",
+    "Newark (Newark-on-Trent, United Kingdom)",
+    "Woolwich Township (Woolwich, United Kingdom)"
+   ]
+  },
+  {
+   "state": "Alabama",
+   "n": 5,
+   "settle": 5,
+   "townships": 0,
+   "list": [
+    "Athens (Athens, Greece)",
+    "Birmingham (Birmingham, United Kingdom)",
+    "Florence (Florence, Italy)",
+    "Mentone (Menton, France)",
+    "Sheffield (Sheffield, United Kingdom)"
+   ]
+  },
+  {
+   "state": "Florida",
+   "n": 5,
+   "settle": 4,
+   "townships": 0,
+   "list": [
+    "Malabar (Malabar, India)",
+    "Melbourne (Melbourne, Australia)",
+    "Naples (Naples, Italy)",
+    "Ponte Vedra Beach (Pontevedra, Spain)",
+    "St. Petersburg (Saint Petersburg, Russia)"
+   ]
+  },
+  {
+   "state": "Kentucky",
+   "n": 5,
+   "settle": 2,
+   "townships": 0,
+   "list": [
+    "Ekron (Ekron, Israel)",
+    "Germany (Germany, Germany)",
+    "Mount Olivet (Mount of Olives, Israel)",
+    "Paris (Paris, France)",
+    "Wallonia (Wallonia, Belgium)"
+   ]
+  },
+  {
+   "state": "New Hampshire",
+   "n": 5,
+   "settle": 5,
+   "townships": 0,
+   "list": [
+    "Derry (Derry, United Kingdom)",
+    "Exeter (Exeter, United Kingdom)",
+    "Londonderry (Derry, United Kingdom)",
+    "Manchester (Manchester, United Kingdom)",
+    "Portsmouth (Portsmouth, United Kingdom)"
+   ]
+  },
+  {
+   "state": "North Carolina",
+   "n": 5,
+   "settle": 3,
+   "townships": 0,
+   "list": [
+    "Bath (Bath, United Kingdom)",
+    "Morven (Morven, United Kingdom)",
+    "New Bern (Canton of Berne, Switzerland)",
+    "Sparta (Sparta, Greece)",
+    "Windsor (Windsor, United Kingdom)"
+   ]
+  },
+  {
+   "state": "Pennsylvania",
+   "n": 5,
+   "settle": 4,
+   "townships": 2,
+   "list": [
+    "Bethlehem (Bethlehem, Palestine)",
+    "Germany Township (Germany, Germany)",
+    "Haverford (Haverfordwest, United Kingdom)",
+    "Londonderry Township (Derry, United Kingdom)",
+    "Reading (Reading, United Kingdom)"
+   ]
+  },
+  {
+   "state": "Arkansas",
+   "n": 4,
+   "settle": 3,
+   "townships": 0,
+   "list": [
+    "Augsburg (Augsburg, Germany)",
+    "New Gascony (Gascony, France)",
+    "Paris (Paris, France)",
+    "Stuttgart (Stuttgart, Germany)"
+   ]
+  },
+  {
+   "state": "Georgia",
+   "n": 4,
+   "settle": 4,
+   "townships": 0,
+   "list": [
+    "Ai (Ai, Palestine)",
+    "Athens (Athens, Greece)",
+    "Budapest (Budapest, Hungary)",
+    "Geneva (Geneva, Switzerland)"
+   ]
+  },
+  {
+   "state": "Kansas",
+   "n": 4,
+   "settle": 2,
+   "townships": 0,
+   "list": [
+    "Denmark (Denmark, Denmark)",
+    "Melvern (Malvern Hills, United Kingdom)",
+    "New Almelo (Almelo, Netherlands)",
+    "Pilsen (Plzeň, Czechia)"
+   ]
+  },
+  {
+   "state": "North Dakota",
+   "n": 4,
+   "settle": 3,
+   "townships": 0,
+   "list": [
+    "Kief (Kyiv, Ukraine)",
+    "Munich (Munich, Germany)",
+    "Wimbledon (Wimbledon, United Kingdom)",
+    "Zeeland (Zeeland, Netherlands)"
+   ]
+  },
+  {
+   "state": "Maine",
+   "n": 3,
+   "settle": 2,
+   "townships": 0,
+   "list": [
+    "Portland (Isle of Portland, United Kingdom)",
+    "Rome (Rome, Italy)",
+    "Topsham (Topsham, United Kingdom)"
+   ]
+  },
+  {
+   "state": "Oregon",
+   "n": 3,
+   "settle": 3,
+   "townships": 0,
+   "list": [
+    "Bandon (Bandon, Ireland)",
+    "Dundee (Dundee, United Kingdom)",
+    "Glencoe (Glencoe, United Kingdom)"
+   ]
+  },
+  {
+   "state": "Rhode Island",
+   "n": 3,
+   "settle": 3,
+   "townships": 0,
+   "list": [
+    "Bristol (Bristol, United Kingdom)",
+    "Coventry (Coventry, United Kingdom)",
+    "Exeter (Exeter, United Kingdom)"
+   ]
+  },
+  {
+   "state": "Vermont",
+   "n": 3,
+   "settle": 3,
+   "townships": 0,
+   "list": [
+    "Berlin (Berlin, Germany)",
+    "Calais (Calais, France)",
+    "Montpelier (Montpellier, France)"
+   ]
+  },
+  {
+   "state": "Alaska",
+   "n": 2,
+   "settle": 0,
+   "townships": 0,
+   "list": [
+    "Circle (Arctic Circle, Sweden)",
+    "North Pole (North Pole, no country)"
+   ]
+  },
+  {
+   "state": "Idaho",
+   "n": 2,
+   "settle": 1,
+   "townships": 0,
+   "list": [
+    "Aberdeen (Aberdeen, United Kingdom)",
+    "North Pole (North Pole, no country)"
+   ]
+  },
+  {
+   "state": "Louisiana",
+   "n": 2,
+   "settle": 1,
+   "townships": 0,
+   "list": [
+    "Minden (Minden, Germany)",
+    "New Iberia (Iberian Peninsula, Spain)"
+   ]
+  },
+  {
+   "state": "Maryland",
+   "n": 2,
+   "settle": 1,
+   "townships": 0,
+   "list": [
+    "Havre de Grace (Le Havre, France)",
+    "Lexington Park (USS Lexington, no country)"
+   ]
+  },
+  {
+   "state": "Mississippi",
+   "n": 2,
+   "settle": 1,
+   "townships": 0,
+   "list": [
+    "Grenada (Province of Granada, Spain)",
+    "Lyon (Lyon, France)"
+   ]
+  },
+  {
+   "state": "New Mexico",
+   "n": 2,
+   "settle": 1,
+   "townships": 0,
+   "list": [
+    "Carlsbad (Karlovy Vary, Czechia)",
+    "Ohkay Owingeh (Archbasilica of St. John Lateran, Italy)"
+   ]
+  },
+  {
+   "state": "Oklahoma",
+   "n": 2,
+   "settle": 1,
+   "townships": 0,
+   "list": [
+    "Norge (Norway, Norway)",
+    "Prague (Prague, Czechia)"
+   ]
+  },
+  {
+   "state": "Tennessee",
+   "n": 2,
+   "settle": 2,
+   "townships": 0,
+   "list": [
+    "Memphis (Memphis, Egypt)",
+    "Smyrna (Smyrna, Turkey)"
+   ]
+  },
+  {
+   "state": "Washington",
+   "n": 2,
+   "settle": 0,
+   "townships": 0,
+   "list": [
+    "Cashmere (Kashmir Valley, India)",
+    "Kent (Kent, United Kingdom)"
+   ]
+  },
+  {
+   "state": "West Virginia",
+   "n": 2,
+   "settle": 0,
+   "townships": 0,
+   "list": [
+    "Little Italy (Italy, Italy)",
+    "Little Italy (Italy, Italy)"
+   ]
+  },
+  {
+   "state": "Arizona",
+   "n": 1,
+   "settle": 0,
+   "townships": 0,
+   "list": [
+    "Tempe (Vale of Tempe, Greece)"
+   ]
+  },
+  {
+   "state": "Colorado",
+   "n": 1,
+   "settle": 0,
+   "townships": 0,
+   "list": [
+    "Nederland (Netherlands, Netherlands)"
+   ]
+  },
+  {
+   "state": "Delaware",
+   "n": 1,
+   "settle": 1,
+   "townships": 0,
+   "list": [
+    "Winterthur (Winterthur, Switzerland)"
+   ]
+  },
+  {
+   "state": "District of Columbia",
+   "n": 1,
+   "settle": 1,
+   "townships": 0,
+   "list": [
+    "Eckington (Eckington, United Kingdom)"
+   ]
+  },
+  {
+   "state": "Iowa",
+   "n": 1,
+   "settle": 1,
+   "townships": 0,
+   "list": [
+    "Breda (Breda, Netherlands)"
+   ]
+  },
+  {
+   "state": "Montana",
+   "n": 1,
+   "settle": 0,
+   "townships": 0,
+   "list": [
+    "Essex (Essex, United Kingdom)"
+   ]
+  },
+  {
+   "state": "South Dakota",
+   "n": 1,
+   "settle": 0,
+   "townships": 0,
+   "list": [
+    "Pactola (Pactolus, Turkey)"
+   ]
+  }
+ ],
+ "us_top_state": {
+  "state": "Minnesota",
+  "n": 45,
+  "settle": 27,
+  "townships": 35,
+  "list": [
+   "Agram Township (Zagreb, Croatia)",
+   "Alfsborg Township (Älvsborg County, Sweden)",
+   "Arendahl Township (Arendal, Norway)",
+   "Augsburg Township (Augsburg, Germany)",
+   "Balkan Township (Balkan Mountains, Bulgaria)",
+   "Bandon Township (Bandon, Ireland)",
+   "Belfast Township (Belfast, United Kingdom)",
+   "Belgium Township (Belgium, Belgium)",
+   "Bergen Township (Bergen, Norway)",
+   "Borgholm Township (Borgholm, Sweden)",
+   "Bremen Township (Bremen, Germany)",
+   "Bristol Township (Bristol, United Kingdom)",
+   "Cashel Township (Cashel, Ireland)",
+   "Ceylon (Sri Lanka, Sri Lanka)",
+   "Christiania Township (Oslo, Norway)",
+   "Clontarf Township (Clontarf, Ireland)",
+   "Cordova (Córdoba, Spain)",
+   "Culdrum Township (Culdrum, United Kingdom)",
+   "Dalbo Township (Dalarna, Sweden)",
+   "Dollymount Township (Dollymount, Ireland)",
+   "Dublin Township (Dublin, Ireland)",
+   "Edina (Edinburgh, United Kingdom)",
+   "Eidsvold Township (Eidsvoll Municipality, Norway)",
+   "Falun Township (Falun, Sweden)",
+   "Finland (Finland, Finland)",
+   "Folden Township (Folden Municipality, Norway)",
+   "Gotha (Gotha, Germany)",
+   "Hamre Township (Hamre, Norway)",
+   "Krain Township (Carniola, Slovenia)",
+   "Leon Township (Kingdom of Leon, Spain)",
+   "Luxemburg Township (Luxembourg, Luxembourg)",
+   "Malmo Township (Malmö, Sweden)",
+   "Milan (Milan, Italy)",
+   "Mora (Mora, Sweden)",
+   "Nevis Township (Ben Nevis, United Kingdom)",
+   "New Germany (Germany, Germany)",
+   "Nordland Township (Nordland, Norway)",
+   "Norway Township (Norway, Norway)",
+   "Posen Township (Poznań, Poland)",
+   "Rheiderland Township (Rheydt, Germany)",
+   "Russia Township (Russia, Russia)",
+   "Salo Township (Salo, Finland)",
+   "St. Cloud (Saint-Cloud, France)",
+   "Sterling Township (Stirling, United Kingdom)",
+   "Veseli (Veselí nad Lužnicí, Czechia)"
+  ]
+ },
+ "us_old_names": [
+  {
+   "si": "Q183",
+   "name": "Germany",
+   "country": "Germany",
+   "n": 5,
+   "states": [
+    "Indiana",
+    "Kentucky",
+    "Minnesota",
+    "Pennsylvania",
+    "Wisconsin"
+   ]
+  },
+  {
+   "si": "Q1524",
+   "name": "Athens",
+   "country": "Greece",
+   "n": 4,
+   "states": [
+    "Alabama",
+    "Georgia",
+    "Illinois",
+    "Ohio"
+   ]
+  },
+  {
+   "si": "Q23154",
+   "name": "Bristol",
+   "country": "United Kingdom",
+   "n": 4,
+   "states": [
+    "Indiana",
+    "Minnesota",
+    "Rhode Island",
+    "Virginia"
+   ]
+  },
+  {
+   "si": "Q727",
+   "name": "Amsterdam",
+   "country": "Netherlands",
+   "n": 4,
+   "states": [
+    "Missouri",
+    "New York"
+   ]
+  },
+  {
+   "si": "Q18125",
+   "name": "Manchester",
+   "country": "United Kingdom",
+   "n": 3,
+   "states": [
+    "California",
+    "Indiana",
+    "New Hampshire"
+   ]
+  },
+  {
+   "si": "Q23436",
+   "name": "Edinburgh",
+   "country": "United Kingdom",
+   "n": 3,
+   "states": [
+    "Indiana",
+    "Minnesota",
+    "Texas"
+   ]
+  },
+  {
+   "si": "Q24879",
+   "name": "Bremen",
+   "country": "Germany",
+   "n": 3,
+   "states": [
+    "Indiana",
+    "Minnesota",
+    "Ohio"
+   ]
+  },
+  {
+   "si": "Q490",
+   "name": "Milan",
+   "country": "Italy",
+   "n": 3,
+   "states": [
+    "Indiana",
+    "Minnesota"
+   ]
+  },
+  {
+   "si": "Q31",
+   "name": "Belgium",
+   "country": "Belgium",
+   "n": 3,
+   "states": [
+    "Minnesota",
+    "Missouri",
+    "Wisconsin"
+   ]
+  },
+  {
+   "si": "Q36405",
+   "name": "Aberdeen",
+   "country": "United Kingdom",
+   "n": 3,
+   "states": [
+    "California",
+    "Idaho",
+    "Indiana"
+   ]
+  },
+  {
+   "si": "Q2807",
+   "name": "Madrid",
+   "country": "Spain",
+   "n": 3,
+   "states": [
+    "Missouri",
+    "Nebraska",
+    "New York"
+   ]
+  },
+  {
+   "si": "Q163584",
+   "name": "Derry",
+   "country": "United Kingdom",
+   "n": 3,
+   "states": [
+    "New Hampshire",
+    "Pennsylvania"
+   ]
+  },
+  {
+   "si": "Q38",
+   "name": "Italy",
+   "country": "Italy",
+   "n": 3,
+   "states": [
+    "Texas",
+    "West Virginia"
+   ]
+  },
+  {
+   "si": "Q64",
+   "name": "Berlin",
+   "country": "Germany",
+   "n": 3,
+   "states": [
+    "New Jersey",
+    "Vermont",
+    "Wisconsin"
+   ]
+  },
+  {
+   "si": "Q90",
+   "name": "Paris",
+   "country": "France",
+   "n": 3,
+   "states": [
+    "Arkansas",
+    "Kentucky",
+    "Texas"
+   ]
+  }
+ ],
+ "us_old_countries": [
+  {
+   "country": "United Kingdom",
+   "n": 102
+  },
+  {
+   "country": "Germany",
+   "n": 27
+  },
+  {
+   "country": "Netherlands",
+   "n": 21
+  },
+  {
+   "country": "Italy",
+   "n": 18
+  },
+  {
+   "country": "France",
+   "n": 14
+  },
+  {
+   "country": "Spain",
+   "n": 13
+  },
+  {
+   "country": "Ireland",
+   "n": 10
+  },
+  {
+   "country": "Norway",
+   "n": 10
+  },
+  {
+   "country": "Switzerland",
+   "n": 9
+  },
+  {
+   "country": "Sweden",
+   "n": 9
+  },
+  {
+   "country": "Greece",
+   "n": 8
+  },
+  {
+   "country": "Belgium",
+   "n": 7
+  }
+ ],
+ "coverage": [
+  {
+   "iso": "USA",
+   "country": "United States",
+   "n": 998,
+   "pct": 25.07,
+   "per_m": 3.04,
+   "popm": 328.2
+  },
+  {
+   "iso": "DEU",
+   "country": "Germany",
+   "n": 433,
+   "pct": 10.88,
+   "per_m": 5.21,
+   "popm": 83.1
+  },
+  {
+   "iso": "AUS",
+   "country": "Australia",
+   "n": 405,
+   "pct": 10.17,
+   "per_m": 15.97,
+   "popm": 25.4
+  },
+  {
+   "iso": "NLD",
+   "country": "Netherlands",
+   "n": 323,
+   "pct": 8.11,
+   "per_m": 18.64,
+   "popm": 17.3
+  },
+  {
+   "iso": "CAN",
+   "country": "Canada",
+   "n": 231,
+   "pct": 5.8,
+   "per_m": 6.15,
+   "popm": 37.6
+  },
+  {
+   "iso": "JPN",
+   "country": "Japan",
+   "n": 137,
+   "pct": 3.44,
+   "per_m": 1.09,
+   "popm": 126.3
+  },
+  {
+   "iso": "FRA",
+   "country": "France",
+   "n": 123,
+   "pct": 3.09,
+   "per_m": 1.83,
+   "popm": 67.1
+  },
+  {
+   "iso": "RUS",
+   "country": "Russia",
+   "n": 97,
+   "pct": 2.44,
+   "per_m": 0.67,
+   "popm": 144.4
+  },
+  {
+   "iso": "FIN",
+   "country": "Finland",
+   "n": 85,
+   "pct": 2.14,
+   "per_m": 15.4,
+   "popm": 5.5
+  },
+  {
+   "iso": "ITA",
+   "country": "Italy",
+   "n": 77,
+   "pct": 1.93,
+   "per_m": 1.28,
+   "popm": 60.3
+  },
+  {
+   "iso": "ESP",
+   "country": "Spain",
+   "n": 74,
+   "pct": 1.86,
+   "per_m": 1.57,
+   "popm": 47.1
+  },
+  {
+   "iso": "GBR",
+   "country": "United Kingdom",
+   "n": 73,
+   "pct": 1.83,
+   "per_m": 1.09,
+   "popm": 66.8
+  },
+  {
+   "iso": "TUR",
+   "country": "Turkey",
+   "n": 65,
+   "pct": 1.63,
+   "per_m": 0.78,
+   "popm": 83.4
+  },
+  {
+   "iso": "GRC",
+   "country": "Greece",
+   "n": 62,
+   "pct": 1.56,
+   "per_m": 5.79,
+   "popm": 10.7
+  },
+  {
+   "iso": "BEL",
+   "country": "Belgium",
+   "n": 61,
+   "pct": 1.53,
+   "per_m": 5.31,
+   "popm": 11.5
+  },
+  {
+   "iso": "NZL",
+   "country": "New Zealand",
+   "n": 60,
+   "pct": 1.51,
+   "per_m": 12.2,
+   "popm": 4.9
+  },
+  {
+   "iso": "UKR",
+   "country": "Ukraine",
+   "n": 45,
+   "pct": 1.13,
+   "per_m": 1.01,
+   "popm": 44.4
+  },
+  {
+   "iso": "BRA",
+   "country": "Brazil",
+   "n": 40,
+   "pct": 1.0,
+   "per_m": 0.19,
+   "popm": 211.0
+  },
+  {
+   "iso": "ISR",
+   "country": "Israel",
+   "n": 39,
+   "pct": 0.98,
+   "per_m": 4.31,
+   "popm": 9.1
+  },
+  {
+   "iso": "CHN",
+   "country": "China",
+   "n": 32,
+   "pct": 0.8,
+   "per_m": 0.02,
+   "popm": 1397.7
+  },
+  {
+   "iso": "CZE",
+   "country": "Czechia",
+   "n": 30,
+   "pct": 0.75,
+   "per_m": 2.81,
+   "popm": 10.7
+  },
+  {
+   "iso": "AUT",
+   "country": "Austria",
+   "n": 25,
+   "pct": 0.63,
+   "per_m": 2.82,
+   "popm": 8.9
+  },
+  {
+   "iso": "POL",
+   "country": "Poland",
+   "n": 24,
+   "pct": 0.6,
+   "per_m": 0.63,
+   "popm": 38.0
+  },
+  {
+   "iso": "HUN",
+   "country": "Hungary",
+   "n": 23,
+   "pct": 0.58,
+   "per_m": 2.35,
+   "popm": 9.8
+  },
+  {
+   "iso": "DNK",
+   "country": "Denmark",
+   "n": 19,
+   "pct": 0.48,
+   "per_m": 3.27,
+   "popm": 5.8
+  },
+  {
+   "iso": "HRV",
+   "country": "Croatia",
+   "n": 18,
+   "pct": 0.45,
+   "per_m": 4.43,
+   "popm": 4.1
+  },
+  {
+   "iso": "SWE",
+   "country": "Sweden",
+   "n": 18,
+   "pct": 0.45,
+   "per_m": 1.75,
+   "popm": 10.3
+  },
+  {
+   "iso": "IDN",
+   "country": "Indonesia",
+   "n": 17,
+   "pct": 0.43,
+   "per_m": 0.06,
+   "popm": 270.6
+  },
+  {
+   "iso": "PSE",
+   "country": "Palestine",
+   "n": 16,
+   "pct": 0.4,
+   "per_m": 3.41,
+   "popm": 4.7
+  },
+  {
+   "iso": "EGY",
+   "country": "Egypt",
+   "n": 16,
+   "pct": 0.4,
+   "per_m": 0.16,
+   "popm": 100.4
+  },
+  {
+   "iso": "IRN",
+   "country": "Iran",
+   "n": 15,
+   "pct": 0.38,
+   "per_m": 0.18,
+   "popm": 82.9
+  },
+  {
+   "iso": "VEN",
+   "country": "Venezuela",
+   "n": 14,
+   "pct": 0.35,
+   "per_m": 0.49,
+   "popm": 28.5
+  },
+  {
+   "iso": "IND",
+   "country": "India",
+   "n": 13,
+   "pct": 0.33,
+   "per_m": 0.01,
+   "popm": 1366.4
+  },
+  {
+   "iso": "LVA",
+   "country": "Latvia",
+   "n": 13,
+   "pct": 0.33,
+   "per_m": 6.8,
+   "popm": 1.9
+  },
+  {
+   "iso": "NIC",
+   "country": "Nicaragua",
+   "n": 13,
+   "pct": 0.33,
+   "per_m": 1.99,
+   "popm": 6.5
+  },
+  {
+   "iso": "PHL",
+   "country": "Philippines",
+   "n": 13,
+   "pct": 0.33,
+   "per_m": 0.12,
+   "popm": 108.1
+  },
+  {
+   "iso": "ZAF",
+   "country": "South Africa",
+   "n": 12,
+   "pct": 0.3,
+   "per_m": 0.2,
+   "popm": 58.6
+  },
+  {
+   "iso": "ROU",
+   "country": "Romania",
+   "n": 12,
+   "pct": 0.3,
+   "per_m": 0.62,
+   "popm": 19.4
+  },
+  {
+   "iso": "BLR",
+   "country": "Belarus",
+   "n": 11,
+   "pct": 0.28,
+   "per_m": 1.16,
+   "popm": 9.5
+  },
+  {
+   "iso": "PAK",
+   "country": "Pakistan",
+   "n": 11,
+   "pct": 0.28,
+   "per_m": 0.05,
+   "popm": 216.6
+  },
+  {
+   "iso": "THA",
+   "country": "Thailand",
+   "n": 11,
+   "pct": 0.28,
+   "per_m": 0.16,
+   "popm": 69.6
+  },
+  {
+   "iso": "BGR",
+   "country": "Bulgaria",
+   "n": 10,
+   "pct": 0.25,
+   "per_m": 1.43,
+   "popm": 7.0
+  },
+  {
+   "iso": "MDA",
+   "country": "Moldova",
+   "n": 10,
+   "pct": 0.25,
+   "per_m": 3.76,
+   "popm": 2.7
+  },
+  {
+   "iso": "CYP",
+   "country": "Cyprus",
+   "n": 9,
+   "pct": 0.23,
+   "per_m": 7.51,
+   "popm": 1.2
+  },
+  {
+   "iso": "TWN",
+   "country": "Taiwan",
+   "n": 9,
+   "pct": 0.23,
+   "per_m": 0.38,
+   "popm": 23.6
+  },
+  {
+   "iso": "ARM",
+   "country": "Armenia",
+   "n": 9,
+   "pct": 0.23,
+   "per_m": 3.04,
+   "popm": 3.0
+  },
+  {
+   "iso": "CHE",
+   "country": "Switzerland",
+   "n": 8,
+   "pct": 0.2,
+   "per_m": 0.93,
+   "popm": 8.6
+  },
+  {
+   "iso": "NOR",
+   "country": "Norway",
+   "n": 8,
+   "pct": 0.2,
+   "per_m": 1.5,
+   "popm": 5.3
+  },
+  {
+   "iso": "ARG",
+   "country": "Argentina",
+   "n": 6,
+   "pct": 0.15,
+   "per_m": 0.13,
+   "popm": 44.9
+  },
+  {
+   "iso": "NPL",
+   "country": "Nepal",
+   "n": 5,
+   "pct": 0.13,
+   "per_m": 0.17,
+   "popm": 28.6
+  },
+  {
+   "iso": "KAZ",
+   "country": "Kazakhstan",
+   "n": 5,
+   "pct": 0.13,
+   "per_m": 0.27,
+   "popm": 18.5
+  },
+  {
+   "iso": "KOR",
+   "country": "South Korea",
+   "n": 4,
+   "pct": 0.1,
+   "per_m": 0.08,
+   "popm": 51.7
+  },
+  {
+   "iso": "LTU",
+   "country": "Lithuania",
+   "n": 4,
+   "pct": 0.1,
+   "per_m": 1.44,
+   "popm": 2.8
+  },
+  {
+   "iso": "IRL",
+   "country": "Ireland",
+   "n": 4,
+   "pct": 0.1,
+   "per_m": 0.81,
+   "popm": 4.9
+  },
+  {
+   "iso": "SUR",
+   "country": "Suriname",
+   "n": 4,
+   "pct": 0.1,
+   "per_m": 6.88,
+   "popm": 0.6
+  },
+  {
+   "iso": "DZA",
+   "country": "Algeria",
+   "n": 4,
+   "pct": 0.1,
+   "per_m": 0.09,
+   "popm": 43.1
+  },
+  {
+   "iso": "NGA",
+   "country": "Nigeria",
+   "n": 4,
+   "pct": 0.1,
+   "per_m": 0.02,
+   "popm": 201.0
+  },
+  {
+   "iso": "URY",
+   "country": "Uruguay",
+   "n": 4,
+   "pct": 0.1,
+   "per_m": 1.16,
+   "popm": 3.5
+  },
+  {
+   "iso": "JAM",
+   "country": "Jamaica",
+   "n": 3,
+   "pct": 0.08,
+   "per_m": 1.02,
+   "popm": 2.9
+  },
+  {
+   "iso": "PRY",
+   "country": "Paraguay",
+   "n": 3,
+   "pct": 0.08,
+   "per_m": 0.43,
+   "popm": 7.0
+  },
+  {
+   "iso": "BLZ",
+   "country": "Belize",
+   "n": 3,
+   "pct": 0.08,
+   "per_m": null,
+   "popm": 0.4
+  },
+  {
+   "iso": "SVK",
+   "country": "Slovakia",
+   "n": 3,
+   "pct": 0.08,
+   "per_m": 0.55,
+   "popm": 5.5
+  },
+  {
+   "iso": "SYR",
+   "country": "Syria",
+   "n": 3,
+   "pct": 0.08,
+   "per_m": 0.18,
+   "popm": 17.1
+  },
+  {
+   "iso": "CHL",
+   "country": "Chile",
+   "n": 3,
+   "pct": 0.08,
+   "per_m": 0.16,
+   "popm": 19.0
+  },
+  {
+   "iso": "TUN",
+   "country": "Tunisia",
+   "n": 3,
+   "pct": 0.08,
+   "per_m": 0.26,
+   "popm": 11.7
+  },
+  {
+   "iso": "GHA",
+   "country": "Ghana",
+   "n": 2,
+   "pct": 0.05,
+   "per_m": 0.07,
+   "popm": 30.4
+  },
+  {
+   "iso": "FRO",
+   "country": "Faroe Islands",
+   "n": 2,
+   "pct": 0.05,
+   "per_m": null,
+   "popm": 0.0
+  },
+  {
+   "iso": "PRT",
+   "country": "Portugal",
+   "n": 2,
+   "pct": 0.05,
+   "per_m": 0.19,
+   "popm": 10.3
+  },
+  {
+   "iso": "GEO",
+   "country": "Georgia",
+   "n": 2,
+   "pct": 0.05,
+   "per_m": 0.54,
+   "popm": 3.7
+  },
+  {
+   "iso": "MWI",
+   "country": "Malawi",
+   "n": 2,
+   "pct": 0.05,
+   "per_m": 0.11,
+   "popm": 18.6
+  },
+  {
+   "iso": "TJK",
+   "country": "Tajikistan",
+   "n": 2,
+   "pct": 0.05,
+   "per_m": 0.21,
+   "popm": 9.3
+  },
+  {
+   "iso": "ATA",
+   "country": "Antarctica",
+   "n": 2,
+   "pct": 0.05,
+   "per_m": null,
+   "popm": 0.0
+  },
+  {
+   "iso": "TTO",
+   "country": "Trinidad and Tobago",
+   "n": 2,
+   "pct": 0.05,
+   "per_m": 1.43,
+   "popm": 1.4
+  },
+  {
+   "iso": "LUX",
+   "country": "Luxembourg",
+   "n": 2,
+   "pct": 0.05,
+   "per_m": 3.23,
+   "popm": 0.6
+  },
+  {
+   "iso": "MAR",
+   "country": "Morocco",
+   "n": 2,
+   "pct": 0.05,
+   "per_m": 0.05,
+   "popm": 36.5
+  },
+  {
+   "iso": "KIR",
+   "country": "Kiribati",
+   "n": 2,
+   "pct": 0.05,
+   "per_m": null,
+   "popm": 0.1
+  },
+  {
+   "iso": "MYS",
+   "country": "Malaysia",
+   "n": 2,
+   "pct": 0.05,
+   "per_m": 0.06,
+   "popm": 31.9
+  },
+  {
+   "iso": "AFG",
+   "country": "Afghanistan",
+   "n": 2,
+   "pct": 0.05,
+   "per_m": 0.05,
+   "popm": 38.0
+  },
+  {
+   "iso": "MKD",
+   "country": "North Macedonia",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.48,
+   "popm": 2.1
+  },
+  {
+   "iso": "VAT",
+   "country": "Vatican City",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": null,
+   "popm": 0.0
+  },
+  {
+   "iso": "SRB",
+   "country": "Serbia",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.14,
+   "popm": 6.9
+  },
+  {
+   "iso": "SDN",
+   "country": "Sudan",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.02,
+   "popm": 42.8
+  },
+  {
+   "iso": "MEX",
+   "country": "Mexico",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.01,
+   "popm": 127.6
+  },
+  {
+   "iso": "PNG",
+   "country": "Papua New Guinea",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.11,
+   "popm": 8.8
+  },
+  {
+   "iso": "GGY",
+   "country": "Guernsey",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": null,
+   "popm": 0.1
+  },
+  {
+   "iso": "CAF",
+   "country": "Central African Republic",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.21,
+   "popm": 4.7
+  },
+  {
+   "iso": "UGA",
+   "country": "Uganda",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.02,
+   "popm": 44.3
+  },
+  {
+   "iso": "ISL",
+   "country": "Iceland",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": null,
+   "popm": 0.4
+  },
+  {
+   "iso": "SVN",
+   "country": "Slovenia",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.48,
+   "popm": 2.1
+  },
+  {
+   "iso": "KOS",
+   "country": "Kosovo",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.56,
+   "popm": 1.8
+  },
+  {
+   "iso": "CPV",
+   "country": "Cape Verde",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 1.82,
+   "popm": 0.5
+  },
+  {
+   "iso": "COD",
+   "country": "DR Congo",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.01,
+   "popm": 86.8
+  },
+  {
+   "iso": "LBN",
+   "country": "Lebanon",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.15,
+   "popm": 6.9
+  },
+  {
+   "iso": "HND",
+   "country": "Honduras",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.1,
+   "popm": 9.7
+  },
+  {
+   "iso": "MNE",
+   "country": "Montenegro",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 1.61,
+   "popm": 0.6
+  },
+  {
+   "iso": "PAN",
+   "country": "Panama",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.24,
+   "popm": 4.2
+  },
+  {
+   "iso": "BGD",
+   "country": "Bangladesh",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.01,
+   "popm": 163.0
+  },
+  {
+   "iso": "MDG",
+   "country": "Madagascar",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.04,
+   "popm": 27.0
+  },
+  {
+   "iso": "SGP",
+   "country": "Singapore",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.18,
+   "popm": 5.7
+  },
+  {
+   "iso": "GUY",
+   "country": "Guyana",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 1.28,
+   "popm": 0.8
+  },
+  {
+   "iso": "SEN",
+   "country": "Senegal",
+   "n": 1,
+   "pct": 0.03,
+   "per_m": 0.06,
+   "popm": 16.3
+  }
+ ],
+ "cov": {
+  "n_countries": 101,
+  "top4": 2159,
+  "usa": 998,
+  "deu": 433,
+  "aus": 405,
+  "nld": 323,
+  "gbr": 73,
+  "chn": 32,
+  "ind": 13,
+  "bra": 40,
+  "mex": 1,
+  "nga": 4,
+  "nld_per_m": 18.64,
+  "ind_per_m": 0.01,
+  "aus_per_m": 15.97,
+  "usa_per_m": 3.04,
+  "africa": 52,
+  "latam": 89,
+  "top4_pct": 54.23,
+  "nld_vs_ind": 1960.0,
+  "ind_per_100m": 1.0,
+  "zero_countries": 71,
+  "countries_1m": 160
+ },
+ "largest": [
+  {
+   "place": "Moscow",
+   "pc": "Russia",
+   "pop": 13274285,
+   "namesake": "Moskva River",
+   "cat": "River",
+   "km": 139.2,
+   "pi": "Q649",
+   "si": "Q175117"
+  },
+  {
+   "place": "Linyi",
+   "pc": "China",
+   "pop": 11018365,
+   "namesake": "Yihe",
+   "cat": "River",
+   "km": 110.5,
+   "pi": "Q373346",
+   "si": "Q5967748"
+  },
+  {
+   "place": "Hefei",
+   "pc": "China",
+   "pop": 9369881,
+   "namesake": "Dongfei River",
+   "cat": "River",
+   "km": 98.4,
+   "pi": "Q185684",
+   "si": "Q10870680"
+  },
+  {
+   "place": "Mexico City",
+   "pc": "Mexico",
+   "pop": 9209944,
+   "namesake": "Tenochtitlan",
+   "cat": "Settlement",
+   "km": 9.0,
+   "pi": "Q1489",
+   "si": "Q13695"
+  },
+  {
+   "place": "London",
+   "pc": "United Kingdom",
+   "pop": 8799728,
+   "namesake": "Londinium",
+   "cat": "Settlement",
+   "km": 2.8,
+   "pi": "Q84",
+   "si": "Q927198"
+  },
+  {
+   "place": "Kabul",
+   "pc": "Afghanistan",
+   "pop": 5333284,
+   "namesake": "Kabul River",
+   "cat": "River",
+   "km": 289.9,
+   "pi": "Q5838",
+   "si": "Q8515"
+  },
+  {
+   "place": "Kolkata",
+   "pc": "India",
+   "pop": 4496694,
+   "namesake": "Kalikata",
+   "cat": "Settlement",
+   "km": 0.4,
+   "pi": "Q1348",
+   "si": "Q6352686"
+  },
+  {
+   "place": "Cape Town",
+   "pc": "South Africa",
+   "pop": 3776313,
+   "namesake": "Cape of Good Hope",
+   "cat": "Other",
+   "km": 48.3,
+   "pi": "Q5465",
+   "si": "Q4092"
+  },
+  {
+   "place": "Brasília",
+   "pc": "Brazil",
+   "pop": 2996899,
+   "namesake": "Brazil",
+   "cat": "Region or country",
+   "km": 584.9,
+   "pi": "Q2844",
+   "si": "Q155"
+  },
+  {
+   "place": "Toronto",
+   "pc": "Canada",
+   "pop": 2794356,
+   "namesake": "Fort Rouillé",
+   "cat": "Other",
+   "km": 5.3,
+   "pi": "Q172",
+   "si": "Q3078009"
+  },
+  {
+   "place": "Brooklyn",
+   "pc": "United States",
+   "pop": 2736074,
+   "namesake": "Breukelen",
+   "cat": "Settlement",
+   "km": 5877.9,
+   "pi": "Q18419",
+   "si": "Q615732"
+  },
+  {
+   "place": "Brisbane",
+   "pc": "Australia",
+   "pop": 2706966,
+   "namesake": "Brisbane River",
+   "cat": "River",
+   "km": 17.1,
+   "pi": "Q34932",
+   "si": "Q905910"
+  },
+  {
+   "place": "Nagpur",
+   "pc": "India",
+   "pop": 2405665,
+   "namesake": "Nag River",
+   "cat": "River",
+   "km": 40.4,
+   "pi": "Q1513",
+   "si": "Q11789002"
+  },
+  {
+   "place": "Perth",
+   "pc": "Australia",
+   "pop": 2141834,
+   "namesake": "Perth",
+   "cat": "Settlement",
+   "km": 14690.1,
+   "pi": "Q3183",
+   "si": "Q203000"
+  },
+  {
+   "place": "Vienna",
+   "pc": "Austria",
+   "pop": 2028289,
+   "namesake": "Wien",
+   "cat": "River",
+   "km": 1.0,
+   "pi": "Q1741",
+   "si": "Q702289"
+  }
+ ],
+ "largest_abroad": [
+  {
+   "place": "Kabul",
+   "pc": "Afghanistan",
+   "pop": 5333284,
+   "namesake": "Kabul River",
+   "sc": "Pakistan",
+   "km": 290,
+   "pi": "Q5838",
+   "si": "Q8515"
+  },
+  {
+   "place": "Brooklyn",
+   "pc": "United States",
+   "pop": 2736074,
+   "namesake": "Breukelen",
+   "sc": "Netherlands",
+   "km": 5878,
+   "pi": "Q18419",
+   "si": "Q615732"
+  },
+  {
+   "place": "Perth",
+   "pc": "Australia",
+   "pop": 2141834,
+   "namesake": "Perth",
+   "sc": "United Kingdom",
+   "km": 14690,
+   "pi": "Q3183",
+   "si": "Q203000"
+  },
+  {
+   "place": "Calgary",
+   "pc": "Canada",
+   "pop": 1306784,
+   "namesake": "Calgary",
+   "sc": "United Kingdom",
+   "km": 6349,
+   "pi": "Q36312",
+   "si": "Q5019595"
+  },
+  {
+   "place": "Edmonton",
+   "pc": "Canada",
+   "pop": 1010899,
+   "namesake": "Edmonton",
+   "sc": "United Kingdom",
+   "km": 6791,
+   "pi": "Q2096",
+   "si": "Q1997321"
+  },
+  {
+   "place": "Odesa",
+   "pc": "Ukraine",
+   "pop": 1010537,
+   "namesake": "Odessos",
+   "sc": "Bulgaria",
+   "km": 426,
+   "pi": "Q1874",
+   "si": "Q11796095"
+  },
+  {
+   "place": "Dnipro",
+   "pc": "Ukraine",
+   "pop": 968502,
+   "namesake": "Dnieper",
+   "sc": "Russia",
+   "km": 828,
+   "pi": "Q48256",
+   "si": "Q40855"
+  },
+  {
+   "place": "Kingston",
+   "pc": "Jamaica",
+   "pop": 937700,
+   "namesake": "Kingston upon Thames",
+   "sc": "United Kingdom",
+   "km": 7526,
+   "pi": "Q34692",
+   "si": "Q2321706"
+  },
+  {
+   "place": "Donetsk",
+   "pc": "Ukraine",
+   "pop": 901645,
+   "namesake": "Donets",
+   "sc": "Russia",
+   "km": 236,
+   "pi": "Q43070",
+   "si": "Q191238"
+  },
+  {
+   "place": "Bangui",
+   "pc": "Central African Republic",
+   "pop": 889231,
+   "namesake": "Ubangi River",
+   "sc": "DR Congo",
+   "km": 430,
+   "pi": "Q3832",
+   "si": "Q171649"
+  },
+  {
+   "place": "Blantyre",
+   "pc": "Malawi",
+   "pop": 800264,
+   "namesake": "Blantyre",
+   "sc": "United Kingdom",
+   "km": 8758,
+   "pi": "Q188693",
+   "si": "Q881708"
+  },
+  {
+   "place": "Boston",
+   "pc": "United States",
+   "pop": 675647,
+   "namesake": "Lincolnshire",
+   "sc": "United Kingdom",
+   "km": 5198,
+   "pi": "Q100",
+   "si": "Q67533486"
+  }
+ ],
+ "founded": {
+  "n": 305,
+  "of": 881,
+  "pct": 34.62,
+  "median": 1856,
+  "q25": 1789,
+  "q75": 1890,
+  "bins": [
+   [
+    1500,
+    1
+   ],
+   [
+    1525,
+    4
+   ],
+   [
+    1550,
+    3
+   ],
+   [
+    1575,
+    1
+   ],
+   [
+    1600,
+    3
+   ],
+   [
+    1625,
+    21
+   ],
+   [
+    1650,
+    10
+   ],
+   [
+    1675,
+    5
+   ],
+   [
+    1700,
+    10
+   ],
+   [
+    1725,
+    6
+   ],
+   [
+    1750,
+    7
+   ],
+   [
+    1775,
+    11
+   ],
+   [
+    1800,
+    17
+   ],
+   [
+    1825,
+    39
+   ],
+   [
+    1850,
+    52
+   ],
+   [
+    1875,
+    51
+   ],
+   [
+    1900,
+    30
+   ],
+   [
+    1925,
+    12
+   ],
+   [
+    1950,
+    7
+   ],
+   [
+    1975,
+    10
+   ],
+   [
+    2000,
+    5
+   ]
+  ],
+  "peak": 1850,
+  "peak_n": 52,
+  "c19_pct": 52.13
+ },
+ "ex": {
+  "boston": {
+   "place": "Boston",
+   "namesake": "Boston",
+   "km": 5222,
+   "pc": "United States",
+   "sc": "United Kingdom",
+   "pop": 675647,
+   "state": "Massachusetts",
+   "pi": "Q100",
+   "si": "Q311975"
+  },
+  "boston_lincs": {
+   "place": "Boston",
+   "namesake": "Lincolnshire",
+   "km": 5198,
+   "pc": "United States",
+   "sc": "United Kingdom",
+   "pop": 675647,
+   "state": "Massachusetts",
+   "pi": "Q100",
+   "si": "Q67533486"
+  },
+  "boston_in": {
+   "place": "Boston",
+   "namesake": "Boston",
+   "km": 1191,
+   "pc": "United States",
+   "sc": "United States",
+   "pop": 150,
+   "state": "Indiana",
+   "pi": "Q867496",
+   "si": "Q100"
+  },
+  "perth": {
+   "place": "Perth",
+   "namesake": "Perth",
+   "km": 14690,
+   "pc": "Australia",
+   "sc": "United Kingdom",
+   "pop": 2141834,
+   "state": "",
+   "pi": "Q3183",
+   "si": "Q203000"
+  },
+  "brooklyn": {
+   "place": "Brooklyn",
+   "namesake": "Breukelen",
+   "km": 5878,
+   "pc": "United States",
+   "sc": "Netherlands",
+   "pop": 2736074,
+   "state": "New York",
+   "pi": "Q18419",
+   "si": "Q615732"
+  },
+  "melbourne_fl": {
+   "place": "Melbourne",
+   "namesake": "Melbourne",
+   "km": 15672,
+   "pc": "United States",
+   "sc": "Australia",
+   "pop": 84678,
+   "state": "Florida",
+   "pi": "Q949779",
+   "si": "Q3141"
+  },
+  "kiri_paris": {
+   "place": "Paris",
+   "namesake": "Paris",
+   "km": 14044,
+   "pc": "Kiribati",
+   "sc": "France",
+   "pop": null,
+   "state": "",
+   "pi": "Q7137165",
+   "si": "Q90"
+  },
+  "kiri_poland": {
+   "place": "Poland",
+   "namesake": "Poland",
+   "km": 14017,
+   "pc": "Kiribati",
+   "sc": "Poland",
+   "pop": null,
+   "state": "",
+   "pi": "Q5763870",
+   "si": "Q36"
+  },
+  "delhi": {
+   "place": "New Delhi",
+   "namesake": "Delhi",
+   "km": 6,
+   "pc": "India",
+   "sc": "India",
+   "pop": 249998,
+   "state": "",
+   "pi": "Q987",
+   "si": "Q1353"
+  },
+  "newam": {
+   "place": "New Amsterdam",
+   "namesake": "Amsterdam",
+   "km": 5863,
+   "pc": "United States",
+   "sc": "Netherlands",
+   "pop": null,
+   "state": "New York",
+   "pi": "Q223308",
+   "si": "Q727"
+  },
+  "london_on": {
+   "place": "London",
+   "namesake": "London",
+   "km": 5877,
+   "pc": "Canada",
+   "sc": "United Kingdom",
+   "pop": 422324,
+   "state": "",
+   "pi": "Q92561",
+   "si": "Q84"
+  },
+  "launceston": {
+   "place": "Launceston",
+   "namesake": "Launceston",
+   "km": 17609,
+   "pc": "Australia",
+   "sc": "United Kingdom",
+   "pop": 80943,
+   "state": "",
+   "pi": "Q339527",
+   "si": "Q287590"
+  },
+  "kitchener": {
+   "place": "Kitchener",
+   "namesake": "Berlin",
+   "km": 6554,
+   "pc": "Canada",
+   "sc": "Germany",
+   "pop": 256885,
+   "state": "",
+   "pi": "Q200166",
+   "si": "Q64"
+  },
+  "mexico": {
+   "place": "Mexico City",
+   "namesake": "Tenochtitlan",
+   "km": 9,
+   "pc": "Mexico",
+   "sc": "Mexico",
+   "pop": 9209944,
+   "state": "",
+   "pi": "Q1489",
+   "si": "Q13695"
+  },
+  "nova_roma": {
+   "place": "Nova Roma",
+   "namesake": "Rome",
+   "km": 1374,
+   "pc": "Turkey",
+   "sc": "Italy",
+   "pop": null,
+   "state": "",
+   "pi": "Q13089982",
+   "si": "Q220"
+  },
+  "palmira": {
+   "place": "Nueva Palmira",
+   "namesake": "Palmyra",
+   "km": 12599,
+   "pc": "Uruguay",
+   "sc": "Syria",
+   "pop": 10775,
+   "state": "",
+   "pi": "Q1023521",
+   "si": "Q5747"
+  },
+  "hamburgo": {
+   "place": "Novo Hamburgo",
+   "namesake": "Hamburg",
+   "km": 10961,
+   "pc": "Brazil",
+   "sc": "Germany",
+   "pop": 235802,
+   "state": "",
+   "pi": "Q321331",
+   "si": "Q1055"
+  },
+  "madrid": {
+   "place": "New Madrid",
+   "namesake": "Madrid",
+   "km": 7170,
+   "pc": "United States",
+   "sc": "Spain",
+   "pop": 2787,
+   "state": "Missouri",
+   "pi": "Q963427",
+   "si": "Q2807"
+  },
+  "calgary": {
+   "place": "Calgary",
+   "namesake": "Calgary",
+   "km": 6349,
+   "pc": "Canada",
+   "sc": "United Kingdom",
+   "pop": 1306784,
+   "state": "",
+   "pi": "Q36312",
+   "si": "Q5019595"
+  },
+  "odesa": {
+   "place": "Odesa",
+   "namesake": "Odessos",
+   "km": 426,
+   "pc": "Ukraine",
+   "sc": "Bulgaria",
+   "pop": 1010537,
+   "state": "",
+   "pi": "Q1874",
+   "si": "Q11796095"
+  },
+  "smyrni": null
+ },
+ "absent": {
+  "New York City": false,
+  "New York": false,
+  "New Orleans": false,
+  "Sydney": false,
+  "York": false
+ },
+ "wiki": {
+  "revid_toponymy": 1363711645,
+  "revid_unusual": 1381840297,
+  "list_missing": true
+ },
+ "meta": {
+  "page": "https://maps.tristanhotham.com/named-after/",
+  "repo": "https://github.com/Tristan-Hotham/named-after",
+  "slug": "named-after",
+  "qlever": "https://qlever.cs.uni-freiburg.de/wikidata"
+ }
+}

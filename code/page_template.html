@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Named After Somewhere Else</title>
+<meta name="description" content="An interactive map of the {{source.n|int}} settlements that Wikidata says are named after another place, with a line from each namesake to the place: what they were named after, how far the names travelled, who gave names to whom, the New Xs, and the Old World towns of the United States.">
+<meta property="og:title" content="Named after somewhere else: {{source.n|int}} places named after other places">
+<meta property="og:description" content="Most place names stay at home: half the namesakes are under {{dist.median|int}} km away. The rest cross an ocean. Britain gave {{giving.0.n|int}} names abroad, {{gbr.four_pct|int}}% of them to the United States, Australia, Canada and New Zealand.">
+<meta property="og:image" content="https://maps.tristanhotham.com/named-after/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/named-after/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<style>
+/* Postmark: pale paper, a letterbox red for Britain's names, deep ink blue. */
+:root{
+  --bg:#F6F4EF; --panel:#EAE7DF; --fg:#1D2128; --muted:#636A72; --rule:#DDD8CC; --card:#FFFEFA; --border:#CBC5B8;
+  --hot:#C8322B; --ink:#1F3A6B; --land:#E4E0D6; --sea:#E8EEF1; --coast:#BDB6A8; --sel:#111111;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#11151B; --panel:#1B2029; --fg:#ECEEF1; --muted:#A2A8B0; --rule:#30353F; --card:#161A21; --border:#444B57;
+  --hot:#FF6A5C; --ink:#9EC1F2; --land:#262B33; --sea:#141B24; --coast:#4A515C; --sel:#FFFFFF; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11151B; --panel:#1B2029; --fg:#ECEEF1; --muted:#A2A8B0; --rule:#30353F; --card:#161A21; --border:#444B57;
+  --hot:#FF6A5C; --ink:#9EC1F2; --land:#262B33; --sea:#141B24; --coast:#4A515C; --sel:#FFFFFF; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:700px;margin:0 auto;padding-block:28px 64px}
+.wrap .bleed{width:min(1180px,calc(100vw - 32px));margin-left:calc((100% - min(1180px,100vw - 32px))/2);margin-right:0}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--ink);color:#fff;padding:5px 8px;font-weight:500}
+:root[data-theme="dark"] .kicker b{color:#11151B}
+header.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:end;border-bottom:6px double var(--fg);padding-bottom:22px;margin-top:18px}
+h1{font:900 clamp(44px,10vw,88px)/.92 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1 .a{color:var(--hot)}
+.mark{width:clamp(78px,16vw,128px);height:auto;display:block;color:var(--fg)}
+.dek{grid-column:1/-1;font-size:21px;line-height:1.42;margin:8px 0 0;max-width:58ch}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:54px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+h3{font:600 20px/1.25 var(--display);margin:28px 0 6px}
+p{margin:0 0 16px}
+.lede::first-letter{font:900 72px/.8 var(--display);float:left;margin:6px 10px 0 0;color:var(--hot)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px}
+.stats div{background:var(--card);padding:14px 12px}
+.stats b{display:block;font:900 clamp(22px,4.4vw,32px)/1 var(--display);letter-spacing:-.01em}
+.stats b.h{color:var(--hot)} .stats b.c{color:var(--ink)}
+.stats span{font:400 12px/1.35 var(--mono);color:var(--muted);display:block;margin-top:6px}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.figure{margin:26px 0 30px}
+.fig-h{font:600 19px/1.25 var(--display);margin:0 0 4px}
+.fig-sub{font:400 13px/1.45 var(--mono);color:var(--muted);margin:0 0 12px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--mono);fill:var(--fg)}
+.lab{font-size:12px}.lab.m{fill:var(--muted)}.lab.b{font-weight:500}.lab.s{font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font:400 12px/1.45 var(--mono);padding:8px 10px;border-radius:3px;max-width:300px;z-index:100001;transform:translate(-50%,calc(-100% - 12px));display:none}
+.tip b{font-weight:500}
+.controls{display:flex;gap:8px;align-items:center;margin:0 0 10px;flex-wrap:wrap}
+.scrollrow{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:2px;max-width:100%}
+.scrollrow .btn{flex:0 0 auto;white-space:nowrap}
+.ctl-l{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px;flex:0 0 auto;align-self:center}
+.btn{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;cursor:pointer;min-height:36px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px;border:1px solid rgba(0,0,0,.2)}
+.btn:focus-visible,input:focus-visible,summary:focus-visible,select:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+.searchbox{position:relative;flex:1 1 260px;min-width:0}
+input[type=search]{font:400 15px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 11px;min-height:40px;width:100%}
+.suggest{position:absolute;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:var(--card);border:1px solid var(--border);z-index:1001;font:400 13px/1.3 var(--mono);display:none;max-height:340px;overflow:auto}
+.suggest li{padding:8px 10px;cursor:pointer;border-bottom:1px solid var(--rule)}
+.suggest li span{color:var(--muted)}
+.suggest li[aria-selected="true"],.suggest li:hover{background:var(--panel)}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:14px;align-items:start}
+@media (max-width:900px){.mapgrid{grid-template-columns:1fr}}
+.side{background:var(--card);border:1px solid var(--border);padding:12px 12px 10px;font:400 13px/1.45 var(--mono);max-height:640px;overflow:auto}
+@media (max-width:900px){.side{max-height:none}}
+.side h4{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+.side h4:first-child{margin-top:2px}
+.side .big{font:800 24px/1.1 var(--display);margin:2px 0 4px}
+.side .sub{color:var(--muted);font-size:12px;margin:0 0 8px}
+.side ol,.side ul{margin:4px 0 8px;padding-left:20px}
+.side li{margin:3px 0}
+.side li small,.side td small{color:var(--muted)}
+.side table{width:100%;border-collapse:collapse;margin:4px 0 6px}
+.side td{padding:4px 4px 4px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.side td.num{text-align:right;white-space:nowrap}
+.back{font:400 12px var(--mono);background:none;border:0;color:var(--muted);padding:0;cursor:pointer;text-decoration:underline;margin-bottom:6px}
+.go{cursor:pointer;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px}
+.lmap{height:600px;border:1px solid var(--border);background:var(--sea);border-radius:2px;position:relative}
+@media (max-width:600px){.lmap{height:min(62vh,460px)}}
+.lmap canvas.fb{position:absolute;inset:0;width:100%;height:100%;cursor:pointer}
+.fbnote{position:absolute;left:8px;bottom:8px;font:400 11px/1.3 var(--mono);color:var(--muted);background:color-mix(in srgb,var(--card) 85%,transparent);padding:4px 6px;border-radius:2px;max-width:calc(100% - 60px)}
+.maplibregl-map{font:400 12px/1.4 var(--mono)}
+.maplibregl-ctrl-group{background:var(--card)!important}
+:root[data-theme="dark"] .maplibregl-ctrl-group button .maplibregl-ctrl-icon{filter:invert(1)}
+.maplibregl-ctrl-attrib{background:color-mix(in srgb,var(--card) 85%,transparent)!important;color:var(--muted);font:400 11px/1.3 var(--mono)!important}
+.maplibregl-ctrl-attrib a{color:var(--fg)!important}
+.maplibregl-popup-content{background:var(--card);color:var(--fg);font:400 12.5px/1.45 var(--mono);padding:11px 13px;border:1px solid var(--border);border-radius:3px;box-shadow:0 3px 12px rgba(0,0,0,.2)}
+.maplibregl-popup-tip{border-top-color:var(--card)!important;border-bottom-color:var(--card)!important}
+.lyr{margin:10px 0 0 10px}
+.lyrBtn{background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;font:600 12px/1 var(--mono);padding:8px 10px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.lyrBtn[aria-expanded="true"]{background:var(--fg);color:var(--bg)}
+.lyrPanel{background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 12px 8px;margin-top:6px;width:250px;box-shadow:0 2px 10px rgba(0,0,0,.15);font:400 12px/1.3 var(--mono);max-height:min(56vh,460px);overflow:auto}
+.lyrPanel[hidden]{display:none}
+.lyrPanel .row{margin:0 0 9px}
+.lyrPanel label{display:flex;gap:6px;align-items:center;cursor:pointer;font-weight:600}
+.lyrPanel .sub{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:11px;margin-top:3px}
+.lyrPanel input[type=range]{width:100%;accent-color:var(--fg)}
+.lyrPanel .hd{font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 0 7px;border-top:1px solid var(--rule);padding-top:9px}
+.lyrPanel .reset{font:400 11px var(--mono);color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+.lyrPanel p.sub{display:block}
+.cityL{font:500 11px/1 var(--mono);color:var(--fg);white-space:nowrap;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg),0 0 2px var(--bg);pointer-events:none}
+.cityL i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--fg);margin-right:4px;vertical-align:1px}
+.cntL{font:600 10.5px/1 var(--mono);color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:.06em;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg);pointer-events:none}
+.ocL{font:italic 400 13px/1 var(--body);color:var(--ink);opacity:.75;white-space:nowrap;letter-spacing:.14em;pointer-events:none}
+.ocL.s{font-size:11.5px;letter-spacing:.05em}
+.mapnote{margin:6px 0 0;font:400 12px/1.35 var(--mono);color:var(--muted);min-height:16px}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font:400 12px/1.3 var(--mono);color:var(--muted);margin-top:8px;align-items:center}
+.legend span{display:inline-flex;align-items:center}
+.legend i{display:inline-block;width:16px;height:3px;margin-right:6px;border-radius:1px}
+.legend i.c{width:11px;height:11px;border-radius:50%;background:none;border:1.5px solid var(--fg)}
+.legend i.d{width:6px;height:6px;border-radius:50%;background:var(--fg)}
+.legend .k{color:var(--fg);font-weight:500;margin-right:-6px}
+.pull{font:600 26px/1.25 var(--display);border-left:6px solid var(--hot);padding:4px 0 4px 18px;margin:30px 0}
+.note{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;font-size:16px;margin:22px 0}
+.note h3{margin-top:0}
+table.tbl{width:100%;border-collapse:collapse;font:400 13px/1.4 var(--mono)}
+table.tbl th{font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 6px 6px 0;border-bottom:2px solid var(--fg)}
+table.tbl td{padding:6px 6px 6px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+table.tbl td.r,table.tbl th.r{text-align:right;white-space:nowrap}
+table.tbl tr[data-i]{cursor:pointer}
+table.tbl tr[data-i]:hover td{background:var(--panel)}
+.tablebox{max-height:460px;overflow:auto;border:1px solid var(--border);background:var(--card);padding:0 10px}
+details{margin:14px 0}
+summary{font:500 13px/1.4 var(--mono);cursor:pointer;color:var(--fg);padding:8px 0}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:var(--ink);border-color:var(--ink);color:#fff}
+:root[data-theme="dark"] .cta a.p{color:#11151B}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{position:fixed;right:12px;bottom:12px;z-index:1002}
+@media print{.theme,.controls{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>Place names</span><span>World, Wikidata {{source.fetched|raw}}</span></div>
+<header class="hero">
+  <h1>Named after <span class="a">somewhere</span> else</h1>
+  <svg class="mark" viewBox="0 0 120 120" aria-hidden="true"><g id="heroMark"></g></svg>
+  <p class="dek">{{source.n|int}} settlements that Wikidata says are named after another place, from Boston in Massachusetts to New Delhi and a Paris on a Pacific atoll, each joined by a line to the place that lent it a name. What they were named after, how far the names travelled, and who gave names to whom.</p>
+</header>
+<div class="byline">Dr Tristan Hotham · Independent researcher · 2026 · Data: Wikidata (CC0), via QLever; Natural Earth</div>
+
+<div class="stats">
+  <div><b class="c">{{source.n|int}}</b><span>links from a settlement to the place it is named after, in {{source.countries_p|int}} countries</span></div>
+  <div><b>{{dist.median|f1}} km</b><span>the median distance: most names come from a river, a hill or a town next door</span></div>
+  <div><b class="h">{{ocean.pct|int}}%</b><span>crossed an ocean; {{border.pct|int}}% crossed a border</span></div>
+  <div><b class="h">{{giving.0.n|int}}</b><span>names that left the United Kingdom, more than any other country</span></div>
+</div>
+
+<p class="lede">Some place names are borrowed. Settlers, soldiers, refugees and town planners carried the names of home with them, so that Boston in Lincolnshire has a far bigger namesake in Massachusetts, and Perth in Scotland a far bigger one in Western Australia. Many more borrowings are quieter: a village named after the river it stands on, or a new suburb named after the old one up the road.</p>
+<p>Wikidata, the open database behind Wikipedia, records some of this in a property called "named after". I took every settlement that it says is named after another geographical place, {{source.links_raw|int}} links before cleaning, dropped the census areas, camps, stations and other entries that are not settlements in the ordinary sense, and kept {{source.n|int}} links from {{source.places|int}} places to {{source.namesakes|int}} namesakes. Each line on the map runs from the namesake to the place named after it. Click a line, a place or a namesake to see its whole family.</p>
+
+<h2><span class="n">01 · The map</span>Where the names came from</h2>
+<div class="bleed" id="atlas">
+<div class="controls">
+  <div class="scrollrow" id="showRow"><span class="ctl-l">Show</span><button class="btn" data-m="all" aria-pressed="true">Every link</button><button class="btn" data-m="border" aria-pressed="false">Crossing a border</button><button class="btn" data-m="ocean" aria-pressed="false">Crossing an ocean</button></div>
+</div>
+<div class="controls"><div class="scrollrow" id="catRow"><span class="ctl-l">Named after a</span></div></div>
+<div class="controls"><div class="scrollrow" id="groupRow"><span class="ctl-l">Name from</span></div></div>
+<div class="controls"><div class="scrollrow" id="tryRow"><span class="ctl-l">Try</span></div></div>
+<div class="controls">
+  <div class="searchbox"><input type="search" id="q" placeholder="Search a place or a namesake (Boston, Perth, Amsterdam, Athens...)" aria-label="Search places and namesakes" autocomplete="off"><ul class="suggest" id="sug" role="listbox"></ul></div>
+</div>
+<div class="mapgrid">
+  <div><div id="map" class="lmap" data-fullscreen-map role="application" aria-label="World map of lines from each namesake to the place named after it"></div>
+    <div class="legend" id="legend"></div><div class="mapnote" id="mapnote"></div></div>
+  <div class="side" id="side" aria-live="polite"></div>
+</div>
+<p class="src">Lines: great circles from the namesake to the place, coloured by where the namesake is. Rings: namesakes, sized by how many places are named after them. Dots: the places. Rivers, regions and mountain ranges are drawn at the single point Wikidata gives for them, so their lines are approximate. Source: Wikidata "named after" (P138), CC0, queried with QLever in {{source.fetched|raw}}. Outlines: Natural Earth.</p>
+</div>
+
+<h2><span class="n">02 · Named after what?</span>Rivers, hills and the town next door</h2>
+<p>Only {{cats.Settlement.pct|int}}% of the links ({{cats.Settlement.n|int}}) are to another settlement. The rest are to the landscape: {{cats.River.n|int}} to rivers and streams, {{cats.Mountain or hill.n|int}} to mountains and hills, {{lakes|int}} to lakes and seas, {{cats.Region or country.n|int}} to regions and countries, and the rest to bays, islands, castles, forts, stations, streets and parks. Counting rivers, mountains, lakes, coasts, forests and valleys together, {{natural_pct|int}}% of the names come from nature.</p>
+<div class="figure"><p class="fig-h">What places are named after, and how far away it is</p><p class="fig-sub">Links by the kind of namesake (bars) and the median distance from namesake to place (right). Hover a bar.</p><div class="chart" id="catChart"></div></div>
+<p>The kind of namesake decides the distance. A place named after a mountain or a hill is a median {{cats.Mountain or hill.km_med|f1}} km from it, and after a river {{cats.River.km_med|f1}} km (measured to Wikidata's single point for the river). A place named after another settlement is a median {{cats.Settlement.km_med|int}} km away, and one named after a region or a country {{cats.Region or country.km_med|int}} km.</p>
+
+<h2><span class="n">03 · How far</span>Next door, or the other side of the world</h2>
+<p>Half of all the namesakes are less than {{dist.median|f1}} km from the place named after them, and {{dist.under10_pct|int}}% are within 10 km. But the distances are not spread evenly. They have two humps: one of neighbours, a few kilometres apart, and one of migrants, {{dist.over1000|int}} links ({{dist.over1000_pct|int}}%) more than 1,000 km long and {{dist.over5000|int}} more than 5,000 km. In between, the counts dip. A name mostly either stayed at home or crossed an ocean.</p>
+<div class="figure"><p class="fig-h">How far the names travelled</p><p class="fig-sub">Links by distance from namesake to place, on a stretched scale (each bar covers about three times the distance of the one before), coloured by the kind of namesake. Hover a bar.</p><div class="chart" id="distChart"></div></div>
+<p>{{ocean.n|int}} links ({{ocean.pct|f1}}%) join two different landmasses: the Americas, Africa with Europe and Asia, Australia and its neighbours, and the remote ocean islands. {{ocean.settle_pct|int}}% of those are to another settlement, and their median length is {{ocean.km_med|int}} km. The longest are the British names of New Zealand: {{longest_nzl|int}} of the 15 longest links end there, and the longest of all runs {{longest.0.km|int}} km from {{longest.0.namesake|raw}} in the {{longest.0.sc|raw}} to {{longest.0.place|raw}} in {{longest.0.pc|raw}}, almost to the far side of the Earth.</p>
+<div class="figure"><p class="fig-h">The longest journeys</p><p class="fig-sub">The 15 longest links, great-circle distance from namesake to place. Click a row to see it on the map.</p><div class="tablebox"><table class="tbl" id="longTable"></table></div></div>
+
+<h2><span class="n">04 · The most borrowed names</span>Prague, Amsterdam and Moscow</h2>
+<p>Most namesakes lend their name only once: {{one_daughter_pct|int}}% have a single place named after them in Wikidata. The most borrowed is Prague, with {{top.0.n|int}} places, but {{prague.cz|int}} of them are in Czechia, most of them the suburbs of Czech towns called Pražské Předměstí, "Prague suburb", on the side of town that faces the capital. Amsterdam ({{top.1.n|int}}) is the most borrowed abroad, from New Amsterdam on Manhattan to Nieuw Amsterdam in Suriname and New Amsterdam in Guyana. Moscow's {{top.3.n|int}} are mostly city districts in Russia and Belarus called "Moskovsky", with two Dutch hamlets, Moskou and Nieuw Moscou.</p>
+<div class="figure"><p class="fig-h">The namesakes with the most places named after them</p><p class="fig-sub">Distinct places named after each namesake, the top 15, coloured by the kind of namesake; the darker part of each bar is in another country. Click a bar to see the family on the map.</p><div class="chart" id="topChart"></div></div>
+<p>The familiar list of Old World names abroad comes next: Berlin, Paris, Bristol, Windsor, Athens and Bethlehem, each with four to six places in Wikidata, almost all of them abroad. Some of the most borrowed are not towns at all: "Europe" has {{top.4.n|int}}, European quarters and districts from Brussels and Strasbourg to Luxembourg and Lille, and Anatolia has {{top.2.n|int}}.</p>
+
+<h2><span class="n">05 · Who named whom</span>Britain to the world</h2>
+<p>{{border.n|int}} links ({{border.pct|int}}%) cross a national border. The United Kingdom gave {{giving.0.n|int}} of them, {{giving.0.pct|int}}% of all names that went abroad, far ahead of Germany ({{giving.1.n|int}}), the Netherlands ({{giving.2.n|int}}) and France ({{giving.3.n|int}}). {{gbr.four_pct|int}}% of Britain's went to four countries: {{gbr.usa|int}} to the United States, {{gbr.aus|int}} to Australia, {{gbr.can|int}} to Canada and {{gbr.nzl|int}} to New Zealand. The United States received the most ({{receiving.0.n|int}}), then Australia ({{receiving.1.n|int}}) and Canada ({{receiving.2.n|int}}).</p>
+<div class="figure"><p class="fig-h">The countries that gave and received most names</p><p class="fig-sub">Links that cross a border: by the namesake's country (left) and by the place's country (right). Hover a bar.</p><div class="chart" id="giveChart"></div></div>
+<div class="figure"><p class="fig-h">Flows between regions</p><p class="fig-sub">Each ribbon is the names that left one region (its colour) for a place in another country, in the same region or elsewhere. The width of a region's arc is the names it gave plus the names it received. Hover a ribbon.</p><div class="chart" id="chordChart"></div></div>
+<p>Other flows are smaller but tell their own stories. The Netherlands gave {{dutch.n|int}} names abroad, {{dutch.usa|int}} of them to the United States, the relics of New Netherland: Brooklyn after Breukelen, New Amsterdam, New Utrecht. Turkey gave Greece {{greece.tur_grc|int}}: Nea Smyrni, Nea Vyssa and other towns settled by Greek refugees from Turkey in the 1920s and named after the homes they had left. Names also went the other way, though rarely: {{reverse.n|int}} places outside the Americas are named after somewhere in the Americas, among them the Amerikamura district of Osaka and Sherbrooke, in the hills east of Melbourne, named after Sherbrooke in Quebec. And Melbourne itself lent its name to a Melbourne in Florida, {{ex.melbourne_fl.km|int}} km away.</p>
+<div class="note"><h3>Where is Spain?</h3><p>The great Spanish naming of the Americas is almost missing. Spain and Portugal gave only {{iberia.n|int}} names abroad in this file, {{iberia.latam|int}} of them to Latin America and {{iberia.phl|int}} to the Philippines, and Latin American places make up just {{iberia.latam_places_pct|f1}}% of all links. Cities such as Córdoba in Argentina or Guadalajara in Mexico are clearly named after places in Spain, but Wikidata does not yet say so. This is a gap in the data, not in history.</p></div>
+
+<h2><span class="n">06 · New X</span>New Delhi, New Amsterdam, Novo Hamburgo</h2>
+<p>{{new.n|int}} places are a "New" something named after the old one: New, Nieuw, Neu, Nova, Novo, Nueva and the rest. More than half of them ({{new.under30|int}}, {{new.under30_pct|int}}%) are within 30 km of the original: Neu-Ulm across the Danube from Ulm, New Delhi {{new.delhi_km|f1}} km from old Delhi, Dutch villages called Nieuw-Something, mostly in Groningen and Drenthe, a few kilometres from the old one, and {{new.egypt|int}} new desert cities in Egypt, from New Cairo to New Aswan, built beside the cities they are named after. {{new.ocean|int}} crossed an ocean: New Amsterdam, New Madrid, New Bremen and New Glarus in the United States, Novo Hamburgo and Nova Friburgo in Brazil, Nueva Palmira in Uruguay, named after Palmyra in Syria.</p>
+<div class="figure"><p class="fig-h">Every New X, farthest first</p><p class="fig-sub">Places whose name is a word for new plus the name of their namesake. Click a row to see it on the map.</p><div class="tablebox"><table class="tbl" id="newTable"></table></div></div>
+
+<h2><span class="n">07 · The Old World in America</span>Athens, Rome and Belgium Township</h2>
+<p>The United States has {{us.n|int}} links, a quarter of the whole file. {{us.abroad|int}} are to places abroad and {{us.old|int}} to places outside the Americas, in {{us.states_with|int}} states. Britain supplied {{us.gbr|int}}, then Germany ({{us.deu|int}}) and the Netherlands ({{us.nld|int}}). There are classical names ({{us.classical|int}} links, after Athens, Rome, Sparta, Ithaca, Syracuse, Antioch, Smyrna, Palmyra and Memphis) and names from the Holy Land and its neighbours ({{us.biblical|int}}, after Bethlehem, Hebron, Lebanon, Moab, Mount Carmel and others).</p>
+<div class="figure"><p class="fig-h">US places named after places outside the Americas, by state</p><p class="fig-sub">The top 20 states; the darker part of each bar is townships. Hover a bar to list the places.</p><div class="chart" id="usChart"></div></div>
+<p>Minnesota leads with {{us_top_state.n|int}}, but this is mostly a story about Wikidata. {{us.mn_townships|int}} of Minnesota's {{us.mn|int}} links are townships, whose name origins someone has entered in bulk: Belgium Township, Russia Township, Malmo Township, Christiania Township (after the old name of Oslo). Other states will have as many, unrecorded.</p>
+
+<h2><span class="n">08 · What the data leave out</span>A map of who fills in Wikidata</h2>
+<p>This is not a census of borrowed names. It is a map of where Wikidata's editors have filled in "named after" for settlements, and that is very uneven. Four countries, the United States ({{cov.usa|int}}), Germany ({{cov.deu|int}}), Australia ({{cov.aus|int}}) and the Netherlands ({{cov.nld|int}}), hold {{cov.top4_pct|int}}% of all links. The United Kingdom, the source of more names abroad than anywhere, has only {{cov.gbr|int}} of its own. China has {{cov.chn|int}}, India {{cov.ind|int}}, Brazil {{cov.bra|int}} and Mexico {{cov.mex|int}}. Per person, the Netherlands has about 2,000 times as many as India. {{cov.zero_countries|int}} of the {{cov.countries_1m|int}} countries with a million people or more have none at all.</p>
+<div class="figure"><p class="fig-h">Links by the place's country</p><p class="fig-sub">The 20 countries with the most links (bars) and links per million people (right). Hover a bar.</p><div class="chart" id="covChart"></div></div>
+<p>So the patterns here are real, but their sizes are not. Britain's lead as a giver of names rests on the United States and Australia, two of the best covered countries, so it is probably real. But the absence of Spanish names in Latin America, of colonial names in Africa and Asia, or of English villages named after their rivers, is an absence of data. The map will fill in as Wikidata does.</p>
+<div class="figure"><p class="fig-h">When the far-named places were founded</p><p class="fig-sub">Places named after somewhere in another country, by the founding year Wikidata gives (its "inception"), in 25-year bins from 1500. Only {{founded.n|int}} of the {{founded.of|int}} have one.</p><div class="chart" id="foundChart"></div></div>
+<p>Where Wikidata gives a founding date, the names that crossed a border mostly belong to the century of mass emigration from Europe: the median founding year is {{founded.median|raw}}, and {{founded.c19_pct|int}}% were founded in the 1800s.</p>
+
+<h2><span class="n">09 · How I did this</span>Methods and caveats</h2>
+<p><b>Data.</b> A Wikidata query, run on the QLever endpoint in {{source.fetched|raw}}: every item that is a human settlement (Q486972, or any subclass) with a "named after" (P138) value that is a geographic location (Q2221906, or any subclass), both with coordinates, with English labels, countries, and the place's population and inception where Wikidata has them. The query returned {{source.rows|int}} rows, because every combination of several classes, countries or coordinates repeats a row; collapsed, these are {{source.links_raw|int}} links between {{source.places_raw|int}} places and {{source.namesakes_raw|int}} namesakes. A place keeps its first coordinates, its largest population and its earliest inception.</p>
+<p><b>What is a settlement.</b> Wikidata's class of human settlements is broad. I dropped {{source.excluded_links|int}} links ({{source.excl_pct|int}}%): above all {{source.excluded_stat_links|int}} from US census "urban areas" and other statistical areas, which Wikidata names after their main town and would count it twice; megalopolises and conurbations; regions and counties; concentration, prison and internment camps; stations, bases and ranger posts; parks and ski resorts; links from a place to itself; and administrative twins, a place with the same name as a settlement or region namesake less than 30 km away, such as a municipality named after the town it contains. Cities, towns, villages, hamlets, townships, suburbs, neighbourhoods and city districts are kept. The full list, with counts and examples, is in the data.</p>
+<p><b>What the namesake is.</b> From the namesake's Wikidata classes ("instance of"), which come without labels in the query: I read the {{source.classes_raw|int}} classes from the namesakes that carry them and listed the common ones as settlement, river, region or country, or mountain or hill; anything else is "other" (lakes, coasts, buildings, streets, parks). {{source.cat_class_pct|int}}% of namesakes were sorted by a listed class; the rest by a word in the name (River, Mount, County) or counted as other. A namesake with a settlement class counts as a settlement even if it is also, say, an island.</p>
+<p><b>Distance, borders and oceans.</b> Great-circle distance between the two sets of Wikidata coordinates. For a river, a region or a mountain range Wikidata gives one point, which may be a mouth, a source or a centre, so those distances are rough. A link crosses a border when the namesake's country differs from the place's, using Wikidata's own country matched to Natural Earth (by position where Wikidata gives a historical state or none). It crosses an ocean when the two are on different landmasses: the Americas; Africa, Europe and Asia; Australia and its neighbours; Antarctica; and the remote ocean islands, with offshore islands such as Britain, Japan or New Zealand joined to the nearest mainland within 2,500 km. A "New X" is a place whose English name is a word for new followed by a name that closely matches its namesake's.</p>
+<p><b>Caveats.</b> Coverage is very uneven (section 08), and many famous borrowed names are missing: New York City, New Orleans and Sydney are not in the file, because Wikidata does not record them as named after a place with coordinates (a city named after a person, such as a duke or a governor, is outside this study). Links follow Wikidata's statements, which are mostly unsourced. English labels are Wikidata's.</p>
+<details><summary>Sources and licences</summary>
+<ul>
+<li>Wikidata contributors, Wikidata (items, "named after" P138, "instance of" P31, "coordinate location" P625, "country" P17, "population" P1082, "inception" P571). CC0. Queried with QLever ({{meta.qlever|raw}}) in {{source.fetched|raw}}.</li>
+<li>Wikipedia, "Toponymy" and "Place names considered unusual" (CC BY-SA 4.0), read for context only.</li>
+<li>Natural Earth country outlines, land and populated places (public domain).</li>
+</ul></details>
+
+<div class="cta"><a class="p" href="https://doi.org/10.5281/zenodo.23878606">Read the paper</a><a href="https://github.com/Tristan-Hotham/named-after">Data and code</a><a href="https://blog.tristanhotham.com/2026/10/31/named-after/">Blog post</a></div>
+
+<footer>
+<p>Dr Tristan Hotham, Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+<p>Cite as: Hotham, T. (2026) Named after somewhere else: places named after other places in Wikidata. Zenodo. <a href="https://doi.org/10.5281/zenodo.23878606">https://doi.org/10.5281/zenodo.23878606</a></p>
+<p>Data: Wikidata (CC0). Licence: derived data and text CC BY 4.0, code MIT.</p>
+<p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+</footer>
+</div>
+
+<div class="tip" id="tip"></div>
+<button class="btn theme" id="theme" aria-label="Toggle dark mode">◐</button>
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+const R = /*RESULTS*/;
+const SITE = /*SITE*/;
+const WORLD = /*WORLD*/;
+const OCN = /*OCEANS*/;
+const CITIES = /*CITIES*/;
+const fmt = n => n == null || n === "" ? "n/a" : Math.round(n).toLocaleString("en-GB");
+const kmf = k => k < 10 ? (+k).toLocaleString("en-GB", { maximumFractionDigits: 1 }) + " km" : fmt(k) + " km";
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tip = document.getElementById("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+document.addEventListener("click", e => { if (!e.target.closest || !e.target.closest(".chart")) hideTip(); });
+const NS = "http://www.w3.org/2000/svg";
+const el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+const redraws = [];
+function resp(box, render) { let last = 0; const go = force => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); go(); redraws.push(() => go(true)); }
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const small = () => innerWidth < 900;
+
+/* ---------- data ---------- */
+const GROUPS = SITE.groups, GNAME = GROUPS.map(g => g[0]);
+const GCOL = k => isDark() && GROUPS[k][1] === "#3B3B3B" ? "#C9CED6" : GROUPS[k][1];
+const CATS = SITE.cats, CNAME = CATS.map(c => c[0]), CCOL = k => isDark() && k === 4 ? "#B0A99C" : CATS[k][1];
+const CN = i => SITE.cname[i] || (i ? i : "no country");
+const PL = SITE.places.map((r, i) => ({ i, name: r[0], lon: r[1], lat: r[2], iso: r[3], state: r[4], pop: r[5], q: r[6], links: [] }));
+const NM = SITE.names.map((r, i) => ({ i, name: r[0], lon: r[1], lat: r[2], iso: r[3], c: r[4], g: r[5], q: r[6], links: [] }));
+const LK = SITE.links.map((r, i) => { const o = { i, p: r[0], s: r[1], km: r[2], b: r[3], o: r[4] }; PL[o.p].links.push(i); NM[o.s].links.push(i); return o; });
+LK.forEach(l => { l.c = NM[l.s].c; l.g = NM[l.s].g; });
+NM.forEach(n => n.k = n.links.length);
+const QP = Object.fromEntries(PL.map(p => [p.q, p.i])), QN = Object.fromEntries(NM.map(n => [n.q, n.i]));
+
+const placeLabel = p => p.name + (p.state ? ", " + p.state : "") + " (" + CN(p.iso) + ")";
+
+/* hero mark: a signpost with two arms */
+(function () {
+  const g = document.getElementById("heroMark");
+  el("path", { d: "M58 18 L58 112", stroke: "currentColor", "stroke-width": 6, "stroke-linecap": "round" }, g);
+  el("path", { d: "M20 28 L84 28 L98 40 L84 52 L20 52 Z", fill: "#C8322B" }, g);
+  el("path", { d: "M100 62 L36 62 L22 74 L36 86 L100 86 Z", fill: "#1F3A6B" }, g);
+  el("path", { d: "M30 112 L86 112", stroke: "currentColor", "stroke-width": 5, "stroke-linecap": "round" }, g);
+})();
+
+/* ---------- state ---------- */
+const LYDEF = { borders: true, cnames: true, onames: true, cities: false, arcs: true, places: true, names: true, width: 1, colour: "group" };
+const LY = { ...LYDEF };
+try { Object.assign(LY, JSON.parse(localStorage.getItem("na_layers") || "{}")); } catch (e) {}
+const saveLY = () => { try { localStorage.setItem("na_layers", JSON.stringify(LY)); } catch (e) {} };
+const S = { mode: "all", cs: new Set(CNAME.map((c, i) => i)), gs: new Set(GNAME.map((g, i) => i)), sel: null };
+const linkOn = l => S.cs.has(l.c) && S.gs.has(l.g) && (S.mode === "all" || (S.mode === "border" ? l.b : l.o));
+function famLinks() {   // links in the selected family
+  if (!S.sel) return new Set();
+  if (S.sel.t === "n") return new Set(NM[S.sel.i].links);
+  const out = new Set(); PL[S.sel.i].links.forEach(j => NM[LK[j].s].links.forEach(k => out.add(k)));
+  const self = QN[PL[S.sel.i].q]; if (self != null) NM[self].links.forEach(k => out.add(k)); return out;
+}
+
+/* ---------- geometry ---------- */
+function gc(a, b) {   // great circle from a to b, longitudes continuous from a
+  const r = Math.PI / 180, [l1, p1] = [a[0] * r, a[1] * r], [l2, p2] = [b[0] * r, b[1] * r];
+  const A = [Math.cos(p1) * Math.cos(l1), Math.cos(p1) * Math.sin(l1), Math.sin(p1)], B = [Math.cos(p2) * Math.cos(l2), Math.cos(p2) * Math.sin(l2), Math.sin(p2)];
+  const om = Math.acos(Math.max(-1, Math.min(1, A[0] * B[0] + A[1] * B[1] + A[2] * B[2])));
+  if (om < 1e-4) return [a, b];
+  const n = Math.max(2, Math.min(64, Math.round(om * 6371 / 180) + 2)), out = []; let prev = null;
+  for (let k = 0; k < n; k++) { const t = k / (n - 1), s1 = Math.sin((1 - t) * om) / Math.sin(om), s2 = Math.sin(t * om) / Math.sin(om);
+    const v = [s1 * A[0] + s2 * B[0], s1 * A[1] + s2 * B[1], s1 * A[2] + s2 * B[2]];
+    let lon = Math.atan2(v[1], v[0]) / r; const lat = Math.asin(Math.max(-1, Math.min(1, v[2]))) / r;
+    if (prev != null) { while (lon - prev > 180) lon -= 360; while (lon - prev < -180) lon += 360; } prev = lon; out.push([lon, lat]); }
+  return out;
+}
+function splitAM(cs) {   // cut a continuous line where it crosses the antimeridian, each part back in -180..180
+  const parts = []; let cur = []; const k = x => Math.floor((x + 180) / 360);
+  for (let j = 0; j < cs.length; j++) {
+    const [x, y] = cs[j];
+    if (j && k(x) !== k(cs[j - 1][0])) { const [x0, y0] = cs[j - 1], edge = 360 * Math.max(k(x), k(x0)) - 180, t = (edge - x0) / (x - x0), ym = y0 + t * (y - y0);
+      const s0 = 360 * k(x0); cur.push([edge - s0 + (x > x0 ? -1e-6 : 1e-6), ym]); parts.push(cur); const s1 = 360 * k(x); cur = [[edge - s1 + (x > x0 ? 1e-6 : -1e-6), ym]]; }
+    cur.push([x - 360 * k(x), y]);
+  }
+  parts.push(cur); return parts;
+}
+LK.forEach(l => { const n = NM[l.s], p = PL[l.p]; l.cs = gc([n.lon, n.lat], [p.lon, p.lat]); });
+
+/* ---------- map ---------- */
+let map = null, mapOK = false, FB = null;
+const HOME = () => small() ? { center: [-20, 25], zoom: 0 } : { center: [-10, 22], zoom: .85 };
+const colExpr = () => LY.colour === "group" ? ["match", ["get", "g"], ...GROUPS.flatMap((g, k) => [k, GCOL(k)]), "#999"] : ["match", ["get", "c"], ...CATS.flatMap((c, k) => [k, CCOL(k)]), "#999"];
+const arcGeo = () => ({ type: "FeatureCollection", features: LK.map(l => ({ type: "Feature", id: l.i, properties: { i: l.i, c: l.c, g: l.g, b: l.b, o: l.o, s: l.s, p: l.p, km: l.km }, geometry: { type: "MultiLineString", coordinates: splitAM(l.cs) } })) });
+function ptGeo(kind) {
+  const on = new Set(); LK.forEach(l => { if (linkOn(l)) on.add(kind === "p" ? l.p : l.s); });
+  const A = kind === "p" ? PL : NM;
+  return { type: "FeatureCollection", features: [...on].map(i => { const o = A[i]; return { type: "Feature", properties: { i, g: kind === "n" ? o.g : 0, c: kind === "n" ? o.c : 0, k: kind === "n" ? o.k : 0 }, geometry: { type: "Point", coordinates: [o.lon, o.lat] } }; }) };
+}
+function arcFilter() {
+  const f = ["all", ["in", ["get", "c"], ["literal", [...S.cs]]], ["in", ["get", "g"], ["literal", [...S.gs]]]];
+  if (S.mode === "border") f.push(["==", ["get", "b"], 1]); if (S.mode === "ocean") f.push(["==", ["get", "o"], 1]);
+  return f;
+}
+function initMap() {
+  const box = document.getElementById("map");
+  if (!window.maplibregl) return fallback("The interactive map library (MapLibre, from cdn.jsdelivr.net) could not load, so this is a simpler drawing of the same lines. Click a line end to see its family.");
+  try {
+    map = new maplibregl.Map({ container: "map", ...HOME(), minZoom: 0, maxZoom: 11, attributionControl: false, dragRotate: false, pitchWithRotate: false, renderWorldCopies: true,
+      style: { version: 8, sources: {}, layers: [{ id: "bg", type: "background", paint: { "background-color": css("--sea") } }] } });
+  } catch (e) { map = null; return fallback("This browser could not start the interactive map (it needs WebGL), so this is a simpler drawing of the same lines."); }
+  map.touchZoomRotate.disableRotation();
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
+  map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: "Data: Wikidata (CC0) · Natural Earth" }), "bottom-left");
+  map.on("error", () => {});
+  map.on("load", () => {
+    mapOK = true;
+    const at = document.querySelector(".maplibregl-ctrl-attrib.maplibregl-compact"); if (at) { at.classList.remove("maplibregl-compact-show"); at.removeAttribute("open"); }
+    map.addSource("world", { type: "geojson", data: WORLD });
+    map.addSource("arcs", { type: "geojson", data: arcGeo() });
+    map.addSource("pl", { type: "geojson", data: ptGeo("p") });
+    map.addSource("nm", { type: "geojson", data: ptGeo("n") });
+    map.addSource("selp", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
+    map.addLayer({ id: "land", type: "fill", source: "world", paint: { "fill-color": css("--land") } });
+    map.addLayer({ id: "borders", type: "line", source: "world", paint: { "line-color": css("--coast"), "line-width": ["interpolate", ["linear"], ["zoom"], 0, .3, 5, .9] } });
+    map.addLayer({ id: "arcs", type: "line", source: "arcs", layout: { "line-cap": "round" }, paint: { "line-color": colExpr(), "line-width": ["interpolate", ["linear"], ["zoom"], 0, .55 * LY.width, 4, 1.1 * LY.width, 8, 2 * LY.width], "line-opacity": .5 } });
+    map.addLayer({ id: "arcsel", type: "line", source: "arcs", filter: ["==", ["get", "i"], -1], layout: { "line-cap": "round" }, paint: { "line-color": colExpr(), "line-width": ["interpolate", ["linear"], ["zoom"], 0, 1.8, 6, 3.2], "line-opacity": 1 } });
+    map.addLayer({ id: "pl", type: "circle", source: "pl", paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 0, 1.4, 4, 2.4, 8, 4], "circle-color": css("--fg"), "circle-opacity": .7 } });
+    map.addLayer({ id: "nm", type: "circle", source: "nm", layout: { "circle-sort-key": ["-", 0, ["get", "k"]] }, paint: { "circle-radius": ["interpolate", ["linear"], ["zoom"], 0, ["+", 1.8, ["*", 1.1, ["sqrt", ["get", "k"]]]], 6, ["+", 3.5, ["*", 2, ["sqrt", ["get", "k"]]]]],
+      "circle-color": "rgba(0,0,0,0)", "circle-stroke-color": colExpr(), "circle-stroke-width": 1.3 } });
+    map.addLayer({ id: "selp", type: "circle", source: "selp", paint: { "circle-radius": ["case", ["==", ["get", "t"], "n"], 7, 4.5], "circle-color": ["case", ["==", ["get", "t"], "n"], "rgba(0,0,0,0)", css("--sel")], "circle-stroke-color": css("--sel"), "circle-stroke-width": 2.2 } });
+    applyLayers(); filters(); placeNames();
+    const hitLayers = () => ["selp", "nm", "pl", "arcsel", "arcs"].filter(l => map.getLayer(l) && map.getLayoutProperty(l, "visibility") !== "none");
+    map.on("mousemove", e => {
+      const f = map.queryRenderedFeatures([[e.point.x - 3, e.point.y - 3], [e.point.x + 3, e.point.y + 3]], { layers: hitLayers() })[0];
+      map.getCanvas().style.cursor = f ? "pointer" : ""; if (!f) return hideTip();
+      const r = map.getContainer().getBoundingClientRect(); showTip(hoverHtml(f), r.left + e.point.x, r.top + e.point.y);
+    });
+    map.on("mouseout", hideTip);
+    map.on("click", e => {
+      const f = map.queryRenderedFeatures([[e.point.x - 4, e.point.y - 4], [e.point.x + 4, e.point.y + 4]], { layers: hitLayers() })[0];
+      hideTip(); if (!f) return;
+      const id = f.layer.id, pr = f.properties;
+      if (id === "nm") pick({ t: "n", i: pr.i }); else if (id === "pl") pick({ t: "p", i: pr.i }); else if (id === "selp") pick({ t: pr.t, i: pr.i }); else pick({ t: "n", i: LK[pr.i].s });
+    });
+    map.on("moveend", placeNames);
+    if (S.sel) drawSel();
+  });
+  layerControl();
+}
+function hoverHtml(f) {
+  const id = f.layer.id, pr = f.properties;
+  if (id === "nm" || (id === "selp" && pr.t === "n")) { const n = NM[pr.i]; return `<b>${esc(n.name)}</b> (${esc(CN(n.iso))})<br>${esc(CNAME[n.c].toLowerCase())} · ${n.k} place${n.k === 1 ? "" : "s"} named after it`; }
+  if (id === "pl" || id === "selp") { const p = PL[pr.i]; return `<b>${esc(placeLabel(p))}</b><br>named after ${p.links.map(j => esc(NM[LK[j].s].name)).join(" and ")}`; }
+  const l = LK[pr.i]; return `<b>${esc(PL[l.p].name)}</b> (${esc(CN(PL[l.p].iso))})<br>named after ${esc(NM[l.s].name)} (${esc(CN(NM[l.s].iso))})<br>${kmf(l.km)}`;
+}
+function filters() {
+  if (FB) return FB.draw();
+  if (!mapOK) return;
+  map.setFilter("arcs", arcFilter());
+  map.getSource("pl").setData(ptGeo("p")); map.getSource("nm").setData(ptGeo("n"));
+  drawSel();
+}
+function drawSel() {
+  if (FB) return FB.draw();
+  if (!mapOK) return;
+  const fam = [...famLinks()];
+  map.setFilter("arcsel", fam.length ? ["in", ["get", "i"], ["literal", fam]] : ["==", ["get", "i"], -1]);
+  map.setPaintProperty("arcs", "line-opacity", fam.length ? .14 : .5);
+  const pts = { type: "FeatureCollection", features: [] };
+  if (S.sel) { const ns = new Set(), ps = new Set(); fam.forEach(j => { ns.add(LK[j].s); ps.add(LK[j].p); });
+    ps.forEach(i => pts.features.push({ type: "Feature", properties: { t: "p", i }, geometry: { type: "Point", coordinates: [PL[i].lon, PL[i].lat] } }));
+    ns.forEach(i => pts.features.push({ type: "Feature", properties: { t: "n", i }, geometry: { type: "Point", coordinates: [NM[i].lon, NM[i].lat] } })); }
+  map.getSource("selp").setData(pts);
+}
+function applyLayers() {
+  if (FB) return FB.draw();
+  if (!mapOK) return;
+  const vis = (id, on) => map.setLayoutProperty(id, "visibility", on ? "visible" : "none");
+  vis("borders", LY.borders); vis("arcs", LY.arcs); vis("pl", LY.places); vis("nm", LY.names);
+  map.setPaintProperty("arcs", "line-width", ["interpolate", ["linear"], ["zoom"], 0, .55 * LY.width, 4, 1.1 * LY.width, 8, 2 * LY.width]);
+  ["arcs", "arcsel"].forEach(id => map.setPaintProperty(id, "line-color", colExpr())); map.setPaintProperty("nm", "circle-stroke-color", colExpr());
+  placeNames();
+}
+let nameMarkers = [];
+function placeNames() {
+  nameMarkers.forEach(m => m.remove()); nameMarkers = [];
+  if (!mapOK) return;
+  const z = map.getZoom(), b = map.getBounds(), bxs = [];
+  const put = (lon, lat, html, cls, w, hgt, anchor = "center") => {
+    let x = lon; const c = map.getCenter().lng; while (x - c > 180) x -= 360; while (x - c < -180) x += 360;
+    if (!b.contains([x, lat])) return false; const pt = map.project([x, lat]);
+    const bx = anchor === "left" ? [pt.x - 4, pt.y - hgt / 2, pt.x + w, pt.y + hgt / 2] : [pt.x - w / 2, pt.y - hgt / 2, pt.x + w / 2, pt.y + hgt / 2];
+    if (bxs.some(o => bx[0] < o[2] && bx[2] > o[0] && bx[1] < o[3] && bx[3] > o[1])) return false; bxs.push(bx);
+    const d = document.createElement("div"); d.className = cls; d.innerHTML = html; nameMarkers.push(new maplibregl.Marker({ element: d, anchor }).setLngLat([x, lat]).addTo(map)); return true;
+  };
+  if (LY.onames) OCN.forEach(o => { if (o.rank === 2 && z < 2.4) return; put(o.lon, o.lat, esc(o.name), "ocL" + (o.rank === 2 ? " s" : ""), o.name.length * (o.rank === 1 ? 10.5 : 7.4), 16); });
+  if (LY.cnames && z >= 1.6) { const minPop = z < 2.6 ? 6e7 : z < 3.6 ? 1.5e7 : z < 4.6 ? 3e6 : 0; let n = 0;
+    Object.entries(SITE.cpos).sort((a, c) => c[1][2] - a[1][2]).forEach(([iso, m]) => { if (m[2] < minPop || n > 60) return; const nm = CN(iso); if (put(m[0], m[1], esc(nm), "cntL", nm.length * 7.4, 13)) n++; }); }
+  if (LY.cities && z >= 2.5) { const minPop = z < 3.5 ? 5e6 : z < 4.5 ? 1.5e6 : z < 6 ? 5e5 : 0; let n = 0;
+    for (const c of CITIES) { if (c.pop < minPop) continue; if (put(c.lon, c.lat, `<i></i>${esc(c.name)}`, "cityL", 10 + c.name.length * 6.6, 14, "left")) n++; if (n > 40) break; } }
+}
+function layerControl() {
+  class Ctl { onAdd() { const d = document.createElement("div"); d.className = "maplibregl-ctrl lyr";
+    d.innerHTML = `<button class="lyrBtn" aria-expanded="false">Map layers</button>
+<div class="lyrPanel" hidden>
+ <div class="row"><label><input type="checkbox" data-k="borders"> Borders and coasts</label></div>
+ <div class="row"><label><input type="checkbox" data-k="onames"> Ocean names</label></div>
+ <div class="row"><label><input type="checkbox" data-k="cnames"> Country names</label></div>
+ <div class="row"><label><input type="checkbox" data-k="cities"> City names</label></div>
+ <div class="hd">Names</div>
+ <div class="row"><label><input type="checkbox" data-k="arcs"> Lines</label><div class="sub"><span>width</span><input type="range" data-k="width" min=".4" max="3" step=".1" aria-label="Line width"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="names"> Namesakes (rings)</label></div>
+ <div class="row"><label><input type="checkbox" data-k="places"> Places (dots)</label></div>
+ <div class="row"><label style="font-weight:400"><input type="radio" name="col" data-k="colour" value="group"> Colour by where the name came from</label><label style="font-weight:400;margin-top:4px"><input type="radio" name="col" data-k="colour" value="cat"> Colour by kind of namesake</label></div>
+ <button class="reset">Reset layers</button>
+</div>`;
+    ["click", "dblclick", "mousedown", "touchstart", "wheel"].forEach(t => d.addEventListener(t, e => e.stopPropagation(), { passive: t !== "click" }));
+    const btn = d.querySelector(".lyrBtn"), pan = d.querySelector(".lyrPanel");
+    btn.onclick = () => { const o = pan.hidden; pan.hidden = !o; btn.setAttribute("aria-expanded", o); };
+    const sync = () => pan.querySelectorAll("[data-k]").forEach(i => { const k = i.dataset.k; if (i.type === "checkbox") i.checked = LY[k]; else if (i.type === "radio") i.checked = LY[k] === i.value; else i.value = LY[k]; });
+    pan.querySelectorAll("[data-k]").forEach(i => i.addEventListener(i.type === "range" ? "input" : "change", () => { const k = i.dataset.k; LY[k] = i.type === "checkbox" ? i.checked : i.type === "radio" ? i.value : +i.value; sync(); saveLY(); applyLayers(); legend(); }));
+    pan.querySelector(".reset").onclick = () => { Object.assign(LY, LYDEF); saveLY(); sync(); applyLayers(); legend(); };
+    sync(); return d; } onRemove() {} }
+  if (map) map.addControl(new Ctl(), "top-left"); else return new Ctl().onAdd();
+}
+function retheme() {
+  if (FB) return FB.draw();
+  if (!mapOK) return;
+  map.setPaintProperty("bg", "background-color", css("--sea")); map.setPaintProperty("land", "fill-color", css("--land"));
+  map.setPaintProperty("borders", "line-color", css("--coast")); map.setPaintProperty("pl", "circle-color", css("--fg"));
+  map.setPaintProperty("selp", "circle-stroke-color", css("--sel")); map.setPaintProperty("selp", "circle-color", ["case", ["==", ["get", "t"], "n"], "rgba(0,0,0,0)", css("--sel")]);
+  applyLayers();
+}
+
+/* ---------- fallback: the same map drawn on a canvas from Natural Earth ---------- */
+function fallback(msg) {
+  const box = document.getElementById("map"); box.innerHTML = "";
+  const cv = document.createElement("canvas"); cv.className = "fb"; box.appendChild(cv);
+  const nt = document.createElement("div"); nt.className = "fbnote"; nt.textContent = msg; box.appendChild(nt);
+  const lc = layerControl(); lc.style.position = "absolute"; lc.style.top = "0"; lc.style.left = "0"; lc.style.zIndex = 5; box.appendChild(lc);
+  const L0 = -10;
+  FB = { cv, draw() {
+    const W = box.clientWidth, H = box.clientHeight, dpr = devicePixelRatio || 1; cv.width = W * dpr; cv.height = H * dpr;
+    const g = cv.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const sc = Math.min(W / 360, H / 150), ox = W / 2, oy = H / 2 + 8 * sc;
+    const X = lon => { let x = lon - L0; while (x > 180) x -= 360; while (x < -180) x += 360; return ox + x * sc; }, Y = lat => oy - lat * sc;
+    FB.X = X; FB.Y = Y;
+    g.fillStyle = css("--sea"); g.fillRect(0, 0, W, H);
+    g.fillStyle = css("--land"); g.strokeStyle = css("--coast"); g.lineWidth = .5;
+    WORLD.features.forEach(f => { const polys = f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates;
+      polys.forEach(poly => { g.beginPath(); poly.forEach(ring => { let px = null; ring.forEach(([lon, lat], k) => { const x = X(lon), y = Y(lat); if (k === 0 || Math.abs(x - px) > W / 2) g.moveTo(x, y); else g.lineTo(x, y); px = x; }); }); g.fill(); if (LY.borders) g.stroke(); }); });
+    const fam = famLinks();
+    const line = (l, w, a) => { g.globalAlpha = a; g.strokeStyle = LY.colour === "group" ? GCOL(l.g) : CCOL(l.c); g.lineWidth = w; g.beginPath(); let px = null;
+      l.cs.forEach(([lon, lat], k) => { const x = X(lon), y = Y(lat); if (k === 0 || Math.abs(x - px) > W / 2) g.moveTo(x, y); else g.lineTo(x, y); px = x; }); g.stroke(); };
+    if (LY.arcs) LK.forEach(l => { if (linkOn(l)) line(l, .7 * LY.width, fam.size ? .12 : .45); });
+    fam.forEach(j => line(LK[j], 2, 1)); g.globalAlpha = 1;
+    if (LY.places) { g.fillStyle = css("--fg"); LK.forEach(l => { if (linkOn(l)) { const p = PL[l.p]; g.fillRect(X(p.lon) - 1, Y(p.lat) - 1, 2, 2); } }); }
+    if (LY.names) { const seen = new Set(); LK.forEach(l => { if (!linkOn(l) || seen.has(l.s)) return; seen.add(l.s); const n = NM[l.s]; g.strokeStyle = LY.colour === "group" ? GCOL(n.g) : CCOL(n.c); g.lineWidth = 1.1; g.beginPath(); g.arc(X(n.lon), Y(n.lat), 1.6 + Math.sqrt(n.k), 0, 7); g.stroke(); }); }
+  } };
+  cv.addEventListener("click", e => { const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top; let best = null, bd = 64;
+    LK.forEach(l => { if (!linkOn(l)) return; const n = NM[l.s], p = PL[l.p];
+      const dn = (FB.X(n.lon) - x) ** 2 + (FB.Y(n.lat) - y) ** 2, dp = (FB.X(p.lon) - x) ** 2 + (FB.Y(p.lat) - y) ** 2;
+      if (dn < bd) { bd = dn; best = { t: "n", i: l.s }; } if (dp < bd) { bd = dp; best = { t: "p", i: l.p }; } });
+    if (best) pick(best); });
+  new ResizeObserver(() => FB.draw()).observe(box); FB.draw();
+}
+
+/* ---------- picking ---------- */
+function flyTo(set) {
+  if (!mapOK || !set.size) return;
+  const ref = S.sel.t === "n" ? NM[S.sel.i].lon : PL[S.sel.i].lon, pts = [];
+  set.forEach(j => LK[j].cs.forEach(c => pts.push([c[0] + Math.round((ref - LK[j].cs[0][0]) / 360) * 360, c[1]])));
+  let x0 = Math.min(...pts.map(p => p[0])), x1 = Math.max(...pts.map(p => p[0])), y0 = Math.min(...pts.map(p => p[1])), y1 = Math.max(...pts.map(p => p[1]));
+  if (x1 - x0 < 1) { x0 -= 1.5; x1 += 1.5; } if (y1 - y0 < 1) { y0 -= 1; y1 += 1; }
+  y0 = Math.max(-70, y0); y1 = Math.min(78, y1);
+  const mer = l => Math.log(Math.tan(Math.PI / 4 + l * Math.PI / 360)), imer = m => (2 * Math.atan(Math.exp(m)) - Math.PI / 2) * 180 / Math.PI;
+  const box = map.getContainer(), W = box.clientWidth, H = box.clientHeight, pad = small() ? 26 : 50;
+  const zx = Math.log2((W - 2 * pad) * 360 / (Math.max(2, x1 - x0) * 512)), zy = Math.log2((H - 2 * pad) * 2 * Math.PI / (Math.max(.02, mer(y1) - mer(y0)) * 512));
+  const z = Math.max(0, Math.min(8, zx, zy)), cx = (x0 + x1) / 2, cy = imer((mer(y0) + mer(y1)) / 2);
+  map.flyTo({ center: [((cx + 540) % 360) - 180, cy], zoom: z, speed: 1.4 });
+}
+function toMap() { if (small()) document.getElementById("map").scrollIntoView({ behavior: "smooth", block: "start" }); }
+function pick(sel, o = {}) {
+  S.sel = sel;
+  const fam = famLinks();
+  if ([...fam].some(j => !linkOn(LK[j]))) { S.mode = "all"; press("#showRow", document.querySelector('#showRow [data-m="all"]')); S.cs = new Set(CNAME.map((c, i) => i)); S.gs = new Set(GNAME.map((g, i) => i)); syncRows(); filters(); }
+  drawSel(); side(); legend();
+  if (o.fly !== false) { flyTo(fam); if (o.scroll) toMap(); }
+}
+function unpick() { S.sel = null; drawSel(); side(); }
+
+/* ---------- controls ---------- */
+const press = (row, b) => document.querySelectorAll(row + " .btn").forEach(x => x.setAttribute("aria-pressed", x === b));
+document.querySelectorAll("#showRow .btn").forEach(b => b.onclick = () => { S.mode = b.dataset.m; press("#showRow", b); filters(); side(); legend(); });
+let syncRows = () => {};
+function toggleRow(rowId, names, colour, key) {
+  const row = document.getElementById(rowId);
+  const all = document.createElement("button"); all.className = "btn"; all.textContent = "All"; all.setAttribute("aria-pressed", "true"); row.appendChild(all);
+  const bs = names.map((n, i) => { const b = document.createElement("button"); b.className = "btn"; b.innerHTML = `<i style="background:${colour(i)}"></i>${esc(n)}`; b.setAttribute("aria-pressed", "false"); b.dataset.k = i; row.appendChild(b); return b; });
+  const sync = () => { const s = S[key], allOn = s.size === names.length; all.setAttribute("aria-pressed", allOn); bs.forEach(b => b.setAttribute("aria-pressed", !allOn && s.has(+b.dataset.k))); };
+  all.onclick = () => { S[key] = new Set(names.map((n, i) => i)); sync(); filters(); side(); legend(); };
+  bs.forEach(b => b.onclick = () => { const k = +b.dataset.k; let s = new Set(S[key]); if (s.size === names.length) s = new Set([k]); else if (s.has(k)) { s.delete(k); if (!s.size) s = new Set(names.map((n, i) => i)); } else s.add(k); S[key] = s; sync(); filters(); side(); legend(); });
+  return sync;
+}
+const sc1 = toggleRow("catRow", CNAME.map(c => c === "Region or country" ? "Region or country" : c), CCOL, "cs"), sc2 = toggleRow("groupRow", GNAME, GCOL, "gs");
+syncRows = () => { sc1(); sc2(); };
+const TRY = [["Boston", "pl", R.ex.boston.pi], ["Perth", "pl", R.ex.perth.pi], ["Brooklyn", "pl", R.ex.brooklyn.pi], ["Amsterdam", "nm", R.top[1].si], ["Prague", "nm", R.top[0].si],
+  ["Melbourne, Florida", "pl", R.ex.melbourne_fl.pi], ["Paris, Kiribati", "pl", R.ex.kiri_paris.pi], ["Kitchener, once Berlin", "pl", R.ex.kitchener.pi], ["New Delhi", "pl", R.ex.delhi.pi], ["Launceston", "pl", R.ex.launceston.pi]];
+(function tryRow() { const row = document.getElementById("tryRow");
+  TRY.forEach(([lab, k, q]) => { const b = document.createElement("button"); b.className = "btn"; b.textContent = lab; b.onclick = () => pick(k === "pl" ? { t: "p", i: QP[q] } : { t: "n", i: QN[q] }, { scroll: true }); row.appendChild(b); }); })();
+function legend() {
+  const e = document.getElementById("legend");
+  let h = LY.colour === "group" ? `<span class="k">name from:</span>` + GROUPS.map((g, k) => S.gs.has(k) ? `<span><i style="background:${GCOL(k)}"></i>${esc(g[0])}</span>` : "").join("")
+                                : `<span class="k">named after a:</span>` + CATS.map((c, k) => S.cs.has(k) ? `<span><i style="background:${CCOL(k)}"></i>${esc(c[0].toLowerCase())}</span>` : "").join("");
+  h += `<span><i class="c"></i>namesake (size: places named after it)</span><span><i class="d"></i>place</span>`;
+  e.innerHTML = h;
+}
+function note(h) { document.getElementById("mapnote").innerHTML = h || ""; }
+const dot = c => `<i style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${c};margin-right:6px"></i>`;
+function side() {
+  const box = document.getElementById("side"); let h = "";
+  if (S.sel && S.sel.t === "n") {
+    const n = NM[S.sel.i], ls = n.links.map(j => LK[j]).sort((a, b) => b.km - a.km);
+    h = `<button class="back">Back to the overview</button><h4>Namesake</h4><div class="big">${esc(n.name)}</div><p class="sub">${dot(GCOL(n.g))}${esc(CN(n.iso))} · ${esc(CNAME[n.c].toLowerCase())}</p>`;
+    h += `<table><tr><td>Places named after it</td><td class="num">${ls.length}</td></tr><tr><td>In another country</td><td class="num">${ls.filter(l => l.b).length}</td></tr><tr><td>Farthest</td><td class="num">${kmf(ls[0].km)}</td></tr></table>`;
+    h += `<h4>Named after ${esc(n.name)}</h4><ol>${ls.map(l => `<li><span class="go" data-p="${l.p}">${esc(PL[l.p].name)}</span> <small>${esc(PL[l.p].state ? PL[l.p].state + ", " : "")}${esc(CN(PL[l.p].iso))}, ${kmf(l.km)}</small></li>`).join("")}</ol>`;
+    note(`<b>${esc(n.name)}</b>: lines to every place Wikidata says is named after it.`);
+  } else if (S.sel) {
+    const p = PL[S.sel.i];
+    h = `<button class="back">Back to the overview</button><h4>Place</h4><div class="big">${esc(p.name)}</div><p class="sub">${esc(p.state ? p.state + ", " : "")}${esc(CN(p.iso))}${p.pop ? " · population " + fmt(p.pop) : ""}</p>`;
+    p.links.forEach(j => { const l = LK[j], n = NM[l.s], sis = n.links.filter(k => k !== j).map(k => LK[k]).sort((a, b) => b.km - a.km);
+      h += `<h4>Named after</h4><p style="margin:0 0 6px"><span class="go" data-n="${n.i}"><b>${esc(n.name)}</b></span> <small>${esc(CN(n.iso))}, ${esc(CNAME[n.c].toLowerCase())}, ${kmf(l.km)} away${l.o ? ", across an ocean" : l.b ? ", across a border" : ""}</small></p>`;
+      if (sis.length) h += `<p class="sub" style="margin:4px 0">Also named after ${esc(n.name)}:</p><ol>${sis.slice(0, 12).map(s => `<li><span class="go" data-p="${s.p}">${esc(PL[s.p].name)}</span> <small>${esc(CN(PL[s.p].iso))}, ${kmf(s.km)}</small></li>`).join("")}</ol>`; });
+    const self = QN[p.q]; if (self != null) { const ds = NM[self].links.map(j => LK[j]).sort((a, b) => b.km - a.km);
+      h += `<h4>Named after ${esc(p.name)}</h4><ol>${ds.map(d => `<li><span class="go" data-p="${d.p}">${esc(PL[d.p].name)}</span> <small>${esc(PL[d.p].state ? PL[d.p].state + ", " : "")}${esc(CN(PL[d.p].iso))}, ${kmf(d.km)}</small></li>`).join("")}</ol>`; }
+    note(`<b>${esc(p.name)}</b> and its namesake's whole family.`);
+  } else {
+    const vis = LK.filter(linkOn), byG = GNAME.map(() => 0); vis.forEach(l => byG[l.g]++);
+    const cnt = {}; vis.forEach(l => cnt[l.s] = (cnt[l.s] || 0) + 1);
+    const tops = Object.entries(cnt).sort((a, b) => b[1] - a[1] || NM[a[0]].name.localeCompare(NM[b[0]].name)).slice(0, 8);
+    h = `<h4>On the map now</h4><div class="big">${fmt(vis.length)}</div><p class="sub">links, ${fmt(new Set(vis.map(l => l.p)).size)} places and ${fmt(new Set(vis.map(l => l.s)).size)} namesakes</p><table>` +
+      GROUPS.map(([n], k) => byG[k] ? `<tr><td>${dot(GCOL(k))}${esc(n)}</td><td class="num">${fmt(byG[k])}</td></tr>` : "").join("") + `</table>`;
+    h += `<h4>Most borrowed in view</h4><ol>${tops.map(([s, n]) => `<li><span class="go" data-n="${s}">${esc(NM[s].name)}</span> <small>${esc(CN(NM[s].iso))}, ${n}</small></li>`).join("")}</ol>`;
+    h += `<p class="sub">Click a line, a ring or a dot, or search, to see a family of names. Map layers switches the colours to the kind of namesake.</p>`;
+    note("");
+  }
+  box.innerHTML = h;
+  const b = box.querySelector(".back"); if (b) b.onclick = unpick;
+  box.querySelectorAll("[data-n]").forEach(x => x.onclick = () => pick({ t: "n", i: +x.dataset.n }, { scroll: true }));
+  box.querySelectorAll("[data-p]").forEach(x => x.onclick = () => pick({ t: "p", i: +x.dataset.p }, { scroll: true }));
+}
+
+/* ---------- search ---------- */
+(function search() {
+  const inp = document.getElementById("q"), sug = document.getElementById("sug"); let opts = [], k = -1;
+  const norm = s => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const IDX = [...NM.map(n => ({ t: "n", i: n.i, s: norm(n.name), w: n.k })), ...PL.map(p => ({ t: "p", i: p.i, s: norm(p.name + " " + (p.state || "") + " " + CN(p.iso)), w: 1 }))];
+  function build(q) { const nq = norm(q).trim(); if (nq.length < 2) return []; const ws = nq.split(/\s+/);
+    return IDX.filter(o => ws.every(w => o.s.includes(w))).map(o => ({ ...o, sc: (o.s.startsWith(ws[0]) ? 5 : 0) + (o.t === "n" ? 1 + Math.log2(o.w) : 0) - o.s.length / 60 })).sort((a, b) => b.sc - a.sc).slice(0, 10); }
+  const lab = o => o.t === "n" ? `${esc(NM[o.i].name)} <span>namesake, ${esc(CN(NM[o.i].iso))}, ${NM[o.i].k} place${NM[o.i].k === 1 ? "" : "s"}</span>` : `${esc(PL[o.i].name)} <span>place, ${esc(PL[o.i].state ? PL[o.i].state + ", " : "")}${esc(CN(PL[o.i].iso))}</span>`;
+  const show = () => { sug.innerHTML = opts.map((o, i) => `<li role="option" aria-selected="${i === k}" data-i="${i}">${lab(o)}</li>`).join(""); sug.style.display = opts.length ? "block" : "none"; };
+  const choose = o => { sug.style.display = "none"; inp.blur(); pick({ t: o.t, i: o.i }, { scroll: true }); };
+  inp.addEventListener("input", () => { opts = build(inp.value); k = -1; show(); });
+  inp.addEventListener("keydown", e => { if (e.key === "ArrowDown") { k = Math.min(opts.length - 1, k + 1); show(); e.preventDefault(); } else if (e.key === "ArrowUp") { k = Math.max(0, k - 1); show(); e.preventDefault(); } else if (e.key === "Enter" && opts.length) { choose(opts[Math.max(0, k)]); } else if (e.key === "Escape") { sug.style.display = "none"; } });
+  sug.addEventListener("click", e => { const li = e.target.closest("li"); if (li) choose(opts[+li.dataset.i]); });
+  document.addEventListener("click", e => { if (!e.target.closest(".searchbox")) sug.style.display = "none"; });
+})();
+
+/* ---------- charts ---------- */
+function goPick(sel) { document.getElementById("atlas").scrollIntoView({ behavior: "smooth" }); setTimeout(() => pick(sel), 350); }
+function hbars(id, rows, o) {
+  resp(document.getElementById(id), (w, sm) => {
+    const rh = o.rh || 26, lw = sm ? (o.lws || 130) : (o.lw || 200), rw = o.right ? (sm ? 70 : 96) : 0, h = rows.length * rh + (o.head ? 20 : 6);
+    const svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": o.aria }, document.getElementById(id));
+    const y0 = o.head ? 18 : 2, mx = Math.max(...rows.map(o.val)), bwMax = w - lw - rw - 52;
+    if (o.head) { lbl(svg, lw, 12, o.head, "lab s m"); if (o.right) lbl(svg, w, 12, o.rightHead, "lab s m", "end"); }
+    rows.forEach((r, i) => { const y = y0 + i * rh, v = o.val(r), bw = bwMax * v / mx;
+      lbl(svg, lw - 8, y + rh / 2 + 4, o.name(r), "lab", "end");
+      el("rect", { x: lw, y: y + 5, width: Math.max(2, bw), height: rh - 10, fill: o.col(r), rx: 2 }, svg);
+      if (o.part) { const pv = o.part(r); if (pv > 0) el("rect", { x: lw, y: y + 5, width: Math.max(1.5, bwMax * pv / mx), height: rh - 10, fill: o.partCol ? o.partCol(r) : "rgba(0,0,0,.35)", rx: 2 }, svg); }
+      lbl(svg, lw + bw + 5, y + rh / 2 + 4, o.unit(r), "lab s b");
+      if (o.right) lbl(svg, w, y + rh / 2 + 4, o.right(r), "lab s m", "end");
+      const hr = el("rect", { x: 0, y, width: w, height: rh, fill: "transparent", style: o.click ? "cursor:pointer" : "" }, svg);
+      if (o.click) hr.addEventListener("click", () => o.click(r));
+      hr.addEventListener("mousemove", ev => showTip(o.tip(r), ev.clientX, ev.clientY)); hr.addEventListener("mouseleave", hideTip); });
+  });
+}
+function catChart() {
+  hbars("catChart", R.cats_list, { val: r => r.n, name: r => r.cat, col: r => CCOL(CNAME.indexOf(r.cat)), unit: r => `${fmt(r.n)} (${Math.round(r.pct)}%)`, head: "links", right: r => kmf(r.km_med), rightHead: "median km", lw: 170, lws: 150,
+    aria: "Bar chart of links by kind of namesake, with median distances", tip: r => `<b>${esc(r.cat)}</b><br>${fmt(r.n)} links to ${fmt(r.namesakes)} namesakes<br>median ${kmf(r.km_med)}; ${Math.round(r.under10_pct)}% within 10 km<br>${fmt(r.border)} cross a border, ${fmt(r.ocean)} an ocean` });
+}
+function distChart() {
+  const H = R.dist_hist;
+  resp(document.getElementById("distChart"), (w, sm) => {
+    const h = sm ? 260 : 300, m = { l: 40, r: 8, t: 14, b: 40 }, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Histogram of link distances on a stretched scale, by kind of namesake" }, document.getElementById("distChart"));
+    const mx = Math.ceil(Math.max(...H.map(b => b.n)) / 200) * 200, bw = (w - m.l - m.r) / H.length, Y = v => (h - m.t - m.b) * v / mx;
+    for (let v = 0; v <= mx; v += 200) { const y = h - m.b - Y(v); el("line", { x1: m.l, x2: w - m.r, y1: y, y2: y, stroke: css("--rule") }, svg); lbl(svg, m.l - 6, y + 4, fmt(v), "lab s m", "end"); }
+    const tl = a => a >= 1000 ? (a / 1000) + "k" : String(a);
+    H.forEach((b, i) => { let y = h - m.b; const x = m.l + i * bw;
+      CNAME.forEach((c, k) => { const v = b[c]; if (!v) return; const hh = Y(v); y -= hh; el("rect", { x: x + 1.5, y, width: bw - 3, height: hh, fill: CCOL(k) }, svg); });
+      lbl(svg, x + bw / 2, y - 4, fmt(b.n), "lab s b", "middle");
+      lbl(svg, x, h - m.b + 14, tl(b.a), "lab s m", "middle");
+      const hr = el("rect", { x, y: m.t, width: bw, height: h - m.t - m.b, fill: "transparent" }, svg);
+      hr.addEventListener("mousemove", ev => showTip(`<b>${fmt(b.a)} to ${fmt(b.b)} km</b>: ${fmt(b.n)} links<br>` + CNAME.map((c, k) => b[c] ? `<span style="color:${CCOL(k)}">■</span> ${esc(c)} ${b[c]}` : "").filter(Boolean).join("<br>"), ev.clientX, ev.clientY)); hr.addEventListener("mouseleave", hideTip); });
+    lbl(svg, w - m.r, h - m.b + 14, "21k", "lab s m", "end");
+    lbl(svg, w - m.r, h - 6, "km from namesake to place", "lab s m", "end");
+    const lx = sm ? m.l + 6 : m.l + bw * 4.2; let lyy = m.t + 6;
+    CATS.forEach((c, k) => { el("rect", { x: lx, y: lyy - 8, width: 10, height: 10, fill: CCOL(k), rx: 2 }, svg); lbl(svg, lx + 15, lyy + 1, c[0].toLowerCase(), "lab s"); lyy += 15; });
+  });
+}
+function longTable() {
+  const t = document.getElementById("longTable");
+  t.innerHTML = `<thead><tr><th>Place</th><th>Named after</th><th class="r">km</th></tr></thead><tbody>` +
+    R.longest.map((r, i) => `<tr data-i="${i}"><td>${esc(r.place)}, ${esc(r.pc)}</td><td>${esc(r.namesake)}, ${esc(r.sc)}</td><td class="r">${fmt(r.km)}</td></tr>`).join("") + `</tbody>`;
+  t.querySelectorAll("tr[data-i]").forEach(r => r.onclick = () => goPick({ t: "p", i: QP[R.longest[+r.dataset.i].pi] }));
+}
+function topChart() {
+  hbars("topChart", R.top.slice(0, 15), { val: r => r.n, name: r => r.name, col: r => CCOL(CNAME.indexOf(r.cat)), part: r => r.abroad, partCol: () => isDark() ? "rgba(255,255,255,.35)" : "rgba(0,0,0,.35)", unit: r => String(r.n), lw: 170, lws: 120,
+    right: r => r.country, rightHead: "", aria: "Bar chart of the namesakes with the most places named after them", click: r => goPick({ t: "n", i: QN[r.si] }),
+    tip: r => `<b>${esc(r.name)}</b>, ${esc(r.country)}<br>${r.n} places, ${r.abroad} abroad<br>${r.kids.slice(0, 8).map(esc).join("<br>")}${r.kids.length > 8 ? "<br>..." : ""}` });
+}
+function giveChart() {
+  resp(document.getElementById("giveChart"), (w, sm) => {
+    const rows = 12, rh = 24, gap = sm ? 10 : 26, cw = (w - gap) / 2, lw = sm ? 92 : 128, h = rows * rh + 24, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Bar charts of the countries that gave and received the most names across borders" }, document.getElementById("giveChart"));
+    [[0, R.giving, "gave (namesake's country)", isDark() ? "#FF6A5C" : "#C8322B", "to"], [cw + gap, R.receiving, "received (place's country)", isDark() ? "#9EC1F2" : "#1F3A6B", "from"]].forEach(([x0, D, hd, col, k]) => {
+      lbl(svg, x0, 12, hd, "lab s m"); const mx = D[0].n;
+      D.slice(0, rows).forEach((r, i) => { const y = 20 + i * rh, bw = (cw - lw - 40) * r.n / mx, nm = sm ? r.country.replace("United Kingdom", "UK").replace("United States", "USA").replace("Netherlands", "Neth.") : r.country;
+        lbl(svg, x0 + lw - 6, y + 16, nm, "lab s", "end"); el("rect", { x: x0 + lw, y: y + 5, width: Math.max(2, bw), height: rh - 9, fill: col, rx: 2 }, svg); lbl(svg, x0 + lw + bw + 4, y + 16, r.n, "lab s b");
+        const hr = el("rect", { x: x0, y, width: cw, height: rh, fill: "transparent" }, svg);
+        hr.addEventListener("mousemove", ev => showTip(`<b>${esc(r.country)}</b><br>${r.n} names across a border (${r.pct.toFixed(1)}%)<br>${k} ${r[k]} ${r[k] === 1 ? "country" : "countries"}`, ev.clientX, ev.clientY)); hr.addEventListener("mouseleave", hideTip); });
+    });
+  });
+}
+function chordChart() {
+  const M = R.region_matrix, n = M.length;
+  resp(document.getElementById("chordChart"), (w, sm) => {
+    const h = sm ? w + 40 : Math.min(660, w * .66), cx = w / 2, cy = h / 2, r0 = Math.min(cx - (sm ? 68 : 215), cy - 34), r1 = r0 + 12;
+    const svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Chord diagram of names crossing borders between world regions" }, document.getElementById("chordChart"));
+    const out = M.map(r => r.reduce((a, b) => a + b, 0)), inn = M[0].map((_, j) => M.reduce((a, r) => a + r[j], 0)), tot = out.reduce((a, b) => a + b, 0) * 2;
+    const pad = .025, K = (2 * Math.PI - pad * n) / tot; let a = -Math.PI / 2; const G = [];
+    for (let i = 0; i < n; i++) { const g = { a0: a, outA: a, inA: a + out[i] * K, a1: a + (out[i] + inn[i]) * K }; G.push(g); a = g.a1 + pad; }
+    const P = (ang, r) => [cx + r * Math.cos(ang), cy + r * Math.sin(ang)];
+    const arcPath = (a0, a1, ra, rb) => { const [x0, y0] = P(a0, ra), [x1, y1] = P(a1, ra), [x2, y2] = P(a1, rb), [x3, y3] = P(a0, rb), lg = a1 - a0 > Math.PI ? 1 : 0;
+      return `M${x0},${y0}A${ra},${ra} 0 ${lg} 1 ${x1},${y1}L${x2},${y2}A${rb},${rb} 0 ${lg} 0 ${x3},${y3}Z`; };
+    const cur = G.map(g => ({ o: g.outA, i: g.inA })), rib = [];
+    for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) { const v = M[i][j]; if (!v) continue; const s0 = cur[i].o, s1 = s0 + v * K; cur[i].o = s1; rib.push({ i, j, v, s0, s1 }); }
+    rib.forEach(r => { const t0 = cur[r.j].i, t1 = t0 + r.v * K; cur[r.j].i = t1; r.t0 = t0; r.t1 = t1; });
+    rib.sort((a, b) => b.v - a.v).forEach(r => {
+      const [ax, ay] = P(r.s0, r0), [bx, by] = P(r.s1, r0), [tx, ty] = P(r.t0, r0), [ux, uy] = P(r.t1, r0);
+      const d = `M${ax},${ay}A${r0},${r0} 0 0 1 ${bx},${by}Q${cx},${cy} ${tx},${ty}A${r0},${r0} 0 0 1 ${ux},${uy}Q${cx},${cy} ${ax},${ay}Z`;
+      const p = el("path", { d, fill: GCOL(r.i), opacity: .62, stroke: css("--bg"), "stroke-width": .4 }, svg);
+      p.addEventListener("mousemove", ev => { p.setAttribute("opacity", .95); showTip(`<b>${esc(GNAME[r.i])}</b> to <b>${esc(GNAME[r.j])}</b><br>${r.v} names`, ev.clientX, ev.clientY); });
+      p.addEventListener("mouseleave", () => { p.setAttribute("opacity", .62); hideTip(); }); });
+    const LB = [];
+    G.forEach((g, i) => { el("path", { d: arcPath(g.a0, g.a1, r1, r0 + 2), fill: GCOL(i) }, svg);
+      const m = (g.a0 + g.a1) / 2, [lx, ly] = P(m, r1 + 8), right = Math.cos(m) >= 0;
+      if (sm && out[i] + inn[i] < 40) return; LB.push({ i, lx, ly, right }); });
+    const gapY = sm ? 15 : 30;
+    [true, false].forEach(sd => { const A = LB.filter(l => l.right === sd).sort((a, b) => a.ly - b.ly);
+      for (let k = 1; k < A.length; k++) if (A[k].ly - A[k - 1].ly < gapY) A[k].ly = A[k - 1].ly + gapY;
+      for (let k = A.length - 2; k >= 0; k--) if (A[k].ly > h - 20 - (A.length - 1 - k) * gapY) A[k].ly = Math.min(A[k].ly, A[k + 1].ly - gapY);
+      A.forEach(l => { if (l.ly > h - 18) l.ly = h - 18; }); });
+    LB.forEach(({ i, lx, ly, right }) => {
+      if (sm) { lbl(svg, lx, ly + 4, GNAME[i].split(" ")[0], "lab s", right ? "start" : "end"); return; }
+      lbl(svg, lx, ly, GNAME[i], "lab s b", right ? "start" : "end"); lbl(svg, lx, ly + 13, `gave ${out[i]}, got ${inn[i]}`, "lab s m", right ? "start" : "end"); });
+  });
+}
+function newTable() {
+  const t = document.getElementById("newTable"), rows = R.new.rows;
+  t.innerHTML = `<thead><tr><th>Place</th><th>Named after</th><th class="r">km</th></tr></thead><tbody>` +
+    rows.map((r, i) => `<tr data-i="${i}"><td>${esc(r.place)}, ${esc(r.state ? r.state + ", " : "")}${esc(r.pc)}</td><td>${esc(r.namesake)}${r.sc !== r.pc ? ", " + esc(r.sc) : ""}</td><td class="r">${kmf(r.km)}</td></tr>`).join("") + `</tbody>`;
+  t.querySelectorAll("tr[data-i]").forEach(r => r.onclick = () => goPick({ t: "p", i: QP[rows[+r.dataset.i].pi] }));
+}
+function usChart() {
+  hbars("usChart", R.us_states.slice(0, 20), { val: r => r.n, name: r => r.state, col: () => isDark() ? "#9EC1F2" : "#1F3A6B", part: r => r.townships, partCol: () => isDark() ? "#5C7FB8" : "#0E1D38", unit: r => String(r.n), lw: 140, lws: 110, rh: 22,
+    aria: "Bar chart of US places named after places outside the Americas, by state", tip: r => `<b>${esc(r.state)}</b>: ${r.n} (${r.townships} townships)<br>${r.list.slice(0, 10).map(esc).join("<br>")}${r.list.length > 10 ? "<br>..." : ""}` });
+}
+function covChart() {
+  hbars("covChart", R.coverage.slice(0, 20), { val: r => r.n, name: r => r.country, col: r => ["USA", "DEU", "AUS", "NLD"].includes(r.iso) ? (isDark() ? "#FF6A5C" : "#C8322B") : (isDark() ? "#8C949E" : "#8C8478"), unit: r => fmt(r.n), lw: 150, lws: 110, rh: 22,
+    head: "links", right: r => r.per_m != null ? r.per_m.toFixed(r.per_m < .1 ? 2 : 1) : "", rightHead: "per million", aria: "Bar chart of links by the place's country, with links per million people",
+    tip: r => `<b>${esc(r.country)}</b><br>${fmt(r.n)} links (${r.pct.toFixed(1)}%)${r.per_m != null ? `<br>${r.per_m.toFixed(2)} per million people` : ""}` });
+}
+function foundChart() {
+  const B = R.founded.bins;
+  resp(document.getElementById("foundChart"), (w, sm) => {
+    const h = sm ? 200 : 230, m = { l: 34, r: 8, t: 14, b: 30 }, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Bar chart of founding years of places named after somewhere in another country" }, document.getElementById("foundChart"));
+    const x0 = 1500, x1 = 2025, X = y => m.l + (w - m.l - m.r) * (y - x0) / (x1 - x0), mx = Math.ceil(R.founded.peak_n / 10) * 10, Y = v => (h - m.t - m.b) * v / mx;
+    for (let v = 0; v <= mx; v += 20) { const y = h - m.b - Y(v); el("line", { x1: m.l, x2: w - m.r, y1: y, y2: y, stroke: css("--rule") }, svg); lbl(svg, m.l - 5, y + 4, v, "lab s m", "end"); }
+    B.forEach(([y, n]) => { const r = el("rect", { x: X(y) + 1, y: h - m.b - Y(n), width: X(y + 25) - X(y) - 2, height: Y(n), fill: isDark() ? "#FF6A5C" : "#C8322B", rx: 1 }, svg);
+      r.addEventListener("mousemove", ev => showTip(`<b>${y} to ${y + 24}</b>: ${n} places`, ev.clientX, ev.clientY)); r.addEventListener("mouseleave", hideTip); });
+    for (let y = 1500; y <= 2000; y += sm ? 100 : 50) lbl(svg, X(y), h - m.b + 15, y, "lab s m", "middle");
+  });
+}
+function charts() { catChart(); distChart(); longTable(); topChart(); giveChart(); chordChart(); newTable(); usChart(); covChart(); foundChart(); }
+
+/* ---------- start ---------- */
+document.getElementById("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = isDark() ? "light" : "dark"; retheme(); legend(); redraws.forEach(f => f()); };
+charts(); legend(); side(); initMap();
+</script>
+/*FULLSCREEN*/
+</body>
+</html>

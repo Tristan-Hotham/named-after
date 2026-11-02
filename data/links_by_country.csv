@@ -1,0 +1,102 @@
+iso,country,n,pct,per_m,popm
+USA,United States,998,25.07,3.04,328.2
+DEU,Germany,433,10.88,5.21,83.1
+AUS,Australia,405,10.17,15.97,25.4
+NLD,Netherlands,323,8.11,18.64,17.3
+CAN,Canada,231,5.8,6.15,37.6
+JPN,Japan,137,3.44,1.09,126.3
+FRA,France,123,3.09,1.83,67.1
+RUS,Russia,97,2.44,0.67,144.4
+FIN,Finland,85,2.14,15.4,5.5
+ITA,Italy,77,1.93,1.28,60.3
+ESP,Spain,74,1.86,1.57,47.1
+GBR,United Kingdom,73,1.83,1.09,66.8
+TUR,Turkey,65,1.63,0.78,83.4
+GRC,Greece,62,1.56,5.79,10.7
+BEL,Belgium,61,1.53,5.31,11.5
+NZL,New Zealand,60,1.51,12.2,4.9
+UKR,Ukraine,45,1.13,1.01,44.4
+BRA,Brazil,40,1.0,0.19,211.0
+ISR,Israel,39,0.98,4.31,9.1
+CHN,China,32,0.8,0.02,1397.7
+CZE,Czechia,30,0.75,2.81,10.7
+AUT,Austria,25,0.63,2.82,8.9
+POL,Poland,24,0.6,0.63,38.0
+HUN,Hungary,23,0.58,2.35,9.8
+DNK,Denmark,19,0.48,3.27,5.8
+HRV,Croatia,18,0.45,4.43,4.1
+SWE,Sweden,18,0.45,1.75,10.3
+IDN,Indonesia,17,0.43,0.06,270.6
+PSE,Palestine,16,0.4,3.41,4.7
+EGY,Egypt,16,0.4,0.16,100.4
+IRN,Iran,15,0.38,0.18,82.9
+VEN,Venezuela,14,0.35,0.49,28.5
+IND,India,13,0.33,0.01,1366.4
+LVA,Latvia,13,0.33,6.8,1.9
+NIC,Nicaragua,13,0.33,1.99,6.5
+PHL,Philippines,13,0.33,0.12,108.1
+ZAF,South Africa,12,0.3,0.2,58.6
+ROU,Romania,12,0.3,0.62,19.4
+BLR,Belarus,11,0.28,1.16,9.5
+PAK,Pakistan,11,0.28,0.05,216.6
+THA,Thailand,11,0.28,0.16,69.6
+BGR,Bulgaria,10,0.25,1.43,7.0
+MDA,Moldova,10,0.25,3.76,2.7
+CYP,Cyprus,9,0.23,7.51,1.2
+TWN,Taiwan,9,0.23,0.38,23.6
+ARM,Armenia,9,0.23,3.04,3.0
+CHE,Switzerland,8,0.2,0.93,8.6
+NOR,Norway,8,0.2,1.5,5.3
+ARG,Argentina,6,0.15,0.13,44.9
+NPL,Nepal,5,0.13,0.17,28.6
+KAZ,Kazakhstan,5,0.13,0.27,18.5
+KOR,South Korea,4,0.1,0.08,51.7
+LTU,Lithuania,4,0.1,1.44,2.8
+IRL,Ireland,4,0.1,0.81,4.9
+SUR,Suriname,4,0.1,6.88,0.6
+DZA,Algeria,4,0.1,0.09,43.1
+NGA,Nigeria,4,0.1,0.02,201.0
+URY,Uruguay,4,0.1,1.16,3.5
+JAM,Jamaica,3,0.08,1.02,2.9
+PRY,Paraguay,3,0.08,0.43,7.0
+BLZ,Belize,3,0.08,,0.4
+SVK,Slovakia,3,0.08,0.55,5.5
+SYR,Syria,3,0.08,0.18,17.1
+CHL,Chile,3,0.08,0.16,19.0
+TUN,Tunisia,3,0.08,0.26,11.7
+GHA,Ghana,2,0.05,0.07,30.4
+FRO,Faroe Islands,2,0.05,,0.0
+PRT,Portugal,2,0.05,0.19,10.3
+GEO,Georgia,2,0.05,0.54,3.7
+MWI,Malawi,2,0.05,0.11,18.6
+TJK,Tajikistan,2,0.05,0.21,9.3
+ATA,Antarctica,2,0.05,,0.0
+TTO,Trinidad and Tobago,2,0.05,1.43,1.4
+LUX,Luxembourg,2,0.05,3.23,0.6
+MAR,Morocco,2,0.05,0.05,36.5
+KIR,Kiribati,2,0.05,,0.1
+MYS,Malaysia,2,0.05,0.06,31.9
+AFG,Afghanistan,2,0.05,0.05,38.0
+MKD,North Macedonia,1,0.03,0.48,2.1
+VAT,Vatican City,1,0.03,,0.0
+SRB,Serbia,1,0.03,0.14,6.9
+SDN,Sudan,1,0.03,0.02,42.8
+MEX,Mexico,1,0.03,0.01,127.6
+PNG,Papua New Guinea,1,0.03,0.11,8.8
+GGY,Guernsey,1,0.03,,0.1
+CAF,Central African Republic,1,0.03,0.21,4.7
+UGA,Uganda,1,0.03,0.02,44.3
+ISL,Iceland,1,0.03,,0.4
+SVN,Slovenia,1,0.03,0.48,2.1
+KOS,Kosovo,1,0.03,0.56,1.8
+CPV,Cape Verde,1,0.03,1.82,0.5
+COD,DR Congo,1,0.03,0.01,86.8
+LBN,Lebanon,1,0.03,0.15,6.9
+HND,Honduras,1,0.03,0.1,9.7
+MNE,Montenegro,1,0.03,1.61,0.6
+PAN,Panama,1,0.03,0.24,4.2
+BGD,Bangladesh,1,0.03,0.01,163.0
+MDG,Madagascar,1,0.03,0.04,27.0
+SGP,Singapore,1,0.03,0.18,5.7
+GUY,Guyana,1,0.03,1.28,0.8
+SEN,Senegal,1,0.03,0.06,16.3

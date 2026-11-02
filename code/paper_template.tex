@@ -1,0 +1,135 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\newfontfamily\headfont{Inter}[UprightFont=*-ExtraBold,BoldFont=*-ExtraBold,Extension=.otf,Path=/usr/share/fonts/opentype/inter/]
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage{graphicx,booktabs,float,caption,array,xcolor,longtable}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage[round]{natbib}
+\usepackage{setspace}
+\setstretch{1.05}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\titleformat{\section}{\headfont\Large}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\headfont\large}{\thesubsection}{0.8em}{}
+\captionsetup{font=small,labelfont=bf}
+\urlstyle{same}
+\hypersetup{pdftitle={Named After Somewhere Else},pdfauthor={Tristan Hotham}}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries Named After Somewhere Else\par}
+\vspace{0.4em}
+{\large Places named after other places in Wikidata: what they borrow,\\how far the names travel, and who gave names to whom\par}
+\vspace{1.2em}
+{\large Tristan Hotham\par}
+\vspace{0.3em}
+{\small Independent researcher\\
+ORCID: 0000-0003-4931-9349\\
+DOI: \href{https://doi.org/{{meta.doi}}}{https://doi.org/{{meta.doi}}}\par}
+\vspace{0.8em}
+2026
+\end{center}
+
+\begin{quote}
+\small
+\begin{center}\textbf{Abstract}\end{center}
+I map every human settlement that Wikidata records as ``named after'' (P138) another geographical place, joining each to its namesake with a great circle. After removing census and statistical areas, camps, stations and other entries that are not settlements in the ordinary sense, {{source.n|int}} links remain, from {{source.places|int}} places to {{source.namesakes|int}} namesakes. Only {{cats.Settlement.pct|int}}\% of the links are to other settlements; the rest are to rivers ({{cats.River.pct|int}}\%), mountains and hills, lakes, coasts, buildings, regions and countries. The distances are bimodal: the median is {{dist.median|f1}} km and {{dist.under10_pct|int}}\% are under 10 km, yet {{dist.over1000_pct|int}}\% exceed 1,000 km and {{ocean.pct|f1}}\% join different landmasses. {{border.pct|int}}\% cross a national border; the United Kingdom is the source of {{giving.0.pct|int}}\% of these, {{gbr.four_pct|int}}\% of them to the United States, Australia, Canada and New Zealand. The most borrowed namesakes are Prague ({{top.0.n|int}} places, mostly Czech suburbs) and Amsterdam ({{top.1.n|int}}, mostly abroad). {{new.n|int}} places are a ``New X'' named after X, more than half within 30 km of it. Coverage is very uneven: four countries hold {{cov.top4_pct|int}}\% of all links and Latin America only {{iberia.latam_places_pct|f1}}\%, so the file records where Wikidata's editors have entered name origins as much as where names travelled.
+
+\textbf{Keywords:} toponymy; place names; Wikidata; migration; colonial settlement; geography of naming; open data; mapping
+\end{quote}
+
+\section{Introduction}
+Toponymy, the study of place names, has long recognised that many names are transferred: settlers, soldiers and planners give a new place the name of an old one, so that one name ends up on two continents. Transfer names are a familiar feature of the colonial and settler world, from the English names of New England and Australia to the Dutch names of New Netherland, and they are one of the few traces of migration written on the map itself. They are usually studied country by country, from gazetteers and local histories. Wikidata, the collaborative knowledge base behind Wikipedia, now records name origins for many places in a structured way through its ``named after'' property (P138), which makes a first global look possible. This paper takes every settlement that Wikidata says is named after another geographical place and asks simple questions: what kinds of places lend their names, how far the names travel, which countries give and receive names, and how far the answers are shaped by Wikidata's own coverage. An interactive map accompanies the paper at \url{{{meta.page}}}.
+
+\section{Data and methods}
+\subsection{The query}
+The data come from a single SPARQL query against Wikidata, run on the QLever engine \citep{qlever} in {{source.fetched|raw}}. It returns every item that is an instance of human settlement (Q486972) or any of its subclasses and has a ``named after'' value that is an instance of geographic location (Q2221906) or any of its subclasses, where both have coordinates (P625) and English labels; with the countries (P17) of both, the population (P1082) and inception (P571) of the settlement where known, and each class (P31) of the namesake. Because every combination of multiple values produces a row, the {{source.rows|int}} rows collapse to {{source.links_raw|int}} distinct links between {{source.places_raw|int}} places and {{source.namesakes_raw|int}} namesakes. A place keeps its first coordinates in the result, its largest population and its earliest inception; a namesake keeps its first coordinates and all its classes. Wikidata content is in the public domain (CC0).
+
+\subsection{What counts as a settlement}
+Wikidata's settlement class is broad, and the raw result contains many items that are not settlements in the ordinary sense. I removed them by their English labels (Table~\ref{tab:excl}). By far the largest group is the US Census Bureau's urban areas and other statistical areas, which Wikidata records as named after their principal town and which would therefore count every such town twice. I also removed megalopolises and conurbations, regions and counties, concentration, extermination, prison and internment camps, stations, bases and ranger posts, parks and ski resorts, links from an item to itself, and ``administrative twins'': a place with the same name as a settlement or region namesake less than 30 km away, typically a municipality and the town it is named after. In all {{source.excluded_links|int}} links ({{source.excl_pct|int}}\%) were removed. Cities, towns, villages, hamlets, townships, suburbs, neighbourhoods, housing estates and city districts are kept.
+
+{{TABLE_EXCL}}
+
+\subsection{What the namesake is}
+The query returns the namesake's classes as bare identifiers, {{source.classes_raw|int}} of them. I read each common class from the namesakes that carry it (for example, the namesakes of class Q4022 are Buffalo River, the Lahn and the River Dee, so it is ``river'') and listed it under one of four categories: settlement, river, region or country, and mountain or hill. A namesake with any settlement class counts as a settlement (Manhattan, an island and a borough, is a settlement); otherwise region, then river, then mountain. {{source.cat_class_pct|int}}\% of namesakes were sorted by a listed class. The remainder were sorted by a word in the name (River, Mount, County), counted as a settlement if they appear in the file as settlements themselves, or otherwise placed in ``other'', a residual that holds lakes, coasts and islands, buildings, streets, parks and features of every kind.
+
+\subsection{Distances, countries and landmasses}
+Distances are great-circle distances between the two Wikidata coordinate pairs. For a river, a region or a mountain range Wikidata gives one point, sometimes the mouth, the source or a centre, so distances to such namesakes are indicative only. Countries are Wikidata's own (P17), matched to Natural Earth \citep{naturalearth} by Natural Earth's Wikidata identifiers; where Wikidata gives a historical state or no country, I used the Natural Earth country containing the point. Wikidata's country and the country containing the point agree for {{source.p17_agree_pct|f1}}\% of places. A link crosses an ocean when its two ends lie on different landmasses: the Americas; Africa, Europe and Asia; Australia and its neighbours; Antarctica; and remote ocean islands. Each Natural Earth land polygon that is not one of the four continental masses is joined to the nearest of them if it lies within 2,500 km (so Britain, Japan, Newfoundland and New Zealand join their neighbours) and otherwise counts as a remote island.
+
+\section{Results}
+\subsection{What places are named after}
+Table~\ref{tab:cats} and Figure~\ref{fig:types} show the namesakes by category. Only {{cats.Settlement.n|int}} links ({{cats.Settlement.pct|f1}}\%) are to another settlement. Rivers account for {{cats.River.n|int}} ({{cats.River.pct|f1}}\%), mountains and hills for {{cats.Mountain or hill.n|int}}, regions and countries for {{cats.Region or country.n|int}}, and the residual for {{cats.Other.n|int}}, of which {{lakes|int}} are lakes, reservoirs and seas. Counting rivers, mountains, lakes, coasts, forests and valleys together, {{natural_pct|f1}}\% of names come from the natural landscape. The kind of namesake largely determines the distance: the median is {{cats.Mountain or hill.km_med|f1}} km for mountains and hills, {{cats.River.km_med|f1}} km for rivers, {{cats.Settlement.km_med|f1}} km for settlements and {{cats.Region or country.km_med|f1}} km for regions and countries.
+
+{{TABLE_CATS}}
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_types.png}
+\caption{Left: links by the kind of namesake, with the median distance. Right: links by distance from namesake to place, on a stretched scale, by kind of namesake.}\label{fig:types}\end{figure}
+
+\subsection{How far names travel}
+The median link is {{dist.median|f1}} km long; a quarter are under {{dist.q25|f1}} km and three quarters under {{dist.q75|f1}} km. {{dist.under10_pct|f1}}\% are within 10 km. The distribution is bimodal (Figure~\ref{fig:types}, right): a large mode of neighbours, within a few kilometres, a trough between about 100 and 3,000 km, and a second mode of long-distance transfers, {{dist.over5000|int}} links over 5,000 km and {{dist.over10000|int}} over 10,000 km. {{ocean.n|int}} links ({{ocean.pct|f1}}\%) join different landmasses (Figure~\ref{fig:ocean}); {{ocean.settle_pct|f1}}\% of these are to settlements, and their median length is {{ocean.km_med|int}} km. Among all links to settlements, {{ocean.of_settle_pct|f1}}\% crossed an ocean. The longest links are British names in New Zealand: {{longest_nzl|int}} of the fifteen longest end there, the longest {{longest.0.km|int}} km from {{longest.0.namesake|raw}} to {{longest.0.place|raw}}.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_map.png}
+\caption{Every link, as a great circle from the namesake to the place, coloured by the region of the namesake. Equal Earth projection, centred on 10\,E.}\label{fig:map}\end{figure}
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_ocean_map.png}
+\caption{The {{ocean.n|int}} links that join two different landmasses.}\label{fig:ocean}\end{figure}
+
+\subsection{The most borrowed names}
+Most namesakes lend their name once: {{one_daughter_pct|f1}}\% have a single place named after them. The most borrowed is Prague, with {{top.0.n|int}} places, {{prague.cz|int}} of them in Czechia, most of them suburbs called Pražské Předměstí. Amsterdam has {{top.1.n|int}}, {{top.1.abroad|int}} of them abroad, in the United States, Canada, Suriname, Guyana and South Africa (Figure~\ref{fig:top}). Moscow's {{top.3.n|int}} are mostly city districts. Berlin, Paris, Bristol, Windsor, Athens and Bethlehem each have four to six places, almost all abroad. Some of the most borrowed are not places in the narrow sense: ``Europe'' has {{top.4.n|int}}, European quarters of several cities, and Anatolia {{top.2.n|int}}.
+
+\begin{figure}[tbp]\centering\includegraphics[width=.95\textwidth]{f_top.png}
+\caption{The fifteen namesakes with the most places named after them; the darker part of each bar is in another country.}\label{fig:top}\end{figure}
+
+\subsection{Who named whom}
+{{border.n|int}} links ({{border.pct|f1}}\%) cross a national border (Figure~\ref{fig:flows}, Table~\ref{tab:flows}). The United Kingdom gave {{giving.0.n|int}} of them ({{giving.0.pct|f1}}\%), followed by Germany ({{giving.1.n|int}}), the Netherlands ({{giving.2.n|int}}) and France ({{giving.3.n|int}}). Of Britain's, {{gbr.usa|int}} went to the United States, {{gbr.aus|int}} to Australia, {{gbr.can|int}} to Canada and {{gbr.nzl|int}} to New Zealand, {{gbr.four_pct|f1}}\% in all; Ireland added {{gbr.ireland|int}} to the same four countries. The United States received the most names from abroad ({{receiving.0.n|int}}), then Australia ({{receiving.1.n|int}}) and Canada ({{receiving.2.n|int}}). Grouping countries into ten regions, {{eur_to_new_pct|f1}}\% of border-crossing links run from one of the six European regions to North America, Latin America, or Asia and Oceania. Smaller flows trace particular histories: Dutch names in the former New Netherland ({{dutch.usa|int}} links from the Netherlands to the United States), and {{greece.tur_grc|int}} Greek places named after places in Turkey, such as Nea Smyrni, settled by refugees in the 1920s. Flows in the opposite direction, from the Americas to the rest of the world, number {{reverse.n|int}}.
+
+The great Spanish and Portuguese naming of the Americas is almost absent. Spain and Portugal gave {{iberia.n|int}} names abroad in the file, only {{iberia.latam|int}} of them to Latin America and {{iberia.phl|int}} to the Philippines, and places in Latin America make up {{iberia.latam_places_pct|f1}}\% of all links. This is a gap in Wikidata's records, not in history.
+
+{{TABLE_FLOWS}}
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_flows.png}
+\caption{Left: names given across a border, by the namesake's country. Right: the largest country-to-country flows, coloured by the giving region.}\label{fig:flows}\end{figure}
+
+\subsection{New X}
+{{new.n|int}} places have a name made of a word for new (New, Nieuw, Neu, Nova, Novo, Nueva and others) and the name of their namesake. Their median distance from the original is {{new.km_med|f1}} km, and {{new.under30_pct|f1}}\% are within 30 km: Neu-Ulm across the Danube from Ulm, New Delhi beside Delhi, Dutch villages beside their older namesakes ({{new.nld|int}}), German ones ({{new.deu|int}}), and the new desert cities of Egypt ({{new.egypt|int}}). {{new.ocean|int}} crossed an ocean, among them New Amsterdam, New Madrid, Novo Hamburgo and Nueva Palmira.
+
+\subsection{The Old World in the United States}
+The United States has {{us.n|int}} links ({{us.pct|f1}}\% of the file), {{us.abroad|int}} to places abroad and {{us.old|int}} to places outside the Americas, in {{us.states_with|int}} states (Figure~\ref{fig:us}). Britain supplied {{us.gbr|int}} of the names from abroad, Germany {{us.deu|int}} and the Netherlands {{us.nld|int}}. Classical names (Athens, Rome, Sparta, Ithaca, Syracuse and others) account for {{us.classical|int}} links and names from the Holy Land and its neighbours for {{us.biblical|int}}. Minnesota leads with {{us_top_state.n|int}}, but {{us.mn_townships|int}} of Minnesota's {{us.mn|int}} links are townships, which reflects bulk entry of township name origins into Wikidata rather than anything unusual about Minnesota.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_us.png}
+\caption{US places named after places outside the Americas, by state, and the Old World names used most often.}\label{fig:us}\end{figure}
+
+\subsection{Coverage}
+The file is not a census of transferred names (Figure~\ref{fig:coverage}). Four countries, the United States ({{cov.usa|int}}), Germany ({{cov.deu|int}}), Australia ({{cov.aus|int}}) and the Netherlands ({{cov.nld|int}}), hold {{cov.top4_pct|f1}}\% of links. The United Kingdom has {{cov.gbr|int}}, China {{cov.chn|int}}, India {{cov.ind|int}}, Brazil {{cov.bra|int}} and Mexico {{cov.mex|int}}. Per person, the Netherlands has {{cov.nld_per_m|f1}} links per million and India {{cov.ind_per_100m|f1}} per hundred million. {{cov.zero_countries|int}} of the {{cov.countries_1m|int}} countries with at least a million people have no links. Founding dates are given for {{founded.n|int}} of the {{founded.of|int}} places named after somewhere in another country; their median is {{founded.median|raw}} (Figure~\ref{fig:founded}).
+
+\begin{figure}[tbp]\centering\includegraphics[width=.95\textwidth]{f_coverage.png}
+\caption{Links by the place's country, with links per million people.}\label{fig:coverage}\end{figure}
+
+\begin{figure}[tbp]\centering\includegraphics[width=.95\textwidth]{f_founded.png}
+\caption{Founding year (Wikidata inception, in 25-year bins) of places named after somewhere in another country.}\label{fig:founded}\end{figure}
+
+\section{Limitations}
+First, Wikidata's ``named after'' statements are crowd-sourced and mostly unreferenced, and their coverage depends on editors and bulk imports rather than on the history of naming; the coverage section shows how uneven this is. Second, the query requires the namesake to be a geographic location with coordinates, so places named after people, saints, events or ships, and those whose namesake is a place without coordinates, are outside the study; New York City, for example, is not in the file. Third, the exclusion of non-settlements is by label and will have missed some items and removed a few that might be kept. Fourth, the categories rest on my reading of unlabelled class identifiers. Fifth, distances to rivers, regions and mountain ranges use a single point. Sixth, countries are present-day, so a link within the Soviet Union or the British Empire at the time of naming may appear as crossing a border today.
+
+\section{Conclusion}
+Most places that Wikidata records as named after another place took the name of something close by: a river, a hill, a lake, the town next door. The minority that carried a name across a border form a second, distinct population of long-distance transfers, dominated by British names in the United States, Australia, Canada and New Zealand, with smaller Dutch, German, Scandinavian and Greek streams. The file is best read as an early, partial atlas of transferred names, sharp where Wikidata is detailed and blank where it is not; as name origins are added for Latin America, Africa and Asia, the same method will show whether the British dominance holds.
+
+\section*{Data and code availability}
+The interactive map is at \url{{{meta.page}}}. Data and code are at \url{{{meta.repo}}} and archived with this paper at \url{https://doi.org/{{meta.doi}}}. Derived data and text are released under CC BY 4.0 and code under the MIT licence. Wikidata content is CC0.
+
+\section*{AI statement}
+I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.
+
+\begin{thebibliography}{9}
+\bibitem[Wikidata(2026)]{wikidata} Wikidata contributors (2026) Wikidata. \url{https://www.wikidata.org/}. CC0. Queried in {{source.fetched|raw}}.
+\bibitem[Bast and Buchhold(2017)]{qlever} Bast, H. and Buchhold, B. (2017) QLever: a query engine for efficient SPARQL+Text search. In \textit{Proceedings of the 2017 ACM Conference on Information and Knowledge Management}, 647 to 656. \url{https://qlever.cs.uni-freiburg.de/}
+\bibitem[Natural Earth(2026)]{naturalearth} Natural Earth (2026) Admin 0 countries, land, admin 1 states and provinces, and populated places. Public domain. \url{https://www.naturalearthdata.com/}
+\end{thebibliography}
+\end{document}

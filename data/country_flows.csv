@@ -1,0 +1,285 @@
+from_iso3,to_iso3,links,from_country,to_country
+GBR,AUS,102,United Kingdom,Australia
+GBR,USA,102,United Kingdom,United States
+GBR,CAN,31,United Kingdom,Canada
+DEU,USA,27,Germany,United States
+NLD,USA,21,Netherlands,United States
+ITA,USA,18,Italy,United States
+FRA,USA,14,France,United States
+ESP,USA,13,Spain,United States
+GBR,NZL,13,United Kingdom,New Zealand
+CAN,USA,13,Canada,United States
+TUR,GRC,12,Turkey,Greece
+NOR,USA,10,Norway,United States
+BEL,DEU,10,Belgium,Germany
+IRL,USA,10,Ireland,United States
+ESP,PHL,9,Spain,Philippines
+SWE,USA,9,Sweden,United States
+FRA,CAN,9,France,Canada
+CHE,USA,9,Switzerland,United States
+NLD,DEU,8,Netherlands,Germany
+IRL,AUS,8,Ireland,Australia
+GRC,USA,8,Greece,United States
+USA,CAN,7,United States,Canada
+BEL,USA,7,Belgium,United States
+UKR,RUS,7,Ukraine,Russia
+PSE,ISR,6,Palestine,Israel
+CZE,USA,6,Czechia,United States
+MEX,USA,6,Mexico,United States
+POL,USA,6,Poland,United States
+ITA,AUS,5,Italy,Australia
+ROU,UKR,5,Romania,Ukraine
+TUR,ARM,5,Turkey,Armenia
+RUS,UKR,5,Russia,Ukraine
+RUS,TUR,4,Russia,Turkey
+MAR,DZA,4,Morocco,Algeria
+DEU,AUS,4,Germany,Australia
+FRA,DEU,4,France,Germany
+POL,FRA,4,Poland,France
+DEU,NLD,4,Germany,Netherlands
+PSE,USA,4,Palestine,United States
+CHN,USA,4,China,United States
+ISR,USA,4,Israel,United States
+TUR,CYP,3,Turkey,Cyprus
+ISR,PSE,3,Israel,Palestine
+KOS,TUR,3,Kosovo,Turkey
+TUR,USA,3,Turkey,United States
+FIN,USA,3,Finland,United States
+CHN,JPN,3,China,Japan
+FRA,RUS,3,France,Russia
+MNG,TUR,3,Mongolia,Turkey
+IRL,CAN,3,Ireland,Canada
+IND,PAK,3,India,Pakistan
+RUS,USA,3,Russia,United States
+NLD,ZAF,3,Netherlands,South Africa
+GRC,TUR,3,Greece,Turkey
+GRC,AUS,3,Greece,Australia
+RUS,NLD,3,Russia,Netherlands
+LBN,TUR,3,Lebanon,Turkey
+IND,AUS,3,India,Australia
+ITA,CAN,2,Italy,Canada
+MEX,DEU,2,Mexico,Germany
+NLD,SUR,2,Netherlands,Suriname
+ESP,VEN,2,Spain,Venezuela
+GBR,NLD,2,United Kingdom,Netherlands
+HUN,DEU,2,Hungary,Germany
+FRA,AUS,2,France,Australia
+ISR,ESP,2,Israel,Spain
+JOR,USA,2,Jordan,United States
+GRC,CYP,2,Greece,Cyprus
+IRQ,TUR,2,Iraq,Turkey
+FRA,NLD,2,France,Netherlands
+GBR,JAM,2,United Kingdom,Jamaica
+HUN,USA,2,Hungary,United States
+FRA,UKR,2,France,Ukraine
+NLD,BEL,2,Netherlands,Belgium
+IND,USA,2,India,United States
+IDN,NLD,2,Indonesia,Netherlands
+ITA,TUR,2,Italy,Turkey
+HUN,ROU,2,Hungary,Romania
+SWE,CAN,2,Sweden,Canada
+CUB,USA,2,Cuba,United States
+CZE,DEU,2,Czechia,Germany
+RUS,BLR,2,Russia,Belarus
+USA,AUS,2,United States,Australia
+ROU,HUN,2,Romania,Hungary
+UKR,USA,2,Ukraine,United States
+CHE,HUN,2,Switzerland,Hungary
+DEU,RUS,2,Germany,Russia
+DEU,UKR,2,Germany,Ukraine
+DEU,ZAF,2,Germany,South Africa
+PSE,NLD,2,Palestine,Netherlands
+DNK,USA,2,Denmark,United States
+CAN,NLD,2,Canada,Netherlands
+SYR,USA,2,Syria,United States
+POL,UKR,2,Poland,Ukraine
+DEU,CAN,2,Germany,Canada
+BEL,AUS,2,Belgium,Australia
+EGY,NLD,2,Egypt,Netherlands
+POL,NLD,2,Poland,Netherlands
+BGR,UKR,2,Bulgaria,Ukraine
+CHL,USA,1,Chile,United States
+MKD,BGR,1,North Macedonia,Bulgaria
+MUS,FRA,1,Mauritius,France
+NER,FRA,1,Niger,France
+CHL,BRA,1,Chile,Brazil
+CHE,ZAF,1,Switzerland,South Africa
+NLD,FRA,1,Netherlands,France
+CHE,RUS,1,Switzerland,Russia
+CHE,JPN,1,Switzerland,Japan
+NLD,CAN,1,Netherlands,Canada
+NLD,BLR,1,Netherlands,Belarus
+CHN,FRA,1,China,France
+BGR,ROU,1,Bulgaria,Romania
+LBN,CYP,1,Lebanon,Cyprus
+DEU,CHL,1,Germany,Chile
+LBN,USA,1,Lebanon,United States
+LBY,ITA,1,Libya,Italy
+DEU,BRA,1,Germany,Brazil
+LKA,USA,1,Sri Lanka,United States
+LTU,USA,1,Lithuania,United States
+LTU,ZAF,1,Lithuania,South Africa
+COD,CAF,1,DR Congo,Central African Republic
+LUX,USA,1,Luxembourg,United States
+LVA,DEU,1,Latvia,Germany
+CZE,PAN,1,Czechia,Panama
+MAR,USA,1,Morocco,United States
+COG,DEU,1,Republic of the Congo,Germany
+NLD,GBR,1,Netherlands,United Kingdom
+MEX,ARG,1,Mexico,Argentina
+COD,BEL,1,DR Congo,Belgium
+MEX,NLD,1,Mexico,Netherlands
+CHN,IND,1,China,India
+LUX,BEL,1,Luxembourg,Belgium
+USA,JPN,1,United States,Japan
+POL,CAN,1,Poland,Canada
+USA,ITA,1,United States,Italy
+POL,DEU,1,Poland,Germany
+USA,GBR,1,United States,United Kingdom
+USA,FRA,1,United States,France
+URY,BRA,1,Uruguay,Brazil
+POL,KIR,1,Poland,Kiribati
+POL,LUX,1,Poland,Luxembourg
+CHE,AUS,1,Switzerland,Australia
+UKR,MDA,1,Ukraine,Moldova
+SYR,URY,1,Syria,Uruguay
+KGZ,KAZ,1,Kyrgyzstan,Kazakhstan
+TUR,UKR,1,Turkey,Ukraine
+TUR,NLD,1,Turkey,Netherlands
+TTO,USA,1,Trinidad and Tobago,United States
+TUR,ITA,1,Turkey,Italy
+TUR,AUS,1,Turkey,Australia
+BEL,FRA,1,Belgium,France
+TUR,CAN,1,Turkey,Canada
+SWE,FIN,1,Sweden,Finland
+CHE,DEU,1,Switzerland,Germany
+NLD,GUY,1,Netherlands,Guyana
+NLD,SEN,1,Netherlands,Senegal
+CHE,BRA,1,Switzerland,Brazil
+CHE,AUT,1,Switzerland,Austria
+CAN,GBR,1,Canada,United Kingdom
+BGD,USA,1,Bangladesh,United States
+NOR,NLD,1,Norway,Netherlands
+ZAF,CAN,1,South Africa,Canada
+POL,BEL,1,Poland,Belgium
+ZAF,BEL,1,South Africa,Belgium
+PAK,AFG,1,Pakistan,Afghanistan
+VNM,USA,1,Vietnam,United States
+UZB,TJK,1,Uzbekistan,Tajikistan
+USA,PRY,1,United States,Paraguay
+PAN,USA,1,Panama,United States
+USA,NLD,1,United States,Netherlands
+PER,USA,1,Peru,United States
+PHL,USA,1,Philippines,United States
+POL,AUS,1,Poland,Australia
+NZL,MYS,1,New Zealand,Malaysia
+BGR,GRC,1,Bulgaria,Greece
+PSE,ITA,1,Palestine,Italy
+PSE,SYR,1,Palestine,Syria
+ROU,FRA,1,Romania,France
+RUS,FRA,1,Russia,France
+RUS,HRV,1,Russia,Croatia
+RUS,LVA,1,Russia,Latvia
+SAU,USA,1,Saudi Arabia,United States
+SEN,USA,1,Senegal,United States
+SHN,AUS,1,Saint Helena,Australia
+SRB,ROU,1,Serbia,Romania
+SVK,HUN,1,Slovakia,Hungary
+DEU,DNK,1,Germany,Denmark
+SVN,USA,1,Slovenia,United States
+BEL,ROU,1,Belgium,Romania
+DEU,NIC,1,Germany,Nicaragua
+DEU,NZL,1,Germany,New Zealand
+DEU,ROU,1,Germany,Romania
+DEU,SWE,1,Germany,Sweden
+DNK,AUT,1,Denmark,Austria
+DZA,FRA,1,Algeria,France
+EGY,BEL,1,Egypt,Belgium
+EGY,DEU,1,Egypt,Germany
+EGY,USA,1,Egypt,United States
+ESP,ARG,1,Spain,Argentina
+ESP,AUS,1,Spain,Australia
+SVK,ISR,1,Slovakia,Israel
+BGR,TUR,1,Bulgaria,Turkey
+BGR,USA,1,Bulgaria,United States
+BLR,LTU,1,Belarus,Lithuania
+BLR,RUS,1,Belarus,Russia
+BOL,USA,1,Bolivia,United States
+BRA,ESP,1,Brazil,Spain
+BRA,USA,1,Brazil,United States
+CAN,AUS,1,Canada,Australia
+CAN,EGY,1,Canada,Egypt
+PSE,GBR,1,Palestine,United Kingdom
+DEU,GGY,1,Germany,Guernsey
+TUR,BEL,1,Turkey,Belgium
+CHE,FIN,1,Switzerland,Finland
+PSE,BEL,1,Palestine,Belgium
+ALB,SRB,1,Albania,Serbia
+AND,FRA,1,Andorra,France
+ARG,ITA,1,Argentina,Italy
+ARG,PRY,1,Argentina,Paraguay
+AUS,NZL,1,Australia,New Zealand
+AUS,RUS,1,Australia,Russia
+AUS,USA,1,Australia,United States
+AUT,BRA,1,Austria,Brazil
+AUT,DEU,1,Austria,Germany
+AUT,USA,1,Austria,United States
+PRT,BRA,1,Portugal,Brazil
+PRT,NLD,1,Portugal,Netherlands
+PRT,USA,1,Portugal,United States
+ZAF,NLD,1,South Africa,Netherlands
+IND,BLZ,1,India,Belize
+IND,NZL,1,India,New Zealand
+IND,SUR,1,India,Suriname
+IND,TTO,1,India,Trinidad and Tobago
+IRN,ISR,1,Iran,Israel
+IRN,TUR,1,Iran,Turkey
+IRQ,AUS,1,Iraq,Australia
+IRQ,RUS,1,Iraq,Russia
+ISR,BEL,1,Israel,Belgium
+ISR,BGR,1,Israel,Bulgaria
+ISR,CZE,1,Israel,Czechia
+ISR,FRA,1,Israel,France
+ESP,BRA,1,Spain,Brazil
+ITA,FRA,1,Italy,France
+ITA,GBR,1,Italy,United Kingdom
+ITA,HRV,1,Italy,Croatia
+ITA,NLD,1,Italy,Netherlands
+ITA,POL,1,Italy,Poland
+ITA,RUS,1,Italy,Russia
+ITA,SWE,1,Italy,Sweden
+ITA,TUN,1,Italy,Tunisia
+JAM,NIC,1,Jamaica,Nicaragua
+JOR,DEU,1,Jordan,Germany
+JOR,ISR,1,Jordan,Israel
+JOR,PHL,1,Jordan,Philippines
+JPN,USA,1,Japan,United States
+ISR,POL,1,Israel,Poland
+ESP,FRA,1,Spain,France
+ESP,NIC,1,Spain,Nicaragua
+ESP,PSE,1,Spain,Palestine
+ESP,TTO,1,Spain,Trinidad and Tobago
+EST,DEU,1,Estonia,Germany
+FIN,SWE,1,Finland,Sweden
+FRA,BEL,1,France,Belgium
+FRA,GBR,1,France,United Kingdom
+FRA,KIR,1,France,Kiribati
+FRA,PHL,1,France,Philippines
+FRA,ZAF,1,France,South Africa
+GBR,ARG,1,United Kingdom,Argentina
+GBR,BGR,1,United Kingdom,Bulgaria
+IMN,USA,1,Isle of Man,United States
+GBR,FIN,1,United Kingdom,Finland
+GBR,FRA,1,United Kingdom,France
+GBR,IND,1,United Kingdom,India
+GBR,MWI,1,United Kingdom,Malawi
+GEO,RUS,1,Georgia,Russia
+GRC,BGR,1,Greece,Bulgaria
+GRC,NOR,1,Greece,Norway
+GRC,NZL,1,Greece,New Zealand
+GRL,NLD,1,Greenland,Netherlands
+HRV,USA,1,Croatia,United States
+HUN,BEL,1,Hungary,Belgium
+IDN,BEL,1,Indonesia,Belgium
+IDN,COD,1,Indonesia,DR Congo
+GBR,DEU,1,United Kingdom,Germany
